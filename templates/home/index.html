@@ -37,7 +37,7 @@
         <nav class="mobile__bar">
           <ul class="menu">
             <li class="menu-item menu-item--home">
-              <a href="/">
+              <a href="{{ site_base }}">
                 <span class="sr-only">Ir a la portada</span>
                 <i class="material-icons">home</i>
               </a>
@@ -69,10 +69,10 @@
       <div class="topbar">
         <div class="container">
           <ul class="menu">
-            <li class="menu-item"><a href="/anglia/page">Cambios y devoluciones</a></li>
-            <li class="menu-item"><a href="/anglia/page">Tiempos de envío</a></li>
+            <li class="menu-item"><a href="{{ site_base }}/page">Cambios y devoluciones</a></li>
+            <li class="menu-item"><a href="{{ site_base }}/page">Tiempos de envío</a></li>
             <li class="menu-item"><a href="#">Contáctanos</a></li>
-            <li class="menu-item"><a href="/anglia/about">Quiénes somos</a></li>
+            <li class="menu-item"><a href="{{ site_base }}/about">Quiénes somos</a></li>
           </ul>
         </div>
       </div>
@@ -81,7 +81,7 @@
         <div class="container">
           <div class="header__content">
             <div class="header__branding branding js-header-branding">
-              <a class="brending__link" href="/" rel="home" title="Ir a la portada">
+              <a class="brending__link" href="{{ site_base }}" rel="home" title="Ir a la portada">
                 <img class="branding__logo img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/anglia-logo.png" alt="Logo Anglia">
               </a>
             </div>
@@ -125,43 +125,81 @@
                       <div class="header__navigation-branding branding"></div>
 
                       <ul class="menu">
-                        <li class="menu-item current-menu-item"><a href="/">Inicio</a></li>
+                        <li class="menu-item current-menu-item">
+                          <a href="{{ site_base }}">Inicio</a>
+                        </li>
                         <li class="menu-item has-submenu">
-                          <a href="products.html">Época</a>
+                          <a href="{{ site_base }}/products">Época</a>
                           <ul class="submenu">
-                            <li class="menu-item"><a href="products.html">Victoriana</a></li>
-                            <li class="menu-item"><a href="products.html">Persa</a></li>
-                            <li class="menu-item"><a href="products.html">Eduardiana</a></li>
-                            <li class="menu-item"><a href="products.html">Georgian</a></li>
-                            <li class="menu-item"><a href="products.html">Regencia</a></li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products">Victoriana</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products">Persa</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products">Eduardiana</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products">Georgian</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products">Regencia</a>
+                            </li>
                           </ul>
                         </li>
                         <li class="menu-item has-submenu">
-                          <a href="products.html">Pensado para</a>
+                          <a href="{{ site_base }}/products">Pensado para</a>
                           <ul class="submenu">
-                            <li class="menu-item"><a href="products.html">Dormitorio</a></li>
-                            <li class="menu-item"><a href="products.html">Pasillo</a></li>
-                            <li class="menu-item"><a href="products.html">Accesos</a></li>
-                            <li class="menu-item"><a href="products.html">Comedor</a></li>
-                            <li class="menu-item"><a href="products.html">Sala de estar</a></li>
-                            <li class="menu-item"><a href="products.html">Escritorio</a></li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products">Dormitorio</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products">Pasillo</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products">Accesos</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products">Comedor</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products">Sala de estar</a>
+                            </li>
+                            <li class="menu-item"><a href="{{ site_base }}/products">Escritorio</a></li>
                           </ul>
                         </li>
                         <li class="menu-item has-submenu">
-                          <a href="products.html">Tipo de madera</a>
+                          <a href="{{ site_base }}/products">Tipo de madera</a>
                           <ul class="submenu">
-                            <li class="menu-item"><a href="products.html">Alcanfor</a></li>
-                            <li class="menu-item"><a href="products.html">Caoba</a></li>
-                            <li class="menu-item"><a href="products.html">Fresno</a></li>
-                            <li class="menu-item"><a href="products.html">Haya</a></li>
-                            <li class="menu-item"><a href="products.html">Nogal</a></li>
-                            <li class="menu-item"><a href="products.html">Pino</a></li>
-                            <li class="menu-item"><a href="products.html">Olmo</a></li>
-                            <li class="menu-item"><a href="products.html">Satinwood</a></li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products">Alcanfor</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products">Caoba</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products">Fresno</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products">Haya</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products">Nogal</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products">Pino</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products">Olmo</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products">Satinwood</a>
+                            </li>
                           </ul>
                         </li>
-                        <li class="menu-item"><a href="products.html">Todos</a></li>
-                        <li class="menu-item menu-item--mobile"><a href="about.html">Quiénes somos</a></li>
+                        <li class="menu-item"><a href="{{ site_base }}/products">Todos</a></li>
+                        <li class="menu-item menu-item--mobile"><a href="{{ site_base }}/about">Quiénes somos</a></li>
                       </ul>
                     </nav>
                   </div>
@@ -194,11 +232,11 @@
                   <div class="container">
                     <div class="card-hero__content">
                       <h2 class="card-hero__title">
-                        <a href="products.html">Conoce nuestra nueva línea de caoba</a>
+                        <a href="{{ site_base }}/products">Conoce nuestra nueva línea de caoba</a>
                       </h2>
 
                       <div class="card-hero__button">
-                        <a class="button button--primary" href="products.html">
+                        <a class="button button--primary" href="{{ site_base }}/products">
                           <span class="button__text">Ver línea caoba</span>
                         </a>
                       </div>
@@ -221,11 +259,11 @@
                   <div class="container">
                     <div class="card-hero__content">
                       <h2 class="card-hero__title">
-                        <a href="products.html">Conoce nuestra nueva línea de nogal</a>
+                        <a href="{{ site_base }}/products">Conoce nuestra nueva línea de nogal</a>
                       </h2>
 
                       <div class="card-hero__button">
-                        <a class="button button--primary" href="products.html">
+                        <a class="button button--primary" href="{{ site_base }}/products.html">
                           <span class="button__text">Ver línea nogal</span>
                         </a>
                       </div>
@@ -249,7 +287,7 @@
               <div class="categories__content group">
                 <div class="group__item">
                   <article class="card-category animation js-background">
-                    <a href="products.html">
+                    <a href="{{ site_base }}/products">
                       <div class="card-category__background h-absolute">
                         <figure class="h-background">
                           <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-01.jpg" alt="">
@@ -271,7 +309,7 @@
 
                 <div class="group__item">
                   <article class="card-category animation js-background">
-                    <a href="products.html">
+                    <a href="{{ site_base }}/products">
                       <div class="card-category__background h-absolute">
                         <figure class="h-background">
                           <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-02.jpg" alt="">
@@ -293,7 +331,7 @@
 
                 <div class="group__item">
                   <article class="card-category animation js-background">
-                    <a href="products.html">
+                    <a href="{{ site_base }}/products">
                       <div class="card-category__background h-absolute">
                         <figure class="h-background">
                           <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-03.jpg" alt="">
@@ -315,7 +353,7 @@
 
                 <div class="group__item">
                   <article class="card-category animation js-background">
-                    <a href="products.html">
+                    <a href="{{ site_base }}/products">
                       <div class="card-category__background h-absolute">
                         <figure class="h-background">
                           <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-04.jpg" alt="">
@@ -337,7 +375,7 @@
 
                 <div class="group__item">
                   <article class="card-category animation js-background">
-                    <a href="products.html">
+                    <a href="{{ site_base }}/products">
                       <div class="card-category__background h-absolute">
                         <figure class="h-background">
                           <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-05.jpg" alt="">
@@ -359,7 +397,7 @@
 
                 <div class="group__item">
                   <article class="card-category animation js-background">
-                    <a href="products.html">
+                    <a href="{{ site_base }}/products">
                       <div class="card-category__background h-absolute">
                         <figure class="h-background">
                           <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-06.jpg" alt="">
@@ -381,7 +419,7 @@
 
                 <div class="group__item">
                   <article class="card-category animation js-background">
-                    <a href="products.html">
+                    <a href="{{ site_base }}/products">
                       <div class="card-category__background h-absolute">
                         <figure class="h-background">
                           <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-07.jpg" alt="">
@@ -403,7 +441,7 @@
 
                 <div class="group__item">
                   <article class="card-category animation js-background">
-                    <a href="products.html">
+                    <a href="{{ site_base }}/products">
                       <div class="card-category__background h-absolute">
                         <figure class="h-background">
                           <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-08.jpg" alt="">
@@ -475,7 +513,7 @@
                           </div>
 
                           <div class="car-time__button">
-                            <a class="button button--secondary" href="products.html">
+                            <a class="button button--secondary" href="{{ site_base }}/products">
                               <span class="button__text">Ir a época Victoriana</span>
                               <i class="button__icon material-icons">keyboard_arrow_right</i>
                             </a>
@@ -514,7 +552,7 @@
                           </div>
 
                           <div class="car-time__button">
-                            <a class="button button--secondary" href="products.html">
+                            <a class="button button--secondary" href="{{ site_base }}/products">
                               <span class="button__text">Ir a época Persa</span>
                               <i class="button__icon material-icons">keyboard_arrow_right</i>
                             </a>
@@ -555,7 +593,7 @@
                           </div>
 
                           <div class="car-time__button">
-                            <a class="button button--secondary" href="products.html">
+                            <a class="button button--secondary" href="{{ site_base }}/products">
                               <span class="button__text">Ir a época Eduardiana</span>
                               <i class="button__icon material-icons">keyboard_arrow_right</i>
                             </a>
@@ -594,7 +632,7 @@
                           </div>
 
                           <div class="car-time__button">
-                            <a class="button button--secondary" href="products.html">
+                            <a class="button button--secondary" href="{{ site_base }}/products">
                               <span class="button__text">Ir a época Georgian</span>
                               <i class="button__icon material-icons">keyboard_arrow_right</i>
                             </a>
@@ -628,7 +666,7 @@
                           </div>
 
                           <div class="car-time__button">
-                            <a class="button button--secondary" href="products.html">
+                            <a class="button button--secondary" href="{{ site_base }}/products">
                               <span class="button__text">Ir a época Regencia</span>
                               <i class="button__icon material-icons">keyboard_arrow_right</i>
                             </a>
@@ -656,7 +694,7 @@
               </div>
 
               <div class="section__button">
-                <a class="button button--secondary" href="products.html">
+                <a class="button button--secondary" href="{{ site_base }}/products">
                   <span class="button__text">Ver todos los productos</span>
                   <i class="button__icon material-icons">keyboard_arrow_right</i>
                 </a>
@@ -679,12 +717,12 @@
                 <h4 class="footer-widget__title">Menú</h4>
 
                 <ul class="menu">
-                  <li class="menu-item"><a href="/">Inicio</a></li>
-                  <li class="menu-item"><a href="about.html">Quiénes somos</a></li>
-                  <li class="menu-item"><a href="products.html">Época</a></li>
-                  <li class="menu-item"><a href="about.html">Pensado para</a></li>
-                  <li class="menu-item"><a href="products.html">Tipo de madera</a></li>
-                  <li class="menu-item"><a href="products.html">Todos</a></li>
+                  <li class="menu-item"><a href="{{ site_base }}">Inicio</a></li>
+                  <li class="menu-item"><a href="{{ site_base }}/about">Quiénes somos</a></li>
+                  <li class="menu-item"><a href="{{ site_base }}/products">Época</a></li>
+                  <li class="menu-item"><a href="{{ site_base }}/about">Pensado para</a></li>
+                  <li class="menu-item"><a href="{{ site_base }}/products">Tipo de madera</a></li>
+                  <li class="menu-item"><a href="{{ site_base }}/products">Todos</a></li>
                 </ul>
               </div>
             </div>
@@ -694,9 +732,9 @@
                 <h4 class="footer-widget__title js-footer-widget-collapse">Ayuda</h4>
 
                 <ul class="menu">
-                  <li class="menu-item"><a href="page.html">Formas de pago</a></li>
-                  <li class="menu-item"><a href="page.html">Despacho</a></li>
-                  <li class="menu-item"><a href="page.html">Cambios y devoluciones</a></li>
+                  <li class="menu-item"><a href="{{ site_base }}/page">Formas de pago</a></li>
+                  <li class="menu-item"><a href="{{ site_base }}/page">Despacho</a></li>
+                  <li class="menu-item"><a href="{{ site_base }}/page">Cambios y devoluciones</a></li>
                 </ul>
               </div>
             </div>
@@ -749,7 +787,7 @@
                 </div>
 
                 <div class="col-lg-6 order-lg-1">
-                  <a href="page.html">Términos y condiciones</a>
+                  <a href="{{ site_base }}/page">Términos y condiciones</a>
                 </div>
               </div>
           </div>
