@@ -37,7 +37,7 @@
         <nav class="mobile__bar">
           <ul class="menu">
             <li class="menu-item menu-item--home">
-              <a href="/">
+              <a href="{{ site_base }}">
                 <span class="sr-only">Ir a la portada</span>
                 <i class="material-icons">home</i>
               </a>
@@ -81,7 +81,7 @@
         <div class="container">
           <div class="header__content">
             <div class="header__branding branding js-header-branding">
-              <a class="brending__link" href="/" rel="home" title="Ir a la portada">
+              <a class="brending__link" href="{{ site_base }}" rel="home" title="Ir a la portada">
                 <img class="branding__logo img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/anglia-logo.png" alt="Logo Anglia">
               </a>
             </div>
@@ -125,7 +125,7 @@
                       <div class="header__navigation-branding branding"></div>
 
                       <ul class="menu">
-                        <li class="menu-item"><a href="/">Inicio</a></li>
+                        <li class="menu-item"><a href="{{ site_base }}">Inicio</a></li>
                         <li class="menu-item has-submenu">
                           <a href="products.html">Época</a>
                           <ul class="submenu">
@@ -181,14 +181,14 @@
 
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="{{ site_base }}">Inicio</a></li>
                 <li class="breadcrumb-item"><a href="products.html">Todos</a></li>
                 <li class="breadcrumb-item active">Bureau de Caoba</li>
               </ol>
             </nav>
 
             <div class="product-back-button h-mobile">
-              <a class="button button--link" href="/">
+              <a class="button button--link" href="{{ site_base }}">
                 <i class="button__icon material-icons">keyboard_arrow_left</i>
                 <span class="button__text">Volver</span>
               </a>
@@ -300,7 +300,7 @@
                 <h4 class="footer-widget__title">Menú</h4>
 
                 <ul class="menu">
-                  <li class="menu-item"><a href="/">Inicio</a></li>
+                  <li class="menu-item"><a href="{{ site_base }}">Inicio</a></li>
                   <li class="menu-item"><a href="about.html">Quiénes somos</a></li>
                   <li class="menu-item"><a href="products.html">Época</a></li>
                   <li class="menu-item"><a href="about.html">Pensado para</a></li>
