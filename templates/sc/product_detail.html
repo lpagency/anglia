@@ -90,12 +90,11 @@
             <div class="header__complementary">
               <div class="header__ecommerce">
                 <div class="header-search">
-                  <form action="products.html">
+                  <form action="{{ site_base }}/products">
                     <div class="form-group">
                       <label class="sr-only" for="angliaSearch">Buscar productos en Anglia</label>
-                      <input type="search" class="form-control" id="angliaSearch" name="s" placeholder="Buscar productos" autofocus>
+                      <input type="search" class="form-control" id="angliaSearch" name="search_word" placeholder="Buscar productos" autofocus>
                     </div>
-
                     <button class="form-submit button" type="button">
                       <i class="button__icon material-icons">search</i>
                     </button>
