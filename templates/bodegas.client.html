@@ -1,0 +1,139 @@
+
+<!-- INICIALIZAR BODEGAS CLIENT JS-->
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        var base_url = $.environmentVar(
+            'https://apibodegas.loadingplay.com/',
+            'https://apibodegas.ondev.today/',
+            'https://apibodegas.loadingplay.com/'
+        );
+        var checkout_url = $.environmentVar(
+            'https://pay.loadingplay.com',
+            'https://lpcheckout.ondev.today',
+            'https://pay.loadingplay.com'
+        );
+
+        var app_public = $.environmentVar('anglia','anglia','anglia');
+        var site_name = $.environmentVar('anglia', 'anglia', 'anglia');
+
+        var random_seed = 'random('+ Math.random() +')';
+
+        var config =
+        {
+            'app_public': app_public,
+            'base_url': base_url,
+            'products_per_page' : 8,
+            'ignore_stock': true,
+            'infinite_scroll': false,
+            //'maxProducts': 150,
+            'checkout_url': checkout_url,
+            'operator' :'or',
+            'site_name': site_name,
+            'column': 'position',
+            'templateOrigin': '#product_template',
+            'onLoad': function(products)
+            {
+                for(x in products)
+                {
+                    if(products[x].in_stock == false)
+                    {
+                        $("."+products[x].sku).html("AGOTADO");
+                    }
+                }
+            }
+        };
+
+        $(document).ecommerce(config);
+    });
+</script>
+
+<!-- INICIALIZAR BODEGAS CLIENT JS-->
+
+
+
+<!-- BODEGAS CLIENT JS TEMPLATE-->
+
+<script type="text/x-template" id="shopping-cart-product">
+    <tr>
+        <td>{{! name }}</td>
+        <td>{{! price|money }}</td>
+        <td style="border-bottom: 1px solid #ddd;">
+            <a href="#!" lp-cart-remove-one="{{! id }}">-</a>
+            {{! quantity }}
+            <a href="#!" lp-cart-add-one="{{! id }}" >+</a>
+        </td>
+        <td lp-cart-remove="{{! id }}" aria-hidden="true"> X  </td>
+    </tr>
+</script>
+
+<script type="text/x-template" id="shopping-cart-total" >
+    <tr>
+        <td>Total:</td>
+        <td>{{! total|money }}</td>
+        <td></td>
+    </tr>
+</script>
+
+<script type="text/x-template" id="shopping-cart-units-total" >
+    <span> {{! units_total }}</span>
+</script>
+
+<script type="text/x-template" id="shopping-cart-checkout-form" >
+    <form action="{{! checkout_url}}" method="get" novalidate id="shipping-form" onclick="return Validate()">
+        <input name="site_name" type="hidden" value="gustocasero">
+        <input name="cart_id" type="hidden" value="{{! cart_id}}">
+        <input name="origin" type="hidden" value="{{ site.name }}">
+        <input name="total" type="hidden" value="{{! total }}">
+        <div class="form-group text-center">
+             <button type="submit" class="btn" style="background-color:rgba(0, 0, 0, 0.24);color: white;width: 31%;border-radius: 0px;height: 51px;font-weight: 400;float: right;" disabled>
+                PAGAR
+            </button>
+        </div>
+        <div>
+            <a data-dismiss="modal" aria-hidden="true">VOLVER</a>
+        </div>
+    </form>
+</script>
+
+<script type="text/template" id="product_template" class="hidden"></script>
+
+<!-- BODEGAS CLIENT JS TEMPLATE-->
+
+
+
+<!-- SHOPPING CART TEMPLATE-->
+
+<div align="center">
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title ">Resumen de tu compra</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Precio</th>
+                                            <th>Cantidad</th>
+                                            <th>Eliminar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="shopping-cart"></tbody>
+                                </table>
+                                <div class="checkout-form"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SHOPPING CART TEMPLATE-->
