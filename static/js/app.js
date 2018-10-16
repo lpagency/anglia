@@ -12025,7 +12025,7 @@ function getProduct(sku) {
 var nunjucks = __webpack_require__(17);
 var env;
 if (!nunjucks.currentEnv){
-	env = nunjucks.currentEnv = new nunjucks.Environment([], {"dev":false,"autoescape":true,"throwOnUndefined":false,"trimBlocks":false,"lstripBlocks":false});
+	env = nunjucks.currentEnv = new nunjucks.Environment([], undefined);
 } else {
 	env = nunjucks.currentEnv;
 }
@@ -12049,18 +12049,43 @@ output += "<article class=\"card-product ";
 output += runtime.suppressValue((!runtime.contextOrFrameLookup(context, frame, "in_stock")?"card-product--stockout":""), env.opts.autoescape);
 output += " ";
 output += runtime.suppressValue((runtime.contextOrFrameLookup(context, frame, "in_stock") && !runtime.contextOrFrameLookup(context, frame, "for_sale")?"card-product--sold":""), env.opts.autoescape);
-output += "\">\n  <div class=\"card-product__image\">\n    <a href=\"product.html?sku=";
+output += "\">\n  <div class=\"card-product__image\">\n    <a href=\"/";
+output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "site_name"), env.opts.autoescape);
+output += "/sc/product/detail/";
+output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "name"), env.opts.autoescape);
+output += "/";
+output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "id"), env.opts.autoescape);
+output += "?sku=";
 output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "sku"), env.opts.autoescape);
-output += "\">\n      <figure>\n        <img class=\"img-fluid\" src=\"";
-output += runtime.suppressValue((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "images")),0)?runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "images")),0)),"thumb_200"):"img/empty-products-200.jpg"), env.opts.autoescape);
+output += "\">\n      <figure>\n        ";
+if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "images")),0)) {
+output += "\n          <img class=\"img-fluid\" src=\"";
+output += runtime.suppressValue(runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "images")),0)),"thumb_200"), env.opts.autoescape);
 output += "\" alt=\"";
 output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "name"), env.opts.autoescape);
-output += "\">\n      </figure>\n    </a>\n\n    ";
+output += "\">\n        ";
+;
+}
+else {
+output += "\n          <img class=\"img-fluid\" src=\"";
+output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "static_url"), env.opts.autoescape);
+output += "/img/empty-products-200.jpg\" alt=\"";
+output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "name"), env.opts.autoescape);
+output += "\">\n        ";
+;
+}
+output += "\n      </figure>\n    </a>\n\n    ";
 if(runtime.contextOrFrameLookup(context, frame, "in_stock") && runtime.contextOrFrameLookup(context, frame, "for_sale")) {
 output += "\n    <button class=\"card-product__addtocart addtocart button\" type=\"button\">\n      <i class=\"button__icon material-icons\">shopping_cart</i>\n    </button>\n    ";
 ;
 }
-output += "\n  </div>\n\n  <div class=\"card-product__content js-match-product-content\">\n    <a href=\"product.html?sku=";
+output += "\n  </div>\n\n  <div class=\"card-product__content js-match-product-content\">\n    <a href=\"/";
+output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "site_name"), env.opts.autoescape);
+output += "/sc/product/detail/";
+output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "name"), env.opts.autoescape);
+output += "/";
+output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "id"), env.opts.autoescape);
+output += "?sku=";
 output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "sku"), env.opts.autoescape);
 output += "\">\n      <h3 class=\"card-product__title\">";
 output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "name"), env.opts.autoescape);
@@ -30126,6 +30151,8 @@ function init() {
 
   // -- Elements
   var $loadMoreBtn = $('#products-load-more');
+  var $searchBtn = $('#products-search');
+  var $searchInput = $('#angliaSearch');
   var $loadMoreText = $loadMoreBtn.find('.button__text');
 
   // -- Events
@@ -30136,6 +30163,7 @@ function init() {
 
   // -- Renders
   function renderProduct(product) {
+    product.static_url = $("input[name=static_url]").val();
     return '<div class="group__item col-6 col-md-4">' + __WEBPACK_IMPORTED_MODULE_1__templates_product_list_item_njk___default.a.render(product) + '</div>';
   }
 
@@ -30154,10 +30182,22 @@ function init() {
   }
 
   function handleRequest() {
+    var urlParams = new URLSearchParams(location.search.slice(1));
+
+    if (urlParams.has('search_word')) {
+      var word = urlParams.get('search_word');
+      var uri = window.location.toString();
+      var clean_uri = uri.substring(0, uri.indexOf("?"));
+      window.history.replaceState({}, document.title, clean_uri);
+      $searchInput.val(word);
+    }
+
     $products.trigger(REQUEST_START_EVENT);
 
     var queryParams = {
-      page: getPage()
+      page: getPage(),
+      search: $searchInput.val(),
+      search_engine: "false"
     };
 
     Object(__WEBPACK_IMPORTED_MODULE_0__services_api__["b" /* getProducts */])(queryParams).then(processData).then(function () {
@@ -30192,8 +30232,25 @@ function init() {
   }
 
   function handleLoadMoreBtnClick() {
+    $searchInput.val("");
     $products.data('page', getPage() + 1);
     $products.trigger(LOAD_MORE_EVENT);
+  }
+
+  function handleSearchBtnClick() {
+    $list.html("");
+    $products.data('page', 1);
+    $products.trigger(LOAD_MORE_EVENT);
+  }
+
+  function handleInputEnter(event) {
+    event.preventDefault();
+
+    if (event.keyCode === 13) {
+      $list.html("");
+      $products.data('page', 1);
+      $products.trigger(LOAD_MORE_EVENT);
+    }
   }
 
   // -- Handle listeners
@@ -30201,6 +30258,8 @@ function init() {
   $products.on(REQUEST_END_EVENT, handleRequestEnd);
   $products.on(LOAD_MORE_EVENT, handleLoadMore);
   $loadMoreBtn.on('click', handleLoadMoreBtnClick);
+  $searchBtn.on('click', handleSearchBtnClick);
+  $searchInput.on('keyup', handleInputEnter);
 
   // -- Initial loading
   handleRequest();
@@ -30259,6 +30318,7 @@ function init() {
   }
 
   function renderProduct(product) {
+    product.static_url = $("input[name=static_url]").val();
     $productView.html(__WEBPACK_IMPORTED_MODULE_4__templates_product_njk___default.a.render(product));
 
     window.scrollTo(0, 1);
@@ -30294,6 +30354,7 @@ function init() {
   }
 
   function renderRecommendProduct(product) {
+    product.static_url = $("input[name=static_url]").val();
     return '<div class="group__item slider__item col-3 animation">' + __WEBPACK_IMPORTED_MODULE_5__templates_product_list_item_njk___default.a.render(product) + '</div>';
   }
 
@@ -30479,11 +30540,24 @@ output += "</h1>\n        <p class=\"product__sku\">SKU Product: <span>";
 output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "sku"), env.opts.autoescape);
 output += "</span></p>\n\n        <div class=\"product__price\">\n          <span class=\"price\">$";
 output += runtime.suppressValue(env.getFilter("toLocaleString").call(context, runtime.contextOrFrameLookup(context, frame, "main_price")), env.opts.autoescape);
-output += "</span>\n        </div>\n      </header>\n\n      <figure class=\"product__image\">\n        <img class=\"img-fluid\" src=\"";
-output += runtime.suppressValue((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "images")),0)?runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "images")),0)),"thumb_500"):"img/empty-products-500.jpg"), env.opts.autoescape);
+output += "</span>\n        </div>\n      </header>\n\n      <figure class=\"product__image\">\n        ";
+if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "images")),0)) {
+output += "\n          <img class=\"img-fluid\" src=\"";
+output += runtime.suppressValue(runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "images")),0)),"thumb_500"), env.opts.autoescape);
 output += "\" alt=\"";
 output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "name"), env.opts.autoescape);
-output += "\">\n      </figure>\n    </div>\n\n    <div class=\"col-lg-6 animation\">\n      <div class=\"product__content\">\n        <header class=\"product__information h-desktop\">\n          <h1 class=\"product__title\">";
+output += "\">\n        ";
+;
+}
+else {
+output += "\n          <img class=\"img-fluid\" src=\"";
+output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "static_url"), env.opts.autoescape);
+output += "/img/empty-products-500.jpg\" alt=\"";
+output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "name"), env.opts.autoescape);
+output += "\">\n        ";
+;
+}
+output += "\n      </figure>\n    </div>\n\n    <div class=\"col-lg-6 animation\">\n      <div class=\"product__content\">\n        <header class=\"product__information h-desktop\">\n          <h1 class=\"product__title\">";
 output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "name"), env.opts.autoescape);
 output += "</h1>\n          <p class=\"product__sku\">SKU Product: <span>";
 output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "sku"), env.opts.autoescape);
