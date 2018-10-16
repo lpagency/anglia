@@ -1,0 +1,41 @@
+// Typography
+$font-family-base: 'Open Sans', sans-serif;
+$line-height-base: 1.5;
+$paragraph-margin-bottom: 1rem;
+$headings-font-weight: 400;
+$headings-line-height: 1.36;
+$font-size-small: 0.75em;
+$font-size-medium: 0.875em;
+$font-size-large: 1.563em;
+$font-size-huge: 1.875em;
+$transition-base: 300ms ease;
+$transition-base-in: 600ms ease;
+$transition-base-out: 250ms ease-out;
+
+// Colors
+$white: #FFFFFF;
+$black: #000000;
+$primary-color: #D69400;
+$primary-hover: #B37C00;
+$secondary-color: #948E6C;
+$secondary-hover: #68644A;
+$general-color: #4A4A4A;
+$background-color: #EAEBEF;
+
+$primary: $primary-color;
+$secondary: $secondary-color;
+$body-bg: $white;
+$body-color: $general-color;
+$link-color: $general-color;
+$link-hover-color: $primary-color;
+
+// Breakpoints
+$mq-breakpoints: (
+  mini: 320px,
+  small: 425px,
+  medium: 768px,
+  large: 1024px,
+  laptop: 1280px,
+  huge: 1440px,
+  max: 1920px,
+);

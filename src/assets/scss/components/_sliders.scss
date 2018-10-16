@@ -1,0 +1,119 @@
+.slider__item {
+  display: block !important;
+}
+
+.slick-arrow,
+.slick-dots button {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  color: transparent;
+  cursor: pointer;
+  display: block;
+  font-size: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+/**
+ * Flechas prev and next del slick slider
+ */
+
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+  transition: $transition-base-out;
+  z-index: 10;
+
+  &:before {
+    @extend .h-material-icons;
+    color: $general-color;
+    display: block;
+    font-size: 42px;
+    transition: $transition-base-out;
+  }
+
+  &:hover:before {
+    color: $secondary;
+    transition: $transition-base-in;
+  }
+}
+
+.slick-prev {
+  left: 0;
+
+  &:before {
+    content: 'keyboard_arrow_left';
+  }
+
+  &:hover {
+    transform: translate3d(-5px, -50%, 0);
+    transition: $transition-base-in;
+  }
+}
+
+.slick-next {
+  right: 0;
+
+  &:before {
+    content: 'keyboard_arrow_right';
+  }
+
+  &:hover {
+    transform: translate3d(5px, -50%, 0);
+    transition: $transition-base-in;
+  }
+}
+
+/**
+ * Dots denavegación del slick slider
+ */
+
+.slick-dots {
+  bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+
+  > li {
+    display: block;
+    height: 10px;
+    margin: 0 5px;
+    width: 10px;
+  }
+
+  > li > button {
+    height: 100%;
+    position: relative;
+    width: 100%;
+
+    &:before {
+      background-color: $secondary;
+      border-radius: 50%;
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: $transition-base-out;
+    }
+
+    &:hover:before {
+      background-color: $secondary-hover;
+      transition: $transition-base-in;
+    }
+  }
+
+  > li.slick-active > button:before {
+    background-color: $primary;
+  }
+}

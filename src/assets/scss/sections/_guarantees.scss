@@ -1,0 +1,47 @@
+.guarantees {
+  position: relative;
+}
+
+.guarantees__heading {
+  color: $general-color;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.guarantees__title {
+  font-size: 1.25em;
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.guarantees__content.group {
+  margin-bottom: -50px;
+  
+  .group__item {
+    margin-bottom: 50px;
+  }
+}
+
+.guarantee {
+  margin: 0 auto;
+  max-width: 240px;
+  text-align: center;
+}
+
+.guarantee__icon {
+  margin: 0 auto;
+  max-width: 60px;
+}
+
+.guarantee__text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: $font-size-medium;
+  line-height: 1.4;
+
+  @include mq($from: large) {
+    font-size: 1em;
+  }
+}

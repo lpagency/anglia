@@ -1,0 +1,106 @@
+.dropdown.bootstrap-select {
+  > .dropdown-toggle {
+    background-color: $white;
+    border: 1px solid $general-color;
+    border-radius: 0;
+    color: $general-color;
+    font-size: 1em;
+    font-weight: 600;
+    min-height: 36px;
+    padding: 12px 20px;
+    position: relative;
+    text-transform: uppercase;
+    transition: $transition-base;
+
+    @include mq($from: large) {
+      background-color: transparent;
+      font-size: $font-size-small;
+      font-weight: 400;
+      padding: 8px 15px;
+    }
+
+    &:after {
+      @extend .h-material-icons;
+      border: 0;
+      content: 'keyboard_arrow_down';
+      display: block;
+      font-size: 32px;
+      height: auto;
+      margin: -16px 0 0;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: rotate(0deg);
+      transition: $transition-base;
+      vertical-align: baseline;
+      width: auto;
+
+      @include mq($from: large) {
+        font-size: 18px;
+        margin-top: -9px;
+        right: 10px;
+      }
+    }
+
+    &:active,
+    &:focus {
+      box-shadow: none !important;
+      outline: none !important;
+    }
+
+    &:active {
+      border-color: $general-color;
+    }
+
+    &:hover {
+      background-color: $white;
+    }
+  }
+
+  > .dropdown-menu {
+    border-color: $general-color;
+    border-radius: 0;
+    border-top: 0;
+    margin: 0;
+    max-width: 100%;
+    padding: 0;
+    text-transform: uppercase;
+  }
+
+  > .dropdown-menu .dropdown-menu {
+    font-size: $font-size-small;
+  }
+
+  > .dropdown-menu .dropdown-menu > li {
+    border-bottom: 1px solid $general-color;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  > .dropdown-menu .dropdown-menu > .selected.active .dropdown-item {
+    background-color: transparent;
+    color: $primary;
+  }
+
+  > .dropdown-menu .dropdown-item {
+    color: $general-color;
+    padding: 10px 15px;
+    transition: $transition-base;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.dropdown.bootstrap-select.show {
+  >.dropdown-toggle {
+    background-color: $white;
+
+    &:after {
+      transform: rotate(180deg);
+    }
+  }
+}

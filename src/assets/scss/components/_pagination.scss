@@ -1,0 +1,36 @@
+.pagination {
+  border-radius: 0;
+  align-items: center;
+  margin: 0;
+
+  .material-icons {
+    display: block;
+    font-size: 18px;
+  }
+}
+
+.page-item .page-link,
+.page-item:first-child .page-link,
+.page-item:last-child .page-link {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  font-size: 1em;
+  padding: 0 0.5rem;
+
+  @include mq($from: large) {
+    font-size: 1.25em;
+    padding: 0 0.35rem;
+  }
+}
+
+.page-item.active .page-link {
+  background-color: transparent;
+  color: $primary;
+  cursor: default;
+  font-weight: 700;
+}
+
+.page-item.disabled .page-link {
+  background-color: transparent;
+}
