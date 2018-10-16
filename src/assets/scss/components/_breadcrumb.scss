@@ -1,0 +1,36 @@
+.breadcrumb {
+  background: transparent;
+  border-radius: 0;
+  color: rgba($general-color, 0.7);
+  display: none;
+  font-size: $font-size-small;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+
+  @include mq($from: large) {
+    display: flex;
+  }
+}
+
+.breadcrumb-item {
+  a {
+    color: inherit;
+
+    &:hover {
+      color: $general-color;
+    }
+  }
+
+  + .breadcrumb-item {
+    padding-left: 0.25rem;
+  }
+
+  + .breadcrumb-item:before {
+    padding-right: 0.25rem;
+  }
+}
+
+.breadcrumb-item.active {
+  color: $primary;
+}

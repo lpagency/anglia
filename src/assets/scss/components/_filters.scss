@@ -1,0 +1,164 @@
+.filters-heading {
+  font-size: 1em;
+  margin-bottom: 30px;
+  text-align: center;
+  text-transform: uppercase;
+
+  strong {
+    font-size: 1.25em;
+  }
+
+  span {
+    display: block;
+  }
+}
+
+.filters-toggle {
+  background-color: $white;
+  border: 1px solid $general-color;
+  color: $general-color;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1em;
+  font-weight: 600;
+  padding: 8px 20px;
+  width: 100%;
+
+  @include mq($from: large) {
+    display: none;
+  }
+
+  &:hover,
+  &:active {
+    color: $general-color;
+  }
+
+  .button__icon {
+    &:after {
+      @extend .h-material-icons;
+      content: 'keyboard_arrow_down';
+      display: block;
+      font-size: 32px;
+      transform: rotate(0deg);
+      transition: $transition-base;
+    }
+  }
+}
+
+.filters-toggle--is-open .button__icon:after {
+  transform: rotate(180deg);
+}
+
+.filters-group {
+  background-color: $white;
+  border-left: 1px solid $general-color;
+  border-right: 1px solid $general-color;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+
+  @include mq($from: large) {
+    background: transparent;
+    border: 0;
+    max-height: none;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.filters-group--is-open {
+  opacity: 1;
+  max-height: none;
+  visibility: visible;
+}
+
+.filters {
+  border-bottom: 1px solid $general-color;
+
+  @include mq($from: large) {
+    border-color: rgba($general-color, 0.1);
+  }
+}
+
+.filters--applied {
+  padding: 15px 20px 20px;
+
+  .label--small {
+    margin-bottom: 10px;
+  }
+}
+
+.filters__label {
+  font-size: 0.9375em;
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+
+  a {
+    cursor: pointer;
+    display: block;
+    padding: 15px 60px 15px 20px;
+    position: relative;
+
+    @include mq($from: large) {
+      padding-bottom: 20px;
+      padding-left: 0;
+      padding-top: 20px;
+    }
+
+    &:after {
+      @extend .h-material-icons;
+      content: 'keyboard_arrow_down';
+      font-size: 32px;
+      margin-top: -16px;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: rotate(180deg);
+      transition: $transition-base;
+
+      @include mq($from: large) {
+        right: 30px;
+      }
+    }
+  }
+
+  a.collapsed:after {
+    transform: rotate(0);
+  }
+}
+
+.filters__group {
+  padding: 0 20px 20px 20px;
+
+  @include mq($from: large) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/**
+ * Estilos para cada item del filtro
+ */
+
+.filter {
+  margin-bottom: 10px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .custom-control-label {
+    cursor: pointer;
+    font-size: $font-size-medium;
+  }
+
+  .custom-control-label:before {
+    background-color: transparent;
+    border: 1px solid $general-color;
+  }
+
+  .custom-control-input:checked ~ .custom-control-label:before {
+    background-color: $secondary;
+  }
+}

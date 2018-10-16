@@ -1,0 +1,88 @@
+.toolbar {
+  margin-bottom: 30px;
+}
+
+.toolbar__setup {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toolbar_products {
+  display: none;
+  font-size: $font-size-medium;
+  text-transform: uppercase;
+  width: 45%;
+
+  @include mq($from: large) {
+    display: block;
+  }
+}
+
+.toolbar__order {
+  width: 100%;
+  
+  @include mq($from: large) {
+    width: 50%;
+  }
+
+  @include mq($from: huge) {
+    width: 45%;
+  }
+}
+
+.toolbar__applied {
+  margin-top: 30px;
+
+  @include mq($from: large) {
+    margin-top: 40px;
+  }
+
+  > .label--small {
+    margin-bottom: 10px;
+  }
+}
+
+/**
+ * Select para ordenar los productos
+ */
+.order-products {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.order-products__label {
+  display: none;
+  font-size: $font-size-small;
+  margin: 0 15px 0 0;
+
+  @include mq($from: large) {
+    display: inline;
+  }
+}
+
+.order-products__select {
+  max-width: 100%;
+  
+  @include mq($until: large) {
+    width: 100% !important;
+  }
+}
+
+/**
+ * Filtros aplicados en la lista de productos
+ */
+.applied-filters__clean {
+  background-color: transparent;
+  color: $general-color;
+  display: none;
+  font-weight: 400;
+  margin-top: 15px;
+  text-transform: none;
+
+  @include mq($from: large) {
+    display: inline-flex;
+  }
+}

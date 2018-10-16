@@ -1,0 +1,264 @@
+.h-theme-light {
+  background-color: $background-color;
+  color: $body-color;
+}
+
+.h-theme-dark {
+  background-color: $black;
+  color: $white;
+}
+
+.h-background {
+  background-attachment: scroll;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  opacity: 0;
+  width: 100%;
+
+  &.background-loaded {
+    opacity: 1;
+    transition: opacity 500ms ease-in-out;
+  }
+
+  img {
+    display: none;
+    height: auto;
+    max-width: 100%;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+picture.h-background {
+  opacity: 1;
+  z-index: auto;
+
+  img {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.h-absolute {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.h-max-width-content {
+  max-width: 730px;
+}
+
+.h-mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.h-bottom-spacing {
+  padding-bottom: 45px;
+}
+
+.h-top-spacing {
+  padding-top: 45px;
+}
+
+.h-both-spacing {
+  padding-bottom: 45px;
+  padding-top: 45px;
+}
+
+.h-material-icons {
+  direction: ltr;
+  display: inline-block;
+  font-family: 'Material Icons';
+  font-size: 24px;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.h-mobile {
+  @include mq($from: large) {
+    display: none;
+  }
+}
+
+.h-desktop {
+  display: none;
+
+  @include mq($from: large) {
+    display: block;
+  }
+}
+
+.h-text {
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.625;
+
+  p {
+    margin: 0 0 1em;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    transition: 500ms ease;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  blockquote {
+    font-size: 1.125em;
+    font-weight: 600;
+    line-height: 1.45;
+    margin-bottom: 1.5em;
+
+    @include mq($from: large) {
+      font-size: 1.4375em;
+      font-weight: 300;
+    }
+  }
+
+  img {
+    height: auto;
+    margin: 1em 0;
+    max-width: 100%;
+
+    @include mq($from: large) {
+      margin: 1.5em 0;
+    }
+
+    &.full {
+      @include mq($from: large) {
+        margin-left: -90px;
+        max-width: calc(100% + 180px);
+        margin-right: -90px;
+      }
+    }
+  }
+
+  h1,
+  h2 {
+    color: inherit;
+    font-size: 1.75em;
+    font-weight: inherit;
+    letter-spacing: 1px;
+    line-height: 1.35;
+    margin: 0 0 1.25em;
+  }
+
+  h3 {
+    color: inherit;
+    font-size: 1.25em;
+    font-weight: 600;
+    margin: 0 0 0.75em;
+  }
+
+  h4 {
+    color: inherit;
+    font-size: 1.25em;
+    font-weight: inherit;
+    letter-spacing: 1px;
+    line-height: 1.15;
+    margin: 0 0 1.15em;
+  }
+
+  h5, h6 {
+    color: inherit;
+    font-size: 1.15em;
+    font-weight: inherit;
+    letter-spacing: 1px;
+    line-height: 1.15;
+    margin: 0 0 1em;
+  }
+
+  ul,
+  ol {
+    color: inherit;
+    font-size: 1em;
+    list-style: none;
+    margin: 1em 0;
+    padding: 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    li {
+      margin: 0 0 0.35em;
+      padding-left: 25px;
+      position: relative;
+    
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 18px;
+
+    li {
+      padding: 0;
+    }
+  }
+
+  ol {
+    counter-reset: item;
+
+    li:before {
+      color: $primary;
+      content: counter(item) '. ';
+      counter-increment: item;
+      left: 0;
+      letter-spacing: 0;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6, p, ul, ol, li, blockquote {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .table-responsive {
+    margin: 3em 0;
+
+    @include mq($from: large) {
+      margin-left: -80px;
+      margin-right: -80px;
+      max-width: calc(100% + 160px);
+      width: calc(100% + 160px);
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

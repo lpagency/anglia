@@ -1,0 +1,376 @@
+.header__content {
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 15px;
+
+  @include mq($from: large) {
+    display: flex;
+    padding-top: 0;
+  }
+}
+
+.header__branding {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 92px;
+
+  @include mq($from: medium) {
+    max-width: 120px;
+  }
+
+  @include mq($from: large) {
+    margin-left: 0;
+    max-width: 160px;
+  }
+
+  @include mq($from: huge) {
+    max-width: 184px;
+  }
+}
+
+.header__complementary {
+  margin-left: auto;
+}
+
+/**
+ * Opciones de ecommerce del header (buscador, cuenta, carrito)
+ */
+
+.header__ecommerce {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  padding: 25px 0;
+
+  @include mq($from: huge) {
+    margin-bottom: 10px;
+    padding-top: 38px;
+  }
+}
+
+.header-search {
+  height: 42px;
+  position: relative;
+  width: 100%;
+
+  @include mq($from: medium) {
+    margin: 0 auto;
+    max-width: 480px;
+  }
+
+  @include mq($from: large) {
+    width: 70%;
+  }
+
+  .form-group {
+    margin: 0;
+  }
+  
+  .form-control {
+    border: 1px solid $primary;
+    border-radius: 0;
+    color: $general-color;
+    font-size: $font-size-small;
+    height: 42px;
+    padding: 0 15px;
+    text-transform: uppercase;
+  }
+  
+  .form-submit {
+    background-color: $primary;
+    color: $white;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 60px;
+
+    @include mq($from: medium) {
+      background-color: transparent;
+      color: $primary;
+      height: auto;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: auto;
+    }
+  }
+}
+
+.header-button {
+  display: none;
+  margin-left: 30px;
+
+  @include mq($from: large) {
+    display: inline-block;
+  }
+
+  .button {
+    display: block;
+    font-size: $font-size-small;
+    font-weight: 400;
+
+    &:hover {
+      color: $secondary;
+    }
+  }
+
+  .button__text {
+    color: $general-color;
+    margin-top: 10px;
+  }
+
+  .button__icon {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    height: 28px;
+    margin: 0 auto;
+    width: 36px;
+  }
+}
+
+.header-account {
+  .button__icon {
+    font-size: 38px;
+  }
+}
+
+
+/**
+ * Menú de navegación del header
+ */
+
+.header__navigation {
+  background-color: $white;
+  padding-bottom: 120px;
+
+  @include mq($from: large) {
+    padding-bottom: 0;
+  }
+}
+
+.header__navigation-branding {
+  margin: 0 auto;
+  max-width: 92px;
+  padding-top: 15px;
+
+  @include mq($from: medium) {
+    max-width: 120px;
+  }
+
+  @include mq($from: large) {
+    display: none;
+  }
+}
+
+.header__navigation .menu {
+  font-size: 1em;
+  text-align: center;
+
+  @include mq($from: small) {
+    font-size: 1.25em;
+  }
+
+  @include mq($from: large) {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: $font-size-medium;
+    padding-top: 0;
+    text-align: left;
+  }
+
+  &:before {
+    content: 'Menú';
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 40px 0;
+    text-transform: uppercase;
+
+
+    @include mq($from: small) {
+      font-size: 25px;
+    }
+
+    @include mq($from: large) {
+      content: none;
+    }
+  }
+}
+
+.header__navigation .menu-item {
+  border-bottom: 1px solid rgba($general-color, 0.3);
+  font-weight: 600;
+  position: relative;
+  text-transform: uppercase;
+
+  @include mq($from: large) {
+    border: 0;
+    margin-left: 50px;
+  }
+
+  &:first-child {
+    border-top: 1px solid rgba($general-color, 0.3);
+    margin-left: 0;
+
+    @include mq($from: large) {
+      border-top: 0;
+    }
+  }
+
+  a {
+    color: inherit;
+    display: block;
+    padding: 20px 50px;
+    position: relative;
+    transition: $transition-base-out;
+
+    @include mq($from: large) {
+      padding: 10px;
+    }
+
+    &:hover {
+      color: $primary;
+      transition: $transition-base-in;
+    }
+  }
+}
+
+.header__navigation .menu-item--mobile {
+  @include mq($from: large) {
+    display: none;
+  }
+}
+
+.header__navigation .menu > .menu-item > a:after {
+  background-color: $primary;
+  bottom: 0;
+  height: 3px;
+  left: 0;
+  margin: 0 auto;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 0;
+
+  @include mq($from: large) {
+    content: '';
+  }
+}
+
+.header__navigation .menu > .menu-item.has-submenu > a {
+  position: relative;
+
+  &:after {
+    background-color: transparent;
+    bottom: auto;
+    @extend .h-material-icons;
+    content: 'keyboard_arrow_down';
+    font-size: 32px;
+    height: auto;
+    left: auto;
+    margin-top: -16px;
+    opacity: 1;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: rotate(0deg);
+    transition: $transition-base;
+    width: auto;
+
+    @include mq($from: large) {
+      content: none;
+    }
+  }
+}
+
+.header__navigation .menu > .menu-item.has-submenu--is-open > a:after {
+  transform: rotate(180deg);
+}
+
+.header__navigation .menu-item.current-menu-item > a:after,
+.header__navigation .menu-item.current-menu-parent > a:after {
+  opacity: 1;
+  width: 100%;
+}
+
+.header__navigation .submenu .menu-item.current-menu-item > a {
+  color: $primary;
+}
+
+.header__navigation > .menu > .menu-item:hover {
+  > a + .submenu {
+    @include mq($from: large) {
+      opacity: 1;
+      transition: $transition-base;
+      transform: translate(-50%, 0);
+      visibility: visible;
+    }
+  }
+}
+
+.header__navigation .submenu {
+  background-color: $white;
+  left: 50%;
+  list-style: none;
+  margin: 0 auto;
+  max-height: 0;
+  min-width: 170px;
+  opacity: 0;
+  padding: 0;
+  transition: $transition-base-out;
+  z-index: 10;
+
+  @include mq($from: large) {
+    border: 1px solid $general-color;
+    max-height: none;
+    position: absolute;
+    transform: translate(-50%, 10px);
+    visibility: hidden;
+  }
+}
+
+.header__navigation .submenu.submenu--is-open {
+  max-height: none;
+  opacity: 1;
+}
+
+.header__navigation .menu > .menu-item.has-submenu {
+  overflow: hidden;
+
+  @include mq($from: large) {
+    overflow: visible;
+  }
+
+  &.has-submenu--is-open {
+    overflow: visible;
+  }
+
+  > a:hover {
+    color: $general-color;
+  }
+}
+
+.header__navigation .submenu .menu-item {
+  border: 0;
+  color: $general-color;
+  font-weight: 400;
+  margin: 0;
+  text-transform: none;
+
+  @include mq($from: large) {
+    text-transform: uppercase;
+  }
+
+  a {
+    color: inherit;
+    transition: $transition-base;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}

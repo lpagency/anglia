@@ -1,0 +1,26 @@
+<article class="card-product {{ 'card-product--stockout' if not in_stock }} {{ 'card-product--sold' if in_stock and not for_sale }}">
+  <div class="card-product__image">
+    <a href="/{{ site_name }}/sc/product/detail/{{ name }}/{{ id }}?sku={{ sku }}">
+      <figure>
+        {% if images[0] %}
+          <img class="img-fluid" src="{{ images[0].thumb_200 }}" alt="{{ name }}">
+        {% else %}
+          <img class="img-fluid" src="{{ static_url }}/img/empty-products-200.jpg" alt="{{ name }}">
+        {% endif %}
+      </figure>
+    </a>
+
+    {% if in_stock and for_sale %}
+    <button class="card-product__addtocart addtocart button" type="button">
+      <i class="button__icon material-icons">shopping_cart</i>
+    </button>
+    {% endif %}
+  </div>
+
+  <div class="card-product__content js-match-product-content">
+    <a href="/{{ site_name }}/sc/product/detail/{{ name }}/{{ id }}?sku={{ sku }}">
+      <h3 class="card-product__title">{{ name }}</h3>
+      <p class="card-product__price">$ {{ main_price | toLocaleString }}</p>
+    </a>
+  </div>
+</article>
