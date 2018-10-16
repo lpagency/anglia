@@ -1,0 +1,262 @@
+.product__body {
+  padding-bottom: 0;
+  padding-top: 25px;
+
+  @include mq($from: large) {
+    padding-bottom: 45px;
+    padding-top: 45px;  
+  }
+}
+
+.product__image {
+  display: inline-block;
+  position: relative;
+
+  @include mq($from: large) {
+    display: block;
+  }
+
+  img {
+    box-shadow: -2px 2px 30px 0 rgba($black, 0.22);
+  }
+}
+
+.product__title {
+  font-size: $font-size-large;
+  font-weight: 700;
+  margin: 0 0 5px;
+  text-transform: uppercase;
+
+  @include mq($from: large) {
+    font-size: $font-size-huge;
+  }
+}
+
+.product__sku {
+  font-size: $font-size-small;
+  margin: 10px 0;
+
+  @include mq($from: large) {
+    margin-top: 5px;
+  }
+}
+
+.product__price {
+  font-size: $font-size-large;
+  font-weight: 700;
+  margin: 0 0 40px;
+
+  @include mq($from: large) {
+    font-size: $font-size-huge;
+    font-weight: 400;
+    margin-top: 10px;
+  }
+}
+
+.product__addtocart {
+  margin-top: 50px;
+
+  @include mq($from: large) {
+    margin-top: 0;
+  }
+
+  .button {
+    width: 100%;
+
+    @include mq($from: large) {
+      width: auto;
+    }
+  }
+}
+
+.product__description {
+  margin-top: 40px;
+
+  @include mq($from: large) {
+    margin-top: 50px;
+  }
+
+  h3 {
+    color: $secondary;
+  }
+}
+
+.product__gallery {
+  margin: 0 auto;
+  max-width: 920px;
+
+  .slick-arrow:before {
+    color: rgba($general-color, 0.5);
+
+    @include mq($from: large) {
+      font-size: 52px;
+    }
+  }
+
+  .slick-prev {
+    left: 0;
+
+    @include mq($from: large) {
+      left: -60px;
+    }
+  }
+
+  .slick-next {
+    right: 0;
+
+    @include mq($from: large) {
+      right: -60px;
+    }
+  }
+}
+
+/**
+ * Aviso de producto vendido
+ */
+.product-sold-notice {
+  background-color: rgba($white, 0.7);
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  left: 0;
+  margin: 15px;
+  padding: 30px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+
+  @include mq($from: large) {
+    margin: 30px;
+  }
+}
+
+.product-sold-notice__title {
+  display: block;
+  font-size: $font-size-large;
+  font-weight: 700;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.product-sold-notice__text {
+  display: block;
+  font-size: 1em;
+  font-weight: 700;
+  width: 100%;
+
+  @include mq($from: large) {
+    font-size: 1.25em;
+  }
+}
+
+.product-back-button {
+  margin-left: -10px;
+}
+
+/**
+ * Lista de productos recomendados en la ficha del producto
+ */
+
+.products--recommended > .container {
+  @include mq($from: medium) {
+    max-width: none;
+  }
+
+  @include mq($from: 992px) {
+    max-width: 960px;
+  }
+
+  @include mq($from: 1200px) {
+    max-width: 1140px;
+  }
+}
+
+.products--recommended .slick-arrow:before {
+  color: $white;
+
+  @include mq($from: large) {
+    color: $secondary;
+  }
+}
+
+.products--recommended .slick-prev {
+  left: -30px;
+
+  @include mq($from: laptop) {
+    left: -50px;
+  }
+}
+
+.products--recommended .slick-next {
+  right: -30px;
+
+  @include mq($from: laptop) {
+    right: -50px;
+  }
+}
+
+.products--recommended .products__content.slick-dotted {
+  padding-bottom: 50px;
+
+  .slick-arrow {
+    margin-top: -25px;
+  }
+
+  .slick-arrow:hover {
+    transform: translate3d(0, -50%, 0);
+  }
+
+  .slick-prev {
+    left: 0;
+
+    @include mq($from: medium) {
+      left: 40px;
+    }
+  }
+
+  .slick-next {
+    right: 0;
+
+    @include mq($from: medium) {
+      right: 40px;
+    }
+  }
+
+  .slick-dots {
+    bottom: 0;
+  }
+}
+
+.products--recommended .products__content.slider.slick-initialized {
+  margin: 0 -20px;
+
+  .slider__item {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .card-product:after {
+    background-color: rgba($general-color, 0.7);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: $transition-base-out;
+    width: 100%;
+
+    @include mq($from: large) {
+      content: none;
+    }
+  }
+
+  .slick-current.slick-center .card-product:after {
+    background-color: transparent;
+    pointer-events: none;
+    transition: $transition-base-in;
+  }
+}

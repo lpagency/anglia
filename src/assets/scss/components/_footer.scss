@@ -1,0 +1,238 @@
+.footer {
+  background-color: $white;
+  padding-bottom: 60px;
+
+  @include mq($from: large) {
+    padding-bottom: 0;
+  }
+}
+
+.footer__menu {
+  padding: 50px 0 0;
+
+  @include mq($from: large) {
+    padding-bottom: 40px;
+    padding-top: 60px;
+  }
+}
+
+.footer__menu-main {
+  display: none;
+
+  @include mq($from: large) {
+    display: block;
+  }
+}
+
+.footer__menu-newsletter .footer-widget__title {
+  display: none;
+
+  @include mq($from: large) {
+    display: block;
+  }
+}
+
+.footer__menu-help .footer-widget {
+  border-top: 1px solid rgba($general-color, 0.3);
+
+  @include mq($from: large) {
+    border-top: 0;
+  }
+}
+
+.footer-widget {
+  border-bottom: 1px solid rgba($general-color, 0.3);
+  font-size: $font-size-medium;
+
+  @include mq($from: large) {
+    border-bottom: 0;
+  }
+
+  .menu {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 20px 0 50px;
+    transition: $transition-base-out;
+    visibility: hidden;
+
+    @include mq($from: large) {
+      max-height: none;
+      padding: 0;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .menu-item {
+    margin-bottom: 1.5em;
+    
+    @include mq($from: large) {
+      margin-bottom: 1.25em;
+    }
+
+    &:last-child {
+      @include mq($from: large) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .menu-item--email,
+  .menu-item--phone,
+  .menu-item--location {
+    padding-left: 25px;
+    position: relative;
+
+    &:before {
+      @extend .h-material-icons;
+      font-size: 18px;
+      left: 0;
+      position: absolute;
+      top: 2px;
+    }
+  }
+
+  .menu-item--email:before {
+    content: 'phone'
+  }
+
+  .menu-item--phone:before {
+    content: 'mail_outline'
+  }
+
+  .menu-item--location:before {
+    content: 'place'
+  }
+}
+
+.footer-widget__title {
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 700;
+  margin: 0;
+  padding: 25px 25px 25px 50px;
+  position: relative;
+  text-transform: uppercase;
+
+  @include mq($from: large) {
+    margin: 0 0 2em;
+    padding: 0;
+  }
+
+  &:after {
+    @extend .h-material-icons;
+    content: 'keyboard_arrow_down';
+    font-size: 32px;
+    left: 10px;
+    margin-top: -16px;
+    position: absolute;
+    top: 50%;
+    transform: rotate(0deg);
+    transition: $transition-base;
+
+    @include mq($from: large) {
+      content: none;
+    }
+  }
+}
+
+.footer-widget.collapse--is-open {
+  .footer-widget__title:after {
+    transform: rotate(180deg);
+  }
+
+  .menu {
+    max-height: none;
+    opacity: 1;
+    transition: $transition-base-in;
+    visibility: visible;
+  }
+}
+
+/**
+ * Estilos del formulario de newsletter
+ */
+
+.footer-newsletter {
+  margin-top: 40px;
+  position: relative;
+  text-align: center;
+
+  @include mq($from: large) {
+    margin-top: 0;
+    text-align: left;
+  }
+
+  .form-group {
+    margin: 0;
+  }
+
+  .form-control {
+    border: 1px solid $primary;
+    border-bottom: 0;
+    border-radius: 0;
+    color: $general-color;
+    font-size: $font-size-medium;
+    height: 42px;
+    padding: 0 15px;
+    text-align: inherit;
+    text-transform: uppercase;
+  }
+
+  .form-submit {
+    width: 100%;
+  }
+}
+
+/**
+ * Estilos del pie de página con los enlaces legales
+ */
+.footer_legal {
+  font-size: $font-size-small;
+  padding: 40px 0;
+  text-align: center;
+  text-transform: uppercase;
+
+  @include mq($from: large) {
+    border-top: 1px solid rgba($general-color, 0.3);
+    padding: 30px 0;
+    text-align: left;
+  }
+}
+
+.footer__social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+
+  @include mq($from: large) {
+    justify-content: flex-end;
+    margin-bottom: 0;
+  }
+}
+
+.social__item {
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  color: transparent;
+  display: block;
+  font-size: 0;
+  height: 22px;
+  margin-right: 30px;
+  width: 22px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  svg {
+    fill: $general-color;
+  }
+
+  &:hover svg {
+    fill: $primary;
+  }
+}

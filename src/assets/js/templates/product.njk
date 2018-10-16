@@ -1,0 +1,67 @@
+  <div class="product__body row">
+    <div class="col-lg-6 animation">
+      <header class="product__information h-mobile">
+        <h1 class="product__title">{{ name }}</h1>
+        <p class="product__sku">SKU Product: <span>{{ sku }}</span></p>
+
+        <div class="product__price">
+          <span class="price">${{ main_price | toLocaleString }}</span>
+        </div>
+      </header>
+
+      <figure class="product__image">
+        {% if images[0] %}
+          <img class="img-fluid" src="{{ images[0].thumb_500 }}" alt="{{ name }}">
+        {% else %}
+          <img class="img-fluid" src="{{ static_url }}/img/empty-products-500.jpg" alt="{{ name }}">
+        {% endif %}
+      </figure>
+    </div>
+
+    <div class="col-lg-6 animation">
+      <div class="product__content">
+        <header class="product__information h-desktop">
+          <h1 class="product__title">{{ name }}</h1>
+          <p class="product__sku">SKU Product: <span>{{ sku }}</span></p>
+
+          <div class="product__price">
+            <span class="price">${{ main_price | toLocaleString }}</span>
+          </div>
+        </header>
+
+        <div class="product__addtocart">
+          {% if in_stock and for_sale %}
+          <button class="button button--addtocart" type="button">
+            <span class="button__text">Agregar al carro</span>
+            <i class="button__icon material-icons">shopping_cart</i>
+          </button>
+          {% endif %}
+        </div>
+
+        <div class="product__description h-text">
+          <h3>DESCRIPCIÓN</h3>
+          <p>{{ description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% if images %}
+  <section class="gallery product__gallery h-top-spacing">
+    <div class="gallery__content slider js-product-gallery">
+      {% for image in images %}
+      <div class="gallery__content-item slider__item">
+        <img class="img-fluid" src="{{ image.thumb_500 }}" alt="">
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="gallery__navigation slider js-product-gallery-nav">
+      {% for image in images %}
+      <div class="gallery__navigation-item slider__item">
+        <img class="img-fluid" src="{{ image.thumb_200 }}" alt="">
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}

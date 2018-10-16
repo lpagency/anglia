@@ -1,0 +1,277 @@
+.button {
+  @extend .btn;
+  border: 1px solid transparent;
+  border-radius: 0;
+  color: $primary;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: $font-size-medium;
+  font-weight: 600;
+  margin: 0;
+  max-width: 100%;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: normal;
+
+  @include mq($from: small) {
+    font-size: 0.9375em;
+  }
+  
+  &:hover,
+  &:active,
+  &:focus {
+    box-shadow: none;
+    color: $primary;
+    outline: none;
+  }
+  
+  &:disabled,
+  &[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.button__text {
+  color: inherit;
+  display: block;
+  text-align: center;
+}
+
+.button__icon {
+  color: inherit;
+  display: block;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  
+  &:first-child {
+    margin-left: 0;
+  }
+  
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.button--primary,
+.button--secondary,
+.button--action,
+.button--addtocart {
+  background: transparent;
+  overflow: hidden;
+  position: relative;
+  transition: 250ms ease-out;
+  z-index: 1;
+
+  &:hover {
+    transition: $transition-base-in;
+  }
+
+  &:before {
+    border-radius: 50%;
+    bottom: 0;
+    content: '';
+    height: 1px;
+    left: 0;
+    margin: auto;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: scale3d(1, 1, 1);
+    transition: $transition-base-out;
+    width: 1px;
+    z-index: -1;
+  }
+
+  &:hover:before {
+    opacity: 1;
+    transform: scale3d(170, 170, 1);
+    transition: $transition-base-in;
+  }
+}
+
+.button--primary {
+  border-color: $white;
+  border-width: 2px;
+  color: $white;
+  font-size: $font-size-small;
+  font-weight: 700;
+  min-height: 37px;
+  padding: 5px 10px;
+
+  &:active,
+  &:focus {
+    color: $white;
+  }
+
+  &:before {
+    background-color: $white;
+  }
+  
+  &:hover {
+    color: $general-color;
+  }
+
+  &:active:before {
+    background-color: $secondary;
+  }
+}
+
+.button--secondary {
+  border-color: $primary;
+  color: $primary;
+  min-height: 52px;
+  padding: 0.5em 1em;
+
+  &:active,
+  &:focus {
+    color: $primary;
+  }
+
+  &:before {
+    background-color: $primary;
+    height: 2px;
+    width: 2px;
+  }
+
+  &:hover {
+    color: $white;
+  }
+
+  &:active:before {
+    background-color: $secondary;
+  }
+
+  .button__icon {
+    font-size: 32px;
+  }
+}
+
+.button--small {
+  font-size: $font-size-small;
+  font-weight: 700;
+  min-height: 38px;
+  padding: 0.5em 0.85em;
+}
+
+.button--addtocart {
+  background-color: $secondary;
+  border-color: $secondary;
+  color: $white;
+  min-height: 64px;
+  padding: 0.5em 1.25em;
+
+  &:active,
+  &:focus {
+    color: $white;
+  }
+
+  &:before {
+    background-color: $secondary-hover;
+    height: 2px;
+    width: 2px;
+  }
+
+  &:hover {
+    border-color: $secondary-hover;
+    color: $white;
+  }
+
+  &:active:before {
+    background-color: $secondary;
+  }
+
+  .button__icon {
+    font-size: 36px;
+    margin-left: 30px;
+
+    &:first-child {
+      left: 0;
+    }
+  }
+}
+
+.button--action {
+  background-color: $primary;
+  border-color: $primary;
+  color: $white;
+  min-height: 38px;
+  padding: 0.5em 1em;
+
+  &:active,
+  &:focus {
+    color: $white;
+  }
+
+  &:before {
+    background-color: $primary-hover;
+    height: 2px;
+    width: 2px;
+  }
+
+  &:hover {
+    color: $white;
+  }
+
+  &:active:before {
+    background-color: $secondary;
+  }
+
+  .button__icon {
+    font-size: 32px;
+  }
+}
+
+.button--tag {
+  background-color: transparent;
+  border: 1px solid $general-color;
+  color: $general-color;
+  font-size: $font-size-medium;
+  font-weight: 400;
+  margin-bottom: 4px;
+  padding: 5px 7px 5px 10px;
+  text-transform: none;
+
+  @include mq($from: large) {
+    padding: 2px 6px;
+  }
+
+  .button__text {
+    line-height: 1;
+  }
+
+  .button__icon {
+    font-size: 18px;
+    margin-left: 5px;
+  }
+
+  &:hover {
+    background-color: $primary;
+    color: $general-color;
+  }
+}
+
+.button--link {
+  color: $general-color;
+  font-size: 1em;
+  font-weight: 400;
+
+  .button__icon {
+    font-size: 32px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

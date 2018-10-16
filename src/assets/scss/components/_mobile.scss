@@ -1,0 +1,140 @@
+.mobile {
+  @include mq($from: large) {
+    display: none;
+  }
+}
+
+.mobile__bar {
+  background-color: $white;
+  border-top: 1px solid solid rgba($general-color, 0.3);
+  bottom: 0;
+  height: 60px;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 2000;
+}
+
+.mobile__bar .menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.mobile__bar .menu-item {
+  color: $primary;
+  height: 100%;
+  text-align: center;
+  width: 25%;
+
+  a {
+    color: inherit;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    transition: $transition-base;
+
+    &:active {
+      background-color: $background-color;
+      color: $secondary;
+    }
+  }
+
+  .material-icons {
+    font-size: 42px;
+  }
+}
+
+.mobile__bar .menu-item__icon {
+  &:after {
+    @extend .h-material-icons;
+    display: block;
+    font-size: 42px;
+  }
+}
+
+.mobile__bar .menu-item--menu .menu-item__icon:after {
+  content: 'menu';
+}
+
+.mobile__bar .menu-item--home .material-icons {
+  font-size: 38px;
+}
+
+.mobile__bar .menu-item--cart .material-icons {
+  font-size: 36px;
+}
+
+.mobile__bar .menu-item--menu.menu-item--is-open {
+
+}
+
+/**
+ * Ocultando el menú en versión mobile
+ */
+
+.secretmenu {
+  height: 100%;
+  opacity: 0;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  transition: 700ms cubic-bezier(.77, 0, .175, 1);
+  visibility: hidden;
+  width: 100%;
+  z-index: 99;
+
+  @include mq($from: large) {
+    height: auto;
+    opacity: 1;
+    overflow: visible;
+    position: static;
+    text-align: left;
+    visibility: visible;
+    width: auto;
+  }
+}
+
+.secretmenu__body {
+  background-color: $white;
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  transform: translateY(50px);
+  transition: 500ms cubic-bezier(.77, 0, .175, 1);
+  width: 100%;
+
+  @include mq($from: large) {
+    overflow: visible;
+    transform: none;
+  }
+}
+
+.secretmenu__content {
+  height: 100%;
+  position: relative;
+}
+
+body.menu--is-open {
+  overflow: hidden;
+
+  .menu-item--menu .menu-item__icon:after {
+    content: 'close';
+  }
+}
+
+.secretmenu--is-open {
+  opacity: 1;
+  transition: $transition-base-in;
+  visibility: visible;
+
+  .secretmenu__body {
+    transform: translateY(0);
+  }
+}

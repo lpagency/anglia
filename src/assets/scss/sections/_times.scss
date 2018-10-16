@@ -1,0 +1,99 @@
+/**
+ * Navegación de la sección de épocas
+ */
+
+.times-nav {
+  margin-bottom: 20px;
+
+  @include mq($from: medium) {
+    margin-bottom: 30px;
+  }
+
+  @include mq($from: large) {
+    margin-bottom: 50px;
+  }
+
+  .slick-slide.slick-active:first-child .times-nav__item>span:before {
+    content: none;
+  }
+
+  .slick-slide.slick-active:last-child .times-nav__item>span:after {
+    content: none;
+  }
+
+  .slick-current.slick-active .times-nav__item {
+    color: $secondary;
+
+    &:before {
+      background-color: $primary;
+    }
+  }
+}
+
+.times-nav__item {
+  cursor: pointer;
+  font-size: 0;
+  padding-bottom: 13px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  transition: $transition-base;
+
+  @include mq($from: large) {
+    color: $general-color;
+    font-size: 1em;
+    padding-bottom: 30px;
+  }
+
+  &:before {
+    background-color: transparent;
+    border: 1px solid $primary;
+    border-radius: 50%;
+    bottom: 0;
+    content: '';
+    height: 13px;
+    left: 50%;
+    margin-left: -6px;
+    position: absolute;
+    transition: $transition-base;
+    width: 13px;
+
+    @include mq($from: large) {
+      height: 18px;
+      margin-left: -9px;
+      width: 18px;
+    }
+  }
+
+  &:hover:before {
+    background-color: $primary;
+  }
+}
+
+.times-nav__item > span {
+  display: block;
+  pointer-events: none;
+
+  &:before,
+  &:after {
+    background-color: $secondary;
+    bottom: 50%;
+    content: '';
+    height: 1px;
+    position: absolute;
+    width: calc(50% - 6px);
+
+    @include mq($from: large) {
+      bottom: 8px;
+      width: calc(50% - 9px);
+    }
+  }
+
+  &:before {
+    left: 0;
+  }
+
+  &:after {
+    right: 0;
+  }
+}
