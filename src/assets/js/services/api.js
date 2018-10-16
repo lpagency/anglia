@@ -1,6 +1,6 @@
 /* global $ */
 
-const API_URL = process.env.MIX_API_URL || 'https://apibodegas.loadingplay.com';
+const API_URL = process.env.MIX_API_URL || 'https://apibodegas.loadingplay.com/v1';
 const SITE_NAME = process.env.MIX_SITE_NAME || 'anglia';
 const SITE_ID = process.env.MIX_SITE_ID || 86;
 const ACCESS_TOKEN = process.env.MIX_ACCESS_TOKEN || '';
@@ -12,8 +12,6 @@ const defaultOptions = {
   },
   data: {
     site_name: SITE_NAME,
-    site_id: SITE_ID,
-    ignore_stock: false,
   },
 };
 
@@ -34,7 +32,7 @@ function getProducts(queryParams) {
       order: 'DESC',
       ...queryParams,
     },
-    url: `${API_URL}/product/search`,
+    url: `${API_URL}/product/list`,
   }));
 };
 
@@ -50,7 +48,7 @@ function getProduct(sku) {
       ...defaultOptions.data,
       sku,
     },
-    url: `${API_URL}/v1/product`,
+    url: `${API_URL}/product`,
   }));
 }
 

@@ -10,10 +10,27 @@
       </figure>
     </a>
 
+
     {% if in_stock and for_sale %}
-    <button class="card-product__addtocart addtocart button" type="button">
-      <i class="button__icon material-icons">shopping_cart</i>
-    </button>
+
+      <button
+        class="card-product__addtocart addtocart button"
+        type="button"
+        id="open-cart"
+        data-toggle="modal"
+        data-target="#myModal"
+        product-upp="{{ upp }}"
+        product-name="{{ name }}"
+        product-price="{{ main_price }}"
+        product-sku="{{ sku }}"
+        product-id="{{ id }}"
+        product-img="{{ images[0]['thumb_500'] }}"
+        product-weight="{{ weight }}"
+        lp-cart-add
+      >
+        <i class="button__icon material-icons">shopping_cart</i>
+      </button>
+
     {% endif %}
   </div>
 
