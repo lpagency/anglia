@@ -7,8 +7,7 @@ const SITE_ID = process.env.MIX_SITE_ID || 86;
 const defaultOptions = {
   method: 'GET',
   data: {
-    site_name: SITE_NAME,
-    site_id: SITE_ID
+    site_name: SITE_NAME
   },
 };
 
