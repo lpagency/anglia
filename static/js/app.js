@@ -30030,6 +30030,11 @@ var TagFilters = function () {
     }
 
     _createClass(TagFilters, [{
+        key: 'callProductsHandler',
+        value: function callProductsHandler() {
+            $('.products').trigger('FILTERS_CHANGE_EVENT');
+        }
+    }, {
         key: 'setAPITagString',
         value: function setAPITagString() {
             var tag_strings = [];
@@ -30050,11 +30055,13 @@ var TagFilters = function () {
             $('.custom-control-input').on('click', function (e) {
                 _this.toggleTagState(e.target.id);
                 _this.renderAppliedFilters(_this.getTagState());
+                _this.callProductsHandler();
             });
 
             $('.applied-filters').on('click', 'i', function (e) {
                 _this.toggleTagState(e.target.getAttribute('tag'));
                 _this.renderAppliedFilters(_this.getTagState());
+                _this.callProductsHandler();
             });
 
             $('.empty_filters').on('click', function () {
@@ -30129,6 +30136,7 @@ var TagFilters = function () {
         value: function resetFilterState() {
             this.filter_state = this.initTagState(this.groups);
             this.renderAppliedFilters(this.getTagState);
+            this.callProductsHandler();
         }
     }]);
 
@@ -30408,6 +30416,7 @@ function init() {
   $products.on(REQUEST_START_EVENT, handleRequestStart);
   $products.on(REQUEST_END_EVENT, handleRequestEnd);
   $products.on(LOAD_MORE_EVENT, handleLoadMore);
+  $products.on(FILTERS_CHANGE_EVENT, handleRequest);
   $loadMoreBtn.on('click', handleLoadMoreBtnClick);
   $searchBtn.on('click', handleSearchBtnClick);
   $searchInput.on('keyup', handleInputEnter);

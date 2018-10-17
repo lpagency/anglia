@@ -9,6 +9,9 @@ class TagFilters {
         this.loadTagsFromURL();
     }
 
+    callProductsHandler() {
+        $('.products').trigger('FILTERS_CHANGE_EVENT');
+    }
 
     setAPITagString() {
         let tag_strings = [];
@@ -26,12 +29,14 @@ class TagFilters {
         $('.custom-control-input').on('click', e => {
             this.toggleTagState(e.target.id);
             this.renderAppliedFilters(this.getTagState());
+            this.callProductsHandler();
         });
 
         $('.applied-filters').on('click', 'i', 
         (e) => {
             this.toggleTagState(e.target.getAttribute('tag'));
             this.renderAppliedFilters(this.getTagState());
+            this.callProductsHandler();
         });
 
         $('.empty_filters').on('click',
@@ -100,6 +105,7 @@ class TagFilters {
     resetFilterState() {
         this.filter_state = this.initTagState(this.groups);
         this.renderAppliedFilters(this.getTagState);
+        this.callProductsHandler();
     }
 }
 
