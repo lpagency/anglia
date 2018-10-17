@@ -19,7 +19,7 @@
   @include mq($from: small) {
     font-size: 0.9375em;
   }
-  
+
   &:hover,
   &:active,
   &:focus {
@@ -27,7 +27,7 @@
     color: $primary;
     outline: none;
   }
-  
+
   &:disabled,
   &[disabled] {
     opacity: 0.5;
@@ -47,11 +47,11 @@
   margin-left: 10px;
   margin-right: 10px;
   text-align: center;
-  
+
   &:first-child {
     margin-left: 0;
   }
-  
+
   &:last-child {
     margin-right: 0;
   }
@@ -112,7 +112,7 @@
   &:before {
     background-color: $white;
   }
-  
+
   &:hover {
     color: $general-color;
   }
@@ -274,4 +274,19 @@
       margin-right: 0;
     }
   }
+}
+
+.btn-checkout {
+  background-color: $primary;
+  color: $white;
+  width: 31%;
+  border-radius: 0px;
+  height: 51px;
+  font-weight: 400;
+  float: right;
+}
+
+.btn-checkout-cancel {
+  background-color:rgba(0, 0, 0, 0.24);
+  float: left;
 }
