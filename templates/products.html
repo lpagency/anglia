@@ -1,13 +1,6 @@
 {% extends base.html %}
 
 {% block javascript %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script src="{{ site_base }}/common/js/environment.detection.js"></script>
-  <!-- TODO: utilizar este bodegas client y borrar el js de static
-    <script src="{{ site_base }}/common/js/bower/bodegas.client/dist/bodegas.client.es5.js"></script>
-  -->
-  <script src="{{ site_base }}/{{ nocache_static }}/js/bodegas.client.es5.js"></script>
-
   {% include 'bodegas.client.html' %}
 {% end %}
 
