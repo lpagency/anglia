@@ -1,52 +1,32 @@
 {% extends base.html %}
 
+{% block javascript %}
+  {% include 'bodegas.client.html' %}
+{% end %}
+
 {% block content %}
-<section class="section h-theme-light">
-  <div class="container">
+  <section class="section h-theme-light">
+    <div class="container">
 
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ site_base }}">Inicio</a></li>
-        <li class="breadcrumb-item"><a href="{{ site_base }}/products">Todos</a></li>
-        <li class="breadcrumb-item active">Bureau de Caoba</li>
-      </ol>
-    </nav>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ site_base }}">Inicio</a></li>
+          <li class="breadcrumb-item"><a href="{{ site_base }}/products">Todos</a></li>
+          <li class="breadcrumb-item active">Bureau de Caoba</li>
+        </ol>
+      </nav>
 
-    <div class="product-back-button h-mobile">
-      <a class="button button--link" href="{{ site_base }}">
-        <i class="button__icon material-icons">keyboard_arrow_left</i>
-        <span class="button__text">Volver</span>
-      </a>
-    </div>
+      <div class="product-back-button h-mobile">
+        <a class="button button--link" href="{{ site_base }}">
+          <i class="button__icon material-icons">keyboard_arrow_left</i>
+          <span class="button__text">Volver</span>
+        </a>
+      </div>
 
-    <article class="product product--view">
-      <div class="product__body row">
-        <div class="col-lg-6 animation">
-          <header class="product__information h-mobile">
-            <h1 class="product__title">Bureau de Caoba</h1>
-            <p class="product__sku">SKU Product: <span>BURCAOB001</span></p>
-
-            <div class="product__price">
-              <span class="price">$1.250.000</span>
-            </div>
-          </header>
-
-          <figure class="product__image">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-01.jpg" alt="Bureau de Caoba">
-
-            <div class="product-sold-notice">
-              <h4 class="product-sold-notice__title">Vendido</h4>
-
-              <div class="product-sold-notice__text">
-                <p>Despachado a Temuco, IX Región<br>Vía Chilexpress</p>
-              </div>
-            </div>
-          </figure>
-        </div>
-
-        <div class="col-lg-6 animation">
-          <div class="product__content">
-            <header class="product__information h-desktop">
+      <article class="product product--view">
+        <div class="product__body row">
+          <div class="col-lg-6 animation">
+            <header class="product__information h-mobile">
               <h1 class="product__title">Bureau de Caoba</h1>
               <p class="product__sku">SKU Product: <span>BURCAOB001</span></p>
 
@@ -55,280 +35,303 @@
               </div>
             </header>
 
-            <div class="product__addtocart">
-              <button class="button button--addtocart" disabled type="button">
-                <span class="button__text">No disponible</span>
-                <i class="button__icon material-icons">shopping_cart</i>
-              </button>
-            </div>
+            <figure class="product__image">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-01.jpg" alt="Bureau de Caoba">
 
-            <div class="product__description h-text">
-              <h3>DESCRIPCIÓN</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae lectus dapibus, tristique purus at, mattis
-                felis. Morbi sapien turpis, sodales in tempus vel, placerat molestie nulla. Nullam eu feugiat justo. Cras porta leo
-                in orci laoreet, non hendrerit sem finibus. Phasellus eleifend sed sem eu placerat. Quisque hendrerit volutpat sapien
-                sed faucibus. Mauris rhoncus mattis lectus. In et lacus in erat dapibus.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+              <div class="product-sold-notice">
+                <h4 class="product-sold-notice__title">Vendido</h4>
 
-      <section class="gallery product__gallery h-top-spacing">
-        <div class="gallery__content slider js-product-gallery">
-          <div class="gallery__content-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-02.jpg" alt="">
+                <div class="product-sold-notice__text">
+                  <p>Despachado a Temuco, IX Región<br>Vía Chilexpress</p>
+                </div>
+              </div>
+            </figure>
           </div>
 
-          <div class="gallery__content-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-01.jpg" alt="">
-          </div>
+          <div class="col-lg-6 animation">
+            <div class="product__content">
+              <header class="product__information h-desktop">
+                <h1 class="product__title">Bureau de Caoba</h1>
+                <p class="product__sku">SKU Product: <span>BURCAOB001</span></p>
 
-          <div class="gallery__content-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-02.jpg" alt="">
-          </div>
+                <div class="product__price">
+                  <span class="price">$1.250.000</span>
+                </div>
+              </header>
 
-          <div class="gallery__content-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-01.jpg" alt="">
-          </div>
+              <div class="product__addtocart">
+                <button class="button button--addtocart" disabled type="button">
+                  <span class="button__text">No disponible</span>
+                  <i class="button__icon material-icons">shopping_cart</i>
+                </button>
+              </div>
 
-          <div class="gallery__content-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-02.jpg" alt="">
-          </div>
-
-          <div class="gallery__content-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-01.jpg" alt="">
-          </div>
-
-          <div class="gallery__content-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-02.jpg" alt="">
-          </div>
-
-          <div class="gallery__content-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-01.jpg" alt="">
-          </div>
-
-          <div class="gallery__content-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-02.jpg" alt="">
-          </div>
-
-          <div class="gallery__content-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-01.jpg" alt="">
-          </div>
-        </div>
-
-        <div class="gallery__navigation slider js-product-gallery-nav">
-          <div class="gallery__navigation-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-01.jpg" alt="">
-          </div>
-
-          <div class="gallery__navigation-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-02.jpg" alt="">
-          </div>
-
-          <div class="gallery__navigation-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-03.jpg" alt="">
-          </div>
-
-          <div class="gallery__navigation-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-01.jpg" alt="">
-          </div>
-
-          <div class="gallery__navigation-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-02.jpg" alt="">
-          </div>
-
-          <div class="gallery__navigation-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-03.jpg" alt="">
-          </div>
-
-          <div class="gallery__navigation-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-01.jpg" alt="">
-          </div>
-
-          <div class="gallery__navigation-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-02.jpg" alt="">
-          </div>
-
-          <div class="gallery__navigation-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-03.jpg" alt="">
-          </div>
-
-          <div class="gallery__navigation-item slider__item">
-            <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-01.jpg" alt="">
-          </div>
-        </div>
-      </section>
-    </article>
-
-  </div>
-</section>
-
-<section class="section section--guarantees h-theme-light">
-  <div class="guarantees">
-    <div class="container">
-
-      <header class="guarantees__heading">
-        <h3 class="guarantees__title">Nos aseguramos de</h3>
-      </header>
-
-      <div class="guarantees__content group row">
-        <div class="group__item col-6 col-lg-3 animation">
-          <div class="guarantee">
-            <div class="guarantee__icon">
-              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/icon-guarantee-shipping.svg" alt="">
-            </div>
-
-            <div class="guarantee__text h-text" data-equalize="guarantee-text">
-              <p>Enviar a todo Chile mediante Chilexpress / Correos de Chile</p>
+              <div class="product__description h-text">
+                <h3>DESCRIPCIÓN</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae lectus dapibus, tristique purus at, mattis
+                  felis. Morbi sapien turpis, sodales in tempus vel, placerat molestie nulla. Nullam eu feugiat justo. Cras porta leo
+                  in orci laoreet, non hendrerit sem finibus. Phasellus eleifend sed sem eu placerat. Quisque hendrerit volutpat sapien
+                  sed faucibus. Mauris rhoncus mattis lectus. In et lacus in erat dapibus.</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="group__item col-6 col-lg-3 animation">
-          <div class="guarantee">
-            <div class="guarantee__icon">
-              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/icon-guarantee-refund.svg" alt="">
+        <section class="gallery product__gallery h-top-spacing">
+          <div class="gallery__content slider js-product-gallery">
+            <div class="gallery__content-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-02.jpg" alt="">
             </div>
 
-            <div class="guarantee__text h-text" data-equalize="guarantee-text">
-              <p>Cambios y devoluciones gratis</p>
+            <div class="gallery__content-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-01.jpg" alt="">
+            </div>
+
+            <div class="gallery__content-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-02.jpg" alt="">
+            </div>
+
+            <div class="gallery__content-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-01.jpg" alt="">
+            </div>
+
+            <div class="gallery__content-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-02.jpg" alt="">
+            </div>
+
+            <div class="gallery__content-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-01.jpg" alt="">
+            </div>
+
+            <div class="gallery__content-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-02.jpg" alt="">
+            </div>
+
+            <div class="gallery__content-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-01.jpg" alt="">
+            </div>
+
+            <div class="gallery__content-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-02.jpg" alt="">
+            </div>
+
+            <div class="gallery__content-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/product-view-01.jpg" alt="">
             </div>
           </div>
-        </div>
 
-        <div class="group__item col-6 col-lg-3 animation">
-          <div class="guarantee">
-            <div class="guarantee__icon">
-              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/icon-guarantee-days.svg" alt="">
+          <div class="gallery__navigation slider js-product-gallery-nav">
+            <div class="gallery__navigation-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-01.jpg" alt="">
             </div>
 
-            <div class="guarantee__text h-text" data-equalize="guarantee-text">
-              <p>para cambios Garantía de satisfacción</p>
+            <div class="gallery__navigation-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-02.jpg" alt="">
+            </div>
+
+            <div class="gallery__navigation-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-03.jpg" alt="">
+            </div>
+
+            <div class="gallery__navigation-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-01.jpg" alt="">
+            </div>
+
+            <div class="gallery__navigation-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-02.jpg" alt="">
+            </div>
+
+            <div class="gallery__navigation-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-03.jpg" alt="">
+            </div>
+
+            <div class="gallery__navigation-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-01.jpg" alt="">
+            </div>
+
+            <div class="gallery__navigation-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-02.jpg" alt="">
+            </div>
+
+            <div class="gallery__navigation-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-03.jpg" alt="">
+            </div>
+
+            <div class="gallery__navigation-item slider__item">
+              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-01.jpg" alt="">
             </div>
           </div>
-        </div>
-
-        <div class="group__item col-6 col-lg-3 animation">
-          <div class="guarantee">
-            <div class="guarantee__icon">
-              <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/icon-guarantee-payment.svg" alt="">
-            </div>
-
-            <div class="guarantee__text h-text" data-equalize="guarantee-text">
-              <p>Pago mediante Webpay o transferencia electrónica</p>
-            </div>
-          </div>
-        </div>
-      </div>
+        </section>
+      </article>
 
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section section--products h-theme-light">
-  <div class="products products--recommended">
-    <div class="container">
+  <section class="section section--guarantees h-theme-light">
+    <div class="guarantees">
+      <div class="container">
 
-      <header class="heading heading--isotype">
-        <h2 class="heading__title">Recomendados</h2>
-      </header>
+        <header class="guarantees__heading">
+          <h3 class="guarantees__title">Nos aseguramos de</h3>
+        </header>
 
-      <div class="products__content group slider row js-products-slider">
-        <div class="group__item slider__item col-3 animation">
-          <article class="card-product">
-            <div class="card-product__image js-background">
-              <a href="{{ site_base }}/products">
-                <figure class="h-background">
-                  <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-01.jpg" alt="">
-                </figure>
-              </a>
+        <div class="guarantees__content group row">
+          <div class="group__item col-6 col-lg-3 animation">
+            <div class="guarantee">
+              <div class="guarantee__icon">
+                <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/icon-guarantee-shipping.svg" alt="">
+              </div>
 
-              <button class="card-product__addtocart addtocart button" type="button">
-                <i class="button__icon material-icons">shopping_cart</i>
-              </button>
+              <div class="guarantee__text h-text" data-equalize="guarantee-text">
+                <p>Enviar a todo Chile mediante Chilexpress / Correos de Chile</p>
+              </div>
             </div>
+          </div>
 
-            <div class="card-product__content" data-equalize="card-product-content">
-              <a href="{{ site_base }}/products">
-                <h3 class="card-product__title">Cómoda Nogal</h3>
-                <p class="card-product__price">$1.200.000</p>
-              </a>
+          <div class="group__item col-6 col-lg-3 animation">
+            <div class="guarantee">
+              <div class="guarantee__icon">
+                <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/icon-guarantee-refund.svg" alt="">
+              </div>
+
+              <div class="guarantee__text h-text" data-equalize="guarantee-text">
+                <p>Cambios y devoluciones gratis</p>
+              </div>
             </div>
-          </article>
+          </div>
+
+          <div class="group__item col-6 col-lg-3 animation">
+            <div class="guarantee">
+              <div class="guarantee__icon">
+                <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/icon-guarantee-days.svg" alt="">
+              </div>
+
+              <div class="guarantee__text h-text" data-equalize="guarantee-text">
+                <p>para cambios Garantía de satisfacción</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group__item col-6 col-lg-3 animation">
+            <div class="guarantee">
+              <div class="guarantee__icon">
+                <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/icon-guarantee-payment.svg" alt="">
+              </div>
+
+              <div class="guarantee__text h-text" data-equalize="guarantee-text">
+                <p>Pago mediante Webpay o transferencia electrónica</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="group__item slider__item col-3 animation">
-          <article class="card-product">
-            <div class="card-product__image js-background">
-              <a href="{{ site_base }}/products">
-                <figure class="h-background">
-                  <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-02.jpg" alt="">
-                </figure>
-              </a>
-
-              <button class="card-product__addtocart addtocart button" type="button">
-                <i class="button__icon material-icons">shopping_cart</i>
-              </button>
-            </div>
-
-            <div class="card-product__content" data-equalize="card-product-content">
-              <a href="{{ site_base }}/products">
-                <h3 class="card-product__title">Cómoda Nogal</h3>
-                <p class="card-product__price">$1.200.000</p>
-              </a>
-            </div>
-          </article>
-        </div>
-
-        <div class="group__item slider__item col-3 animation">
-          <article class="card-product">
-            <div class="card-product__image js-background">
-              <a href="{{ site_base }}/products">
-                <figure class="h-background">
-                  <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-03.jpg" alt="">
-                </figure>
-              </a>
-
-              <button class="card-product__addtocart addtocart button" type="button">
-                <i class="button__icon material-icons">shopping_cart</i>
-              </button>
-            </div>
-
-            <div class="card-product__content" data-equalize="card-product-content">
-              <a href="{{ site_base }}/products">
-                <h3 class="card-product__title">Cómoda Nogal</h3>
-                <p class="card-product__price">$1.200.000</p>
-              </a>
-            </div>
-          </article>
-        </div>
-
-        <div class="group__item slider__item col-3 animation">
-          <article class="card-product">
-            <div class="card-product__image js-background">
-              <a href="{{ site_base }}/products">
-                <figure class="h-background">
-                  <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-01.jpg" alt="">
-                </figure>
-              </a>
-
-              <button class="card-product__addtocart addtocart button" type="button">
-                <i class="button__icon material-icons">shopping_cart</i>
-              </button>
-            </div>
-
-            <div class="card-product__content" data-equalize="card-product-content">
-              <a href="{{ site_base }}/products">
-                <h3 class="card-product__title">Cómoda Nogal</h3>
-                <p class="card-product__price">$1.200.000</p>
-              </a>
-            </div>
-          </article>
-        </div>
       </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
+  <section class="section section--products h-theme-light">
+    <div class="products products--recommended">
+      <div class="container">
+
+        <header class="heading heading--isotype">
+          <h2 class="heading__title">Recomendados</h2>
+        </header>
+
+        <div class="products__content group slider row js-products-slider">
+          <div class="group__item slider__item col-3 animation">
+            <article class="card-product">
+              <div class="card-product__image js-background">
+                <a href="{{ site_base }}/products">
+                  <figure class="h-background">
+                    <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-01.jpg" alt="">
+                  </figure>
+                </a>
+
+                <button class="card-product__addtocart addtocart button" type="button">
+                  <i class="button__icon material-icons">shopping_cart</i>
+                </button>
+              </div>
+
+              <div class="card-product__content" data-equalize="card-product-content">
+                <a href="{{ site_base }}/products">
+                  <h3 class="card-product__title">Cómoda Nogal</h3>
+                  <p class="card-product__price">$1.200.000</p>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <div class="group__item slider__item col-3 animation">
+            <article class="card-product">
+              <div class="card-product__image js-background">
+                <a href="{{ site_base }}/products">
+                  <figure class="h-background">
+                    <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-02.jpg" alt="">
+                  </figure>
+                </a>
+
+                <button class="card-product__addtocart addtocart button" type="button">
+                  <i class="button__icon material-icons">shopping_cart</i>
+                </button>
+              </div>
+
+              <div class="card-product__content" data-equalize="card-product-content">
+                <a href="{{ site_base }}/products">
+                  <h3 class="card-product__title">Cómoda Nogal</h3>
+                  <p class="card-product__price">$1.200.000</p>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <div class="group__item slider__item col-3 animation">
+            <article class="card-product">
+              <div class="card-product__image js-background">
+                <a href="{{ site_base }}/products">
+                  <figure class="h-background">
+                    <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-03.jpg" alt="">
+                  </figure>
+                </a>
+
+                <button class="card-product__addtocart addtocart button" type="button">
+                  <i class="button__icon material-icons">shopping_cart</i>
+                </button>
+              </div>
+
+              <div class="card-product__content" data-equalize="card-product-content">
+                <a href="{{ site_base }}/products">
+                  <h3 class="card-product__title">Cómoda Nogal</h3>
+                  <p class="card-product__price">$1.200.000</p>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <div class="group__item slider__item col-3 animation">
+            <article class="card-product">
+              <div class="card-product__image js-background">
+                <a href="{{ site_base }}/products">
+                  <figure class="h-background">
+                    <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-producto-01.jpg" alt="">
+                  </figure>
+                </a>
+
+                <button class="card-product__addtocart addtocart button" type="button">
+                  <i class="button__icon material-icons">shopping_cart</i>
+                </button>
+              </div>
+
+              <div class="card-product__content" data-equalize="card-product-content">
+                <a href="{{ site_base }}/products">
+                  <h3 class="card-product__title">Cómoda Nogal</h3>
+                  <p class="card-product__price">$1.200.000</p>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 {% end %}

@@ -1,75 +1,78 @@
 {% extends base.html %}
 
+{% block javascript %}
+  {% include 'bodegas.client.html' %}
+{% end %}
+
 {% block content %}
-<section class="section h-theme-light">
-  <div class="container">
+  <section class="section h-theme-light">
+    <div class="container">
 
-    <nav class="mb-20" aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ site_base }}">Inicio</a></li>
-        <li class="breadcrumb-item active">Términos y condiciones</li>
-      </ol>
-    </nav>
+      <nav class="mb-20" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ site_base }}">Inicio</a></li>
+          <li class="breadcrumb-item active">Términos y condiciones</li>
+        </ol>
+      </nav>
 
-    <article class="product product--view">
-      <header class="heading heading--isotype">
-        <h1 class="heading__title">Términos y condiciones</h1>
-      </header>
+      <article class="product product--view">
+        <header class="heading heading--isotype">
+          <h1 class="heading__title">Términos y condiciones</h1>
+        </header>
 
-      <div class="h-max-width-content h-mx-auto">
-        <div class="h-text">
-          <h3><strong>I. Aspectos Generales</strong></h3>
-          <p>El acceso y uso de este sitio web se rige por los términos y condiciones descritos a continuación, así como por la
-            legislación que le fuere aplicable en la República de Chile y, en silencio de aquéllos o de ésta, por los estándares
-            generalmente aceptados por el comercio electrónico. En consecuencia, todas las visitas y todas las compras y ventas
-            que se realizaren en este sitio, como asimismo sus efectos jurídicos, quedarán regidos por estas reglas y sometidas a
-            la legislación y a los estándares señalados.</p>
-          <p>Los términos y condiciones aquí descritos se entenderán formar parte de todas las compras y ventas que se ejecuten o
-            celebren mediante los sistemas de oferta y comercialización comprendidos en este sitio web entre los usuarios de este
-            sitio, en adelante indistintamente también como el/los "Usuario/s", el/los "Consumidor/es" o el/los "Cliente/s", y
-            Comercializadora 4 Design Spa, en adelante, la "Empresa", la cual es titular y administradora del sitio web
-            www.anglia.cl, en adelante, el "sitio".</p>
-          <p>Es requisito esencial para comprar en el Sitio la aceptación de los Términos y Condiciones. Al aceptar estos
-            Términos y Condiciones, los usuarios declaran haberse informado de manera clara, comprensible e inequívoca de los
-            mismos, y que han tenido la posibilidad de almacenarlos e imprimirlos.</p>
-          <p>Para todos los efectos legales y, con el propósito que los usuarios del Sitio puedan comunicarse con la empresa ("4
-            Design Spa"), se designa como representante legal a don Nicolás Valenzuela González, domiciliado para estos efectos
-            en calle Nueva Los Leones 0208, of. 41, comuna de Providencia, ciudad de Santiago. Correo electrónico de contacto:
-            contacto@depto51.cl. Teléfono de contacto: 973350252</p>
-          <h3><strong>II. Procedimiento para hacer uso del sitio web Anglia.cl</strong></h3>
-          <p>La Empresa informará, de manera inequívoca y fácilmente accesible, los pasos que el Cliente debe seguir para
-            adquirir los productos ofrecidos por medio de este sitio, y le informará vía correo electrónico una vez que sea
-            recibida la solicitud de compra del producto. Esta solicitud pasará por un proceso de validación de los datos del
-            Cliente, de recolección de los productos del pedido en base al stock disponible y, finalmente, se cerrará la venta
-            emitiéndose el documento correspondiente, el cual será enviado al Cliente junto con el despacho de su pedido. El sólo
-            hecho que el Usuario siga los pasos que para tales efectos se indican en este sitio para efectuar una compra,
-            equivale a aceptar que la Empresa ha dado cumplimiento efectivo a las condiciones contenidas en esta cláusula.
-            Indicará, además, su dirección de correo postal o electrónico y los medios técnicos a disposición del Consumidor para
-            identificar y corregir errores en el envío o en sus datos personales.</p>
-          <h3><strong>III. Derechos de los Usuarios de este sitio.</strong></h3>
-          <p>Los Usuarios gozarán de todos los derechos que le reconoce la legislación sobre protección al consumidor vigente en
-            el territorio de Chile, y además los que se le otorgan en estos términos y condiciones. La sola visita de este sitio
-            en el cual se ofrecen determinados bienes, no impone a los Usuarios obligación alguna, a menos que haya aceptado en
-            forma inequívoca las condiciones ofrecidas por la Empresa, en la forma indicada en estos términos y condiciones.</p>
-          <h3><strong>IV. Protección de sus datos personales.</strong></h3>
-          <p>Los datos personales que entreguen los Usuarios sólo podrán ser utilizados por la Empresa para perfeccionar
-            contratos de venta, recibir pagos y mejorar la labor de información y comercialización de los productos y servicios
-            con los Usuarios, y no podrán ser entregados a terceros no relacionados con la Empresa. El Usuario dispondrá siempre
-            de los derechos de información, rectificación y cancelación de sus datos personales de conformidad a la ley.</p>
-          <h3><strong>VI.  Derecho de retracto.</strong></h3>
-          <p>En las ventas celebradas por medio de este sitio el Consumidor no podrá retractarse del contrato celebrado, a menos
-            que en una determinada oferta se contemple expresamente esta posibilidad.</p>
-          <h3><strong>VII. Obligaciones especiales de la Empresa.</strong></h3>
-          <p>En las ventas efectuadas en este sitio, la Empresa informará su dirección de correo electrónico y los medios
-            técnicos a disposición del Usuario para identificar y corregir errores en el envío o en sus datos; y, si el documento
-            electrónico en que se formalice el contrato fuera archivado, cómo será accesible al Consumidor. Estas obligaciones se
-            entenderán cumplidas por el hecho de seguir el Usuario los pasos que se indican en el sitio para hacer una compra
-            determinada.</p>
+        <div class="h-max-width-content h-mx-auto">
+          <div class="h-text">
+            <h3><strong>I. Aspectos Generales</strong></h3>
+            <p>El acceso y uso de este sitio web se rige por los términos y condiciones descritos a continuación, así como por la
+              legislación que le fuere aplicable en la República de Chile y, en silencio de aquéllos o de ésta, por los estándares
+              generalmente aceptados por el comercio electrónico. En consecuencia, todas las visitas y todas las compras y ventas
+              que se realizaren en este sitio, como asimismo sus efectos jurídicos, quedarán regidos por estas reglas y sometidas a
+              la legislación y a los estándares señalados.</p>
+            <p>Los términos y condiciones aquí descritos se entenderán formar parte de todas las compras y ventas que se ejecuten o
+              celebren mediante los sistemas de oferta y comercialización comprendidos en este sitio web entre los usuarios de este
+              sitio, en adelante indistintamente también como el/los "Usuario/s", el/los "Consumidor/es" o el/los "Cliente/s", y
+              Comercializadora 4 Design Spa, en adelante, la "Empresa", la cual es titular y administradora del sitio web
+              www.anglia.cl, en adelante, el "sitio".</p>
+            <p>Es requisito esencial para comprar en el Sitio la aceptación de los Términos y Condiciones. Al aceptar estos
+              Términos y Condiciones, los usuarios declaran haberse informado de manera clara, comprensible e inequívoca de los
+              mismos, y que han tenido la posibilidad de almacenarlos e imprimirlos.</p>
+            <p>Para todos los efectos legales y, con el propósito que los usuarios del Sitio puedan comunicarse con la empresa ("4
+              Design Spa"), se designa como representante legal a don Nicolás Valenzuela González, domiciliado para estos efectos
+              en calle Nueva Los Leones 0208, of. 41, comuna de Providencia, ciudad de Santiago. Correo electrónico de contacto:
+              contacto@depto51.cl. Teléfono de contacto: 973350252</p>
+            <h3><strong>II. Procedimiento para hacer uso del sitio web Anglia.cl</strong></h3>
+            <p>La Empresa informará, de manera inequívoca y fácilmente accesible, los pasos que el Cliente debe seguir para
+              adquirir los productos ofrecidos por medio de este sitio, y le informará vía correo electrónico una vez que sea
+              recibida la solicitud de compra del producto. Esta solicitud pasará por un proceso de validación de los datos del
+              Cliente, de recolección de los productos del pedido en base al stock disponible y, finalmente, se cerrará la venta
+              emitiéndose el documento correspondiente, el cual será enviado al Cliente junto con el despacho de su pedido. El sólo
+              hecho que el Usuario siga los pasos que para tales efectos se indican en este sitio para efectuar una compra,
+              equivale a aceptar que la Empresa ha dado cumplimiento efectivo a las condiciones contenidas en esta cláusula.
+              Indicará, además, su dirección de correo postal o electrónico y los medios técnicos a disposición del Consumidor para
+              identificar y corregir errores en el envío o en sus datos personales.</p>
+            <h3><strong>III. Derechos de los Usuarios de este sitio.</strong></h3>
+            <p>Los Usuarios gozarán de todos los derechos que le reconoce la legislación sobre protección al consumidor vigente en
+              el territorio de Chile, y además los que se le otorgan en estos términos y condiciones. La sola visita de este sitio
+              en el cual se ofrecen determinados bienes, no impone a los Usuarios obligación alguna, a menos que haya aceptado en
+              forma inequívoca las condiciones ofrecidas por la Empresa, en la forma indicada en estos términos y condiciones.</p>
+            <h3><strong>IV. Protección de sus datos personales.</strong></h3>
+            <p>Los datos personales que entreguen los Usuarios sólo podrán ser utilizados por la Empresa para perfeccionar
+              contratos de venta, recibir pagos y mejorar la labor de información y comercialización de los productos y servicios
+              con los Usuarios, y no podrán ser entregados a terceros no relacionados con la Empresa. El Usuario dispondrá siempre
+              de los derechos de información, rectificación y cancelación de sus datos personales de conformidad a la ley.</p>
+            <h3><strong>VI.  Derecho de retracto.</strong></h3>
+            <p>En las ventas celebradas por medio de este sitio el Consumidor no podrá retractarse del contrato celebrado, a menos
+              que en una determinada oferta se contemple expresamente esta posibilidad.</p>
+            <h3><strong>VII. Obligaciones especiales de la Empresa.</strong></h3>
+            <p>En las ventas efectuadas en este sitio, la Empresa informará su dirección de correo electrónico y los medios
+              técnicos a disposición del Usuario para identificar y corregir errores en el envío o en sus datos; y, si el documento
+              electrónico en que se formalice el contrato fuera archivado, cómo será accesible al Consumidor. Estas obligaciones se
+              entenderán cumplidas por el hecho de seguir el Usuario los pasos que se indican en el sitio para hacer una compra
+              determinada.</p>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
 
-  </div>
-</section>
-
+    </div>
+  </section>
 {% end %}

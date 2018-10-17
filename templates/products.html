@@ -1,44 +1,316 @@
 {% extends base.html %}
 
 {% block javascript %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="{{ site_base }}/common/js/environment.detection.js"></script>
-<!-- TODO: utilizar este bodegas client y borrar el js de static
-  <script src="{{ site_base }}/common/js/bower/bodegas.client/dist/bodegas.client.es5.js"></script>
--->
-<script src="{{ site_base }}/{{ nocache_static }}/js/bodegas.client.es5.js"></script>
-
-{% include 'bodegas.client.html' %}
+  {% include 'bodegas.client.html' %}
 {% end %}
 
 {% block content %}
-<section class="section section--products h-theme-light">
-  <div class="products products--list" data-page="1">
-    <div class="container">
+  <section class="section section--products h-theme-light">
+    <div class="products products--list" data-page="1">
+      <div class="container">
 
-      <nav class="products__breadcrumb" aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{ site_base }}">Inicio</a></li>
-          <li class="breadcrumb-item active">Todos</li>
-        </ol>
-      </nav>
+        <nav class="products__breadcrumb" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ site_base }}">Inicio</a></li>
+            <li class="breadcrumb-item active">Todos</li>
+          </ol>
+        </nav>
 
-      <div class="row">
-        <div class="col-lg-3">
-          <aside class="products__filters">
-            <div class="filters-heading h-mobile">
-              <p><strong>Todos los productos</strong> <span>32 productos</span></p>
-            </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <aside class="products__filters">
+              <div class="filters-heading h-mobile">
+                <p><strong>Todos los productos</strong> <span>32 productos</span></p>
+              </div>
 
-            <p class="label--small h-desktop">Filtros</p>
+              <p class="label--small h-desktop">Filtros</p>
 
-            <button class="filters-toggle button js-toggle-filters">
-              <span class="button__text">Ver filtros</span>
-              <i class="button__icon"></i>
-            </button>
+              <button class="filters-toggle button js-toggle-filters">
+                <span class="button__text">Ver filtros</span>
+                <i class="button__icon"></i>
+              </button>
 
-            <div class="filters-group js-filters-group">
-              <div class="filters filters--applied h-mobile">
+              <div class="filters-group js-filters-group">
+                <div class="filters filters--applied h-mobile">
+                  <p class="label--small">Haz seleccionado</p>
+
+                  <div class="applied-filters">
+                    <button class="button button--tag" type="button">
+                      <span class="button__text">Persa</span>
+                      <i class="button__icon material-icons"> close</i>
+                    </button>
+
+                    <button class="button button--tag" type="button">
+                      <span class="button__text">Rectangular</span>
+                      <i class="button__icon material-icons"> close</i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="filters js-filters">
+                  <h4 class="filters__label">
+                    <a class="collapsed" data-toggle="collapse" data-target="#epocaFilters" aria-expanded="false" aria-controls="epocaFilters">Época</a>
+                  </h4>
+
+                  <div class="collapse" id="epocaFilters">
+                    <div class="filters__group">
+                      <div class="filter custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="epoca_victoriana">
+                        <label class="custom-control-label" for="epoca_victoriana">Victoriana</label>
+                      </div>
+
+                      <div class="filter custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="epoca_persa" checked>
+                        <label class="custom-control-label" for="epoca_persa">Persa</label>
+                      </div>
+
+                      <div class="filter custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="epoca_eduardiana">
+                        <label class="custom-control-label" for="epoca_eduardiana">Eduardiana</label>
+                      </div>
+
+                      <div class="filter custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="epoca_georgian">
+                        <label class="custom-control-label" for="epoca_georgian">Georgian</label>
+                      </div>
+
+                      <div class="filter custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="epoca_regencia">
+                        <label class="custom-control-label" for="epoca_regencia">Regencia</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="filters js-filters">
+                  <h4 class="filters__label">
+                    <a class="collapsed" data-toggle="collapse" data-target="#pensadoFilters" aria-expanded="false" aria-controls="pensadoFilters">Pensado para</a>
+                  </h4>
+
+                  <div class="filters__group collapse" id="pensadoFilters">
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="pensado_dormitorio">
+                      <label class="custom-control-label" for="pensado_dormitorio">Dormitorio</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="pensado_pasillo">
+                      <label class="custom-control-label" for="pensado_pasillo">Pasillo</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="pensado_accesos">
+                      <label class="custom-control-label" for="pensado_accesos">Accesos</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="pensado_comedor">
+                      <label class="custom-control-label" for="pensado_comedor">Comedor</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="pensado_sala-de-estar">
+                      <label class="custom-control-label" for="pensado_sala-de-estar">Sala de estar</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="pensado_escritorio">
+                      <label class="custom-control-label" for="pensado_escritorio">Escritorio</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="filters js-filters">
+                  <h4 class="filters__label">
+                    <a class="collapsed" data-toggle="collapse" data-target="#maderaFilters" aria-expanded="false" aria-controls="maderaFilters">Tipo de madera</a>
+                  </h4>
+
+                  <div class="filters__group collapse" id="maderaFilters">
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="madera_alcanfor">
+                      <label class="custom-control-label" for="madera_alcanfor">Alcanfor</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="madera_caoba">
+                      <label class="custom-control-label" for="madera_caoba">Caoba</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="madera_encina">
+                      <label class="custom-control-label" for="madera_encina">Encina</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="madera_fresno">
+                      <label class="custom-control-label" for="madera_fresno">Fresno</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="madera_haya">
+                      <label class="custom-control-label" for="madera_haya">Haya</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="madera_nogal">
+                      <label class="custom-control-label" for="madera_nogal">Nogal</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="madera_pino">
+                      <label class="custom-control-label" for="madera_pino">Pino</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="madera_olmo">
+                      <label class="custom-control-label" for="madera_olmo">Olmo</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="madera_satinwood">
+                      <label class="custom-control-label" for="madera_satinwood">Satinwood</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="filters js-filters">
+                  <h4 class="filters__label">
+                    <a class="collapsed" data-toggle="collapse" data-target="#formaFilters" aria-expanded="false" aria-controls="formaFilters">Forma</a>
+                  </h4>
+
+                  <div class="filters__group collapse" id="formaFilters">
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="forma_cuadrada">
+                      <label class="custom-control-label" for="forma_cuadrada">Cuadrada</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="forma_costados-abatiles">
+                      <label class="custom-control-label" for="forma_costados-abatiles">Costados Abatiles</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="forma_curvo">
+                      <label class="custom-control-label" for="forma_curvo">Curvo</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="forma_frente-curvo">
+                      <label class="custom-control-label" for="forma_frente-curvo">Frente curvo</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="forma_octagonal">
+                      <label class="custom-control-label" for="forma_octagonal">Octagonal</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="forma_ovalada">
+                      <label class="custom-control-label" for="forma_ovalada">Ovalada</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="forma_rectangular" checked>
+                      <label class="custom-control-label" for="forma_rectangular">Rectangular</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="forma_redonda">
+                      <label class="custom-control-label" for="forma_redonda">Redonda</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="forma_triangular">
+                      <label class="custom-control-label" for="forma_triangular">Triangular</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="filters js-filters">
+                  <h4 class="filters__label">
+                    <a class="collapsed" data-toggle="collapse" data-target="#respaldoFilters" aria-expanded="false" aria-controls="respaldoFilters">Respaldo</a>
+                  </h4>
+
+                  <div class="filters__group collapse" id="respaldoFilters">
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="respaldo_pasillos-torneados">
+                      <label class="custom-control-label" for="respaldo_pasillos-torneados">Pasillos torneados</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="respaldo_tipo-escalera">
+                      <label class="custom-control-label" for="respaldo_tipo-escalera">Tipo escalera</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="filters js-filters">
+                  <h4 class="filters__label">
+                    <a class="collapsed" data-toggle="collapse" data-target="#tiradorFilters" aria-expanded="false" aria-controls="tiradorFilters">Tirador de cajón</a>
+                  </h4>
+
+                  <div class="filters__group collapse" id="tiradorFilters">
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="tirador_torneadas-madera">
+                      <label class="custom-control-label" for="tirador_torneadas-madera">Torneadas madera</label>
+                    </div>
+
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="tirador_tiradores-de-bronce">
+                      <label class="custom-control-label" for="tirador_tiradores-de-bronce">Tiradores de bronce</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="filters js-filters">
+                  <h4 class="filters__label">
+                    <a class="collapsed" data-toggle="collapse" data-target="#matequeriaFilters" aria-expanded="false" aria-controls="matequeriaFilters">Maquetería</a>
+                  </h4>
+
+                  <div class="filters__group collapse" id="matequeriaFilters">
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="matequeria_madera-frutal">
+                      <label class="custom-control-label" for="matequeria_madera-frutal">Madera frutal</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="filters js-filters">
+                  <h4 class="filters__label">
+                    <a class="collapsed" data-toggle="collapse" data-target="#asientoFilters" aria-expanded="false" aria-controls="asientoFilters">Asiento</a>
+                  </h4>
+
+                  <div class="filters__group collapse" id="asientoFilters">
+                    <div class="filter custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="asiento_rafia">
+                      <label class="custom-control-label" for="asiento_rafia">Rafia</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          <div class="col-lg-9">
+            <div class="products__toolbar toolbar">
+              <div class="toolbar__setup">
+                <div class="toolbar_products">
+                  <p><strong>Todos los productos</strong> - <span>32 productos</span></p>
+                </div>
+
+                <div class="toolbar__order order-products">
+                  <label class="order-products__label" for="productsOrder">Ordenar por</label>
+
+                  <select class="order-products__select" id="productsOrder" data-dropup-auto="false">
+                    <option value="featured" selected>Destacados</option>
+                    <option value="priceAsc">Precios de menor a mayor</option>
+                    <option value="priceDesc">Precios de mayor a menor</option>
+                    <option value="date">Nuevos productos</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="toolbar__applied">
                 <p class="label--small">Haz seleccionado</p>
 
                 <div class="applied-filters">
@@ -52,307 +324,27 @@
                     <i class="button__icon material-icons"> close</i>
                   </button>
                 </div>
-              </div>
 
-              <div class="filters js-filters">
-                <h4 class="filters__label">
-                  <a class="collapsed" data-toggle="collapse" data-target="#epocaFilters" aria-expanded="false" aria-controls="epocaFilters">Época</a>
-                </h4>
-
-                <div class="collapse" id="epocaFilters">
-                  <div class="filters__group">
-                    <div class="filter custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="epoca_victoriana">
-                      <label class="custom-control-label" for="epoca_victoriana">Victoriana</label>
-                    </div>
-
-                    <div class="filter custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="epoca_persa" checked>
-                      <label class="custom-control-label" for="epoca_persa">Persa</label>
-                    </div>
-
-                    <div class="filter custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="epoca_eduardiana">
-                      <label class="custom-control-label" for="epoca_eduardiana">Eduardiana</label>
-                    </div>
-
-                    <div class="filter custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="epoca_georgian">
-                      <label class="custom-control-label" for="epoca_georgian">Georgian</label>
-                    </div>
-
-                    <div class="filter custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="epoca_regencia">
-                      <label class="custom-control-label" for="epoca_regencia">Regencia</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="filters js-filters">
-                <h4 class="filters__label">
-                  <a class="collapsed" data-toggle="collapse" data-target="#pensadoFilters" aria-expanded="false" aria-controls="pensadoFilters">Pensado para</a>
-                </h4>
-
-                <div class="filters__group collapse" id="pensadoFilters">
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="pensado_dormitorio">
-                    <label class="custom-control-label" for="pensado_dormitorio">Dormitorio</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="pensado_pasillo">
-                    <label class="custom-control-label" for="pensado_pasillo">Pasillo</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="pensado_accesos">
-                    <label class="custom-control-label" for="pensado_accesos">Accesos</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="pensado_comedor">
-                    <label class="custom-control-label" for="pensado_comedor">Comedor</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="pensado_sala-de-estar">
-                    <label class="custom-control-label" for="pensado_sala-de-estar">Sala de estar</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="pensado_escritorio">
-                    <label class="custom-control-label" for="pensado_escritorio">Escritorio</label>
-                  </div>
-                </div>
-              </div>
-
-              <div class="filters js-filters">
-                <h4 class="filters__label">
-                  <a class="collapsed" data-toggle="collapse" data-target="#maderaFilters" aria-expanded="false" aria-controls="maderaFilters">Tipo de madera</a>
-                </h4>
-
-                <div class="filters__group collapse" id="maderaFilters">
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="madera_alcanfor">
-                    <label class="custom-control-label" for="madera_alcanfor">Alcanfor</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="madera_caoba">
-                    <label class="custom-control-label" for="madera_caoba">Caoba</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="madera_encina">
-                    <label class="custom-control-label" for="madera_encina">Encina</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="madera_fresno">
-                    <label class="custom-control-label" for="madera_fresno">Fresno</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="madera_haya">
-                    <label class="custom-control-label" for="madera_haya">Haya</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="madera_nogal">
-                    <label class="custom-control-label" for="madera_nogal">Nogal</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="madera_pino">
-                    <label class="custom-control-label" for="madera_pino">Pino</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="madera_olmo">
-                    <label class="custom-control-label" for="madera_olmo">Olmo</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="madera_satinwood">
-                    <label class="custom-control-label" for="madera_satinwood">Satinwood</label>
-                  </div>
-                </div>
-              </div>
-
-              <div class="filters js-filters">
-                <h4 class="filters__label">
-                  <a class="collapsed" data-toggle="collapse" data-target="#formaFilters" aria-expanded="false" aria-controls="formaFilters">Forma</a>
-                </h4>
-
-                <div class="filters__group collapse" id="formaFilters">
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="forma_cuadrada">
-                    <label class="custom-control-label" for="forma_cuadrada">Cuadrada</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="forma_costados-abatiles">
-                    <label class="custom-control-label" for="forma_costados-abatiles">Costados Abatiles</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="forma_curvo">
-                    <label class="custom-control-label" for="forma_curvo">Curvo</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="forma_frente-curvo">
-                    <label class="custom-control-label" for="forma_frente-curvo">Frente curvo</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="forma_octagonal">
-                    <label class="custom-control-label" for="forma_octagonal">Octagonal</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="forma_ovalada">
-                    <label class="custom-control-label" for="forma_ovalada">Ovalada</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="forma_rectangular" checked>
-                    <label class="custom-control-label" for="forma_rectangular">Rectangular</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="forma_redonda">
-                    <label class="custom-control-label" for="forma_redonda">Redonda</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="forma_triangular">
-                    <label class="custom-control-label" for="forma_triangular">Triangular</label>
-                  </div>
-                </div>
-              </div>
-
-              <div class="filters js-filters">
-                <h4 class="filters__label">
-                  <a class="collapsed" data-toggle="collapse" data-target="#respaldoFilters" aria-expanded="false" aria-controls="respaldoFilters">Respaldo</a>
-                </h4>
-
-                <div class="filters__group collapse" id="respaldoFilters">
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="respaldo_pasillos-torneados">
-                    <label class="custom-control-label" for="respaldo_pasillos-torneados">Pasillos torneados</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="respaldo_tipo-escalera">
-                    <label class="custom-control-label" for="respaldo_tipo-escalera">Tipo escalera</label>
-                  </div>
-                </div>
-              </div>
-
-              <div class="filters js-filters">
-                <h4 class="filters__label">
-                  <a class="collapsed" data-toggle="collapse" data-target="#tiradorFilters" aria-expanded="false" aria-controls="tiradorFilters">Tirador de cajón</a>
-                </h4>
-
-                <div class="filters__group collapse" id="tiradorFilters">
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="tirador_torneadas-madera">
-                    <label class="custom-control-label" for="tirador_torneadas-madera">Torneadas madera</label>
-                  </div>
-
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="tirador_tiradores-de-bronce">
-                    <label class="custom-control-label" for="tirador_tiradores-de-bronce">Tiradores de bronce</label>
-                  </div>
-                </div>
-              </div>
-
-              <div class="filters js-filters">
-                <h4 class="filters__label">
-                  <a class="collapsed" data-toggle="collapse" data-target="#matequeriaFilters" aria-expanded="false" aria-controls="matequeriaFilters">Maquetería</a>
-                </h4>
-
-                <div class="filters__group collapse" id="matequeriaFilters">
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="matequeria_madera-frutal">
-                    <label class="custom-control-label" for="matequeria_madera-frutal">Madera frutal</label>
-                  </div>
-                </div>
-              </div>
-
-              <div class="filters js-filters">
-                <h4 class="filters__label">
-                  <a class="collapsed" data-toggle="collapse" data-target="#asientoFilters" aria-expanded="false" aria-controls="asientoFilters">Asiento</a>
-                </h4>
-
-                <div class="filters__group collapse" id="asientoFilters">
-                  <div class="filter custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="asiento_rafia">
-                    <label class="custom-control-label" for="asiento_rafia">Rafia</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </aside>
-        </div>
-
-        <div class="col-lg-9">
-          <div class="products__toolbar toolbar">
-            <div class="toolbar__setup">
-              <div class="toolbar_products">
-                <p><strong>Todos los productos</strong> - <span>32 productos</span></p>
-              </div>
-
-              <div class="toolbar__order order-products">
-                <label class="order-products__label" for="productsOrder">Ordenar por</label>
-
-                <select class="order-products__select" id="productsOrder" data-dropup-auto="false">
-                  <option value="featured" selected>Destacados</option>
-                  <option value="priceAsc">Precios de menor a mayor</option>
-                  <option value="priceDesc">Precios de mayor a menor</option>
-                  <option value="date">Nuevos productos</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="toolbar__applied">
-              <p class="label--small">Haz seleccionado</p>
-
-              <div class="applied-filters">
-                <button class="button button--tag" type="button">
-                  <span class="button__text">Persa</span>
-                  <i class="button__icon material-icons"> close</i>
-                </button>
-
-                <button class="button button--tag" type="button">
-                  <span class="button__text">Rectangular</span>
-                  <i class="button__icon material-icons"> close</i>
+                <button class="applied-filters__clean button" type="button">
+                  <span class="button__text label--small">Eliminar filtros</span>
                 </button>
               </div>
-
-              <button class="applied-filters__clean button" type="button">
-                <span class="button__text label--small">Eliminar filtros</span>
-              </button>
             </div>
-          </div>
 
-          <div class="group row" id="products-list">
-          </div>
+            <div class="group row" id="products-list">
+            </div>
 
-          <nav class="products__pagination">
-            <p class="text-center">
-              <button class="button button--action px-5" id="products-load-more">
-                <span class="button__text">Cargar más</span>
-              </button>
-            </p>
-          </nav>
+            <nav class="products__pagination">
+              <p class="text-center">
+                <button class="button button--action px-5" id="products-load-more">
+                  <span class="button__text">Cargar más</span>
+                </button>
+              </p>
+            </nav>
+          </div>
         </div>
+
       </div>
-
     </div>
-  </div>
-</section>
-
+  </section>
 {% end %}

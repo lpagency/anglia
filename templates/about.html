@@ -1,120 +1,124 @@
 {% extends base.html %}
 
+{% block javascript %}
+  {% include 'bodegas.client.html' %}
+{% end %}
+
 {% block content %}
-<section class="section h-theme-light">
-  <div class="container">
-
-    <nav class="mb-20" aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ site_base }}">Inicio</a></li>
-        <li class="breadcrumb-item active">Quiénes Somos</li>
-      </ol>
-    </nav>
-
-    <article class="product product--view">
-      <header class="heading heading--isotype">
-        <h1 class="heading__title">Nuestra historia</h1>
-      </header>
-
-      <div class="h-max-width-content h-mx-auto">
-        <p>Comenzamos en 2009 importando finos productos manufacturados en el Reino Unido, principalmente del rubro vestuario. En el camino hemos descubierto empresas que llevan varias generaciones dedicadas a sus respectivos rubros, caracterizándose por su experto uso de materiales nobles y diseños atemporales. A la fecha hemos visitado sus fábricas en Inglaterra, Gales, Escocia, e Irlanda, conociendo la gente y los procesos detrás de estos nobles productos.</p>
-        <p>No sólo tendremos los productos en nuestros locales de Isidora Goyenechea 3000 (desde 2009) y de Nueva Costanera 3900 (desde 2015). Además, desarrollamos un sitio web para exhibirlos y próximamente venderlos a todo el país. Anglia es nuestra marca registrada para este fin, y recuerda a uno de los antiguos reinos que dio origen a Inglaterra. En este sitio ofreceremos lo mejor del mundo Anglo-sajón.</p>
-        <p>Además, debido a la buena recepción de los productos y marcas del rubro vestuario con que trabajamos, decidimos ampliarnos hacia productos para el hogar, comenzando por los muebles ingleses.</p>
-        <p>Los muebles de época ingleses se caracterizan por su sobriedad y estilo inigualables, y son siempre una muestra de distinción en los ambientes en que se incorporan. Los usamos para decoración en nuestras tiendas, llamando siempre la atención por su diseño y autenticidad.</p>
-        <p>Por mueble de época se entiende un mueble que fue fabricado a mano en un pasado ya lejano (100 años+), con la madera, técnicas y el estilo imperante a la fecha. Los muebles ingleses que ofrecemos fueron fabricados por mueblistas, en talleres que crecieron con la expansión del imperio británico y la revolución industrial, que comenzó en Inglaterra a mediados de 1700. Este desarrollo económico permitió un refinamiento en la forma de vida de muchas familias, las que pudieron mejorar sus casas y mobiliario, tanto en el país como en las colonias. Fue un proceso que necesitó muchos muebles, algunos de los cuales han durado hasta nuestro tiempo.</p>
-        <p>Contamos con asesores que nos permiten distinguir entre un mueble de época y una reproducción o copia. Obtenemos nuestros muebles en originales en casas particulares, comerciantes, remates y por ofertas directas (algunos han estado en la misma familia por generaciones). Los almacenamos en nuestra bodega en UK y los traemos al país por vía marítima. Aquí los restauramos en forma conservadora, de manera de no borrar las huellas del tiempo, que da encanto y valor único a cada pieza. No hay dos muebles iguales. Nuestros muebles más antiguos son del período Georgiano, de mediados de 1700…</p>
-        <p>El conocimiento del mercado de UK, y nuestra logística de almacenaje e importación nos han permitido traer al país muebles originales, con un surtido y precio sin comparación.</p>
-        <p>Bienvenido a la mejor oferta de productos originales del mundo Anglo-sajón!</p>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<section class="section section--categories h-theme-light">
-  <div class="categories categories--about">
+  <section class="section h-theme-light">
     <div class="container">
 
-      <header class="heading heading--isotype">
-        <h3 class="heading__title">Conoce nuestras categorías</h3>
-      </header>
+      <nav class="mb-20" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ site_base }}">Inicio</a></li>
+          <li class="breadcrumb-item active">Quiénes Somos</li>
+        </ol>
+      </nav>
 
-      <div class="categories__content group slider row justify-content-center js-categories-slider">
-        <div class="group__item slider__item col-12 col-lg-4 col-xl-3">
-          <article class="card-category animation js-background">
-            <a href="{{ site_base }}/products">
-              <div class="card-category__background h-absolute">
-                <figure class="h-background">
-                  <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-06.jpg" alt="">
-                </figure>
-              </div>
+      <article class="product product--view">
+        <header class="heading heading--isotype">
+          <h1 class="heading__title">Nuestra historia</h1>
+        </header>
 
-              <div class="card-category__content">
-                <h3 class="card-category__title">Sala de estar</h3>
-
-                <div class="car-category__button">
-                  <div class="button button--primary">
-                    <span class="button__text">Ver más</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </article>
+        <div class="h-max-width-content h-mx-auto">
+          <p>Comenzamos en 2009 importando finos productos manufacturados en el Reino Unido, principalmente del rubro vestuario. En el camino hemos descubierto empresas que llevan varias generaciones dedicadas a sus respectivos rubros, caracterizándose por su experto uso de materiales nobles y diseños atemporales. A la fecha hemos visitado sus fábricas en Inglaterra, Gales, Escocia, e Irlanda, conociendo la gente y los procesos detrás de estos nobles productos.</p>
+          <p>No sólo tendremos los productos en nuestros locales de Isidora Goyenechea 3000 (desde 2009) y de Nueva Costanera 3900 (desde 2015). Además, desarrollamos un sitio web para exhibirlos y próximamente venderlos a todo el país. Anglia es nuestra marca registrada para este fin, y recuerda a uno de los antiguos reinos que dio origen a Inglaterra. En este sitio ofreceremos lo mejor del mundo Anglo-sajón.</p>
+          <p>Además, debido a la buena recepción de los productos y marcas del rubro vestuario con que trabajamos, decidimos ampliarnos hacia productos para el hogar, comenzando por los muebles ingleses.</p>
+          <p>Los muebles de época ingleses se caracterizan por su sobriedad y estilo inigualables, y son siempre una muestra de distinción en los ambientes en que se incorporan. Los usamos para decoración en nuestras tiendas, llamando siempre la atención por su diseño y autenticidad.</p>
+          <p>Por mueble de época se entiende un mueble que fue fabricado a mano en un pasado ya lejano (100 años+), con la madera, técnicas y el estilo imperante a la fecha. Los muebles ingleses que ofrecemos fueron fabricados por mueblistas, en talleres que crecieron con la expansión del imperio británico y la revolución industrial, que comenzó en Inglaterra a mediados de 1700. Este desarrollo económico permitió un refinamiento en la forma de vida de muchas familias, las que pudieron mejorar sus casas y mobiliario, tanto en el país como en las colonias. Fue un proceso que necesitó muchos muebles, algunos de los cuales han durado hasta nuestro tiempo.</p>
+          <p>Contamos con asesores que nos permiten distinguir entre un mueble de época y una reproducción o copia. Obtenemos nuestros muebles en originales en casas particulares, comerciantes, remates y por ofertas directas (algunos han estado en la misma familia por generaciones). Los almacenamos en nuestra bodega en UK y los traemos al país por vía marítima. Aquí los restauramos en forma conservadora, de manera de no borrar las huellas del tiempo, que da encanto y valor único a cada pieza. No hay dos muebles iguales. Nuestros muebles más antiguos son del período Georgiano, de mediados de 1700…</p>
+          <p>El conocimiento del mercado de UK, y nuestra logística de almacenaje e importación nos han permitido traer al país muebles originales, con un surtido y precio sin comparación.</p>
+          <p>Bienvenido a la mejor oferta de productos originales del mundo Anglo-sajón!</p>
         </div>
-
-        <div class="group__item slider__item col-12 col-lg-4 col-xl-3">
-          <article class="card-category animation js-background">
-            <a href="{{ site_base }}/products">
-              <div class="card-category__background h-absolute">
-                <figure class="h-background">
-                  <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-07.jpg" alt="">
-                </figure>
-              </div>
-
-              <div class="card-category__content">
-                <h3 class="card-category__title">Fresno</h3>
-
-                <div class="car-category__button">
-                  <div class="button button--primary">
-                    <span class="button__text">Ver más</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </article>
-        </div>
-
-        <div class="group__item slider__item col-12 col-lg-4 col-xl-3">
-          <article class="card-category animation js-background">
-            <a href="{{ site_base }}/products">
-              <div class="card-category__background h-absolute">
-                <figure class="h-background">
-                  <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-08.jpg" alt="">
-                </figure>
-              </div>
-
-              <div class="card-category__content">
-                <h3 class="card-category__title">Regencia</h3>
-
-                <div class="car-category__button">
-                  <div class="button button--primary">
-                    <span class="button__text">Ver más</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </article>
-        </div>
-      </div>
-
-      <div class="section__button">
-        <a class="button button--secondary" href="{{ site_base }}/products">
-          <span class="button__text">Ver todos los productos</span>
-          <i class="button__icon material-icons">keyboard_arrow_right</i>
-        </a>
-      </div>
+      </article>
 
     </div>
-  </div>
-</section>
+  </section>
+
+  <section class="section section--categories h-theme-light">
+    <div class="categories categories--about">
+      <div class="container">
+
+        <header class="heading heading--isotype">
+          <h3 class="heading__title">Conoce nuestras categorías</h3>
+        </header>
+
+        <div class="categories__content group slider row justify-content-center js-categories-slider">
+          <div class="group__item slider__item col-12 col-lg-4 col-xl-3">
+            <article class="card-category animation js-background">
+              <a href="{{ site_base }}/products">
+                <div class="card-category__background h-absolute">
+                  <figure class="h-background">
+                    <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-06.jpg" alt="">
+                  </figure>
+                </div>
+
+                <div class="card-category__content">
+                  <h3 class="card-category__title">Sala de estar</h3>
+
+                  <div class="car-category__button">
+                    <div class="button button--primary">
+                      <span class="button__text">Ver más</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
+
+          <div class="group__item slider__item col-12 col-lg-4 col-xl-3">
+            <article class="card-category animation js-background">
+              <a href="{{ site_base }}/products">
+                <div class="card-category__background h-absolute">
+                  <figure class="h-background">
+                    <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-07.jpg" alt="">
+                  </figure>
+                </div>
+
+                <div class="card-category__content">
+                  <h3 class="card-category__title">Fresno</h3>
+
+                  <div class="car-category__button">
+                    <div class="button button--primary">
+                      <span class="button__text">Ver más</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
+
+          <div class="group__item slider__item col-12 col-lg-4 col-xl-3">
+            <article class="card-category animation js-background">
+              <a href="{{ site_base }}/products">
+                <div class="card-category__background h-absolute">
+                  <figure class="h-background">
+                    <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-08.jpg" alt="">
+                  </figure>
+                </div>
+
+                <div class="card-category__content">
+                  <h3 class="card-category__title">Regencia</h3>
+
+                  <div class="car-category__button">
+                    <div class="button button--primary">
+                      <span class="button__text">Ver más</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
+        </div>
+
+        <div class="section__button">
+          <a class="button button--secondary" href="{{ site_base }}/products">
+            <span class="button__text">Ver todos los productos</span>
+            <i class="button__icon material-icons">keyboard_arrow_right</i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
 {% end %}
