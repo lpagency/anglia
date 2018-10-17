@@ -20,7 +20,7 @@ class TagFilters {
 
         for (let group in filter_state) {
             if (filter_state[group].length > 0) {
-                tag_strings.push(`(${filter_state[group].join(',')})`);
+                tag_strings.push(`(${filter_state[group].map(t => `+${group}_${t}`).join(',')})`);
             }
         }
         $('#tag_string').val(tag_strings.join(','));
