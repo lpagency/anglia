@@ -319,7 +319,10 @@
   {% block javascript %}{% end %}
 
   {% if is_admin %}
+  <script type="text/javascript" src="{{ site_base }}/common/js/jquery.editable.min.js?1"></script>
     <script type="text/javascript" src="{{ site_base }}/common/js/editableimage.min.js?1"></script>
+    <script type="text/javascript" src="{{ site_base }}/common/js/editabletext.min.js?1"></script>
+    <script type="text/javascript" src="{{ site_base }}/common/js/editablelink.min.js?1"></script>
   {% end %}
 </body>
 </html>
