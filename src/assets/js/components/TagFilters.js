@@ -6,9 +6,11 @@ class TagFilters {
         this.filter_state = this.initTagState(args);
         this.groups = args;
         this.bindEventHandlers();
+        this.loadTagsFromURL();
     }
 
-    buildAPITagString() {
+
+    setAPITagString() {
         let tag_strings = [];
         const filter_state = this.getTagState();
 
@@ -17,7 +19,7 @@ class TagFilters {
                 tag_strings.push(`(${filter_state[group].join(',')})`);
             }
         }
-        return tag_strings.join(',');
+        $('#tag_string').val(tag_strings.join(','));
     }
 
     bindEventHandlers() {
@@ -45,7 +47,14 @@ class TagFilters {
 
 
     loadTagsFromURL() {
-        console.log("loading from URL");
+        const url = new URL(document.location.href);
+        let tags = url.searchParams.get('tags');
+        if (tags) {
+            tags = tags.split(',');
+            tags.forEach(
+                t => $(`#${t}`).trigger('click')
+            )
+        }
     }
 
     toggleTagState(tagFilter) {
@@ -85,7 +94,7 @@ class TagFilters {
         }
 
         $('.applied-filters').html(html);
-        this.buildAPITagString();
+        this.setAPITagString();
     }
 
     resetFilterState() {

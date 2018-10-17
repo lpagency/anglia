@@ -55,10 +55,13 @@ export default function init() {
 
     $products.trigger(REQUEST_START_EVENT);
 
+    const tag_string = $('#tag_string').val();
+
     const queryParams = {
       page: getPage(),
       search: $searchInput.val(),
-      search_engine: "false"
+      search_engine: "false",
+      tags: tag_string
     };
 
 
