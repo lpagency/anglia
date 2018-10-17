@@ -6,6 +6,7 @@ import equalize from './plugins/equalize';
 
 import mobile from './components/mobile';
 import filters from './components/filters';
+import TagFilters from './components/TagFilters';
 
 import heroSlider from './components/hero-slider';
 import timesSlider from './components/times-slider';
@@ -26,6 +27,18 @@ $(document).ready($ => {
   timesSlider.init();
 
   categoriesSlider.init();
+
+  // Init filter logic with filters in products.html
+  new TagFilters(
+    'epoca', 
+    'pensado', 
+    'madera', 
+    'forma', 
+    'respaldo', 
+    'tirador', 
+    'matequeria', 
+    'asiento'
+  );
 
   // -- Pages
   Products();
