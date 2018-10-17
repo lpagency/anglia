@@ -6,6 +6,7 @@ class TagFilters {
         this.filter_state = this.initTagState(args);
         this.groups = args;
         this.bindEventHandlers();
+        this.callProductsHandler = debounce(this.callProductsHandler, 500);
         this.loadTagsFromURL();
     }
 
@@ -34,9 +35,7 @@ class TagFilters {
 
         $('.applied-filters').on('click', 'i', 
         (e) => {
-            this.toggleTagState(e.target.getAttribute('tag'));
-            this.renderAppliedFilters(this.getTagState());
-            this.callProductsHandler();
+            $(`#${e.target.getAttribute('tag')}`).trigger('click');
         });
 
         $('.empty_filters').on('click',
@@ -91,8 +90,7 @@ class TagFilters {
                         html += `<button class="button button--tag" type="button">
                                     <span class="button__text">${tag.charAt(0).toUpperCase() + tag.substr(1)}</span>
                                     <i tag="${group}_${tag}" class="button__icon material-icons">close</i>
-                                </button>
-                        `
+                                </button>`
                     }
                 );
             }
@@ -103,9 +101,20 @@ class TagFilters {
     }
 
     resetFilterState() {
-        this.filter_state = this.initTagState(this.groups);
-        this.renderAppliedFilters(this.getTagState);
-        this.callProductsHandler();
+        for(let group in this.filter_state) {
+            this.filter_state[group].forEach(
+                t => $(`#${group}_${t}`).trigger('click')
+            )
+        }
+    }
+}
+
+const debounce = (fn, time) => {
+    let timeout;
+    return function() {
+        const functionCall = () => fn.apply(this, arguments);
+        clearTimeout(timeout);
+        timeout = setTimeout(functionCall, time);
     }
 }
 

@@ -30026,6 +30026,7 @@ var TagFilters = function () {
         this.filter_state = this.initTagState(args);
         this.groups = args;
         this.bindEventHandlers();
+        this.callProductsHandler = debounce(this.callProductsHandler, 500);
         this.loadTagsFromURL();
     }
 
@@ -30059,9 +30060,7 @@ var TagFilters = function () {
             });
 
             $('.applied-filters').on('click', 'i', function (e) {
-                _this.toggleTagState(e.target.getAttribute('tag'));
-                _this.renderAppliedFilters(_this.getTagState());
-                _this.callProductsHandler();
+                $('#' + e.target.getAttribute('tag')).trigger('click');
             });
 
             $('.empty_filters').on('click', function () {
@@ -30119,7 +30118,7 @@ var TagFilters = function () {
             var _loop = function _loop(group) {
                 if (filter_state[group].length > 0) {
                     filter_state[group].forEach(function (tag) {
-                        html += '<button class="button button--tag" type="button">\n                                    <span class="button__text">' + (tag.charAt(0).toUpperCase() + tag.substr(1)) + '</span>\n                                    <i tag="' + group + '_' + tag + '" class="button__icon material-icons">close</i>\n                                </button>\n                        ';
+                        html += '<button class="button button--tag" type="button">\n                                    <span class="button__text">' + (tag.charAt(0).toUpperCase() + tag.substr(1)) + '</span>\n                                    <i tag="' + group + '_' + tag + '" class="button__icon material-icons">close</i>\n                                </button>';
                     });
                 }
             };
@@ -30134,14 +30133,36 @@ var TagFilters = function () {
     }, {
         key: 'resetFilterState',
         value: function resetFilterState() {
-            this.filter_state = this.initTagState(this.groups);
-            this.renderAppliedFilters(this.getTagState);
-            this.callProductsHandler();
+            var _this2 = this;
+
+            var _loop2 = function _loop2(group) {
+                _this2.filter_state[group].forEach(function (t) {
+                    return $('#' + group + '_' + t).trigger('click');
+                });
+            };
+
+            for (var group in this.filter_state) {
+                _loop2(group);
+            }
         }
     }]);
 
     return TagFilters;
 }();
+
+var debounce = function debounce(fn, time) {
+    var timeout = void 0;
+    return function () {
+        var _this3 = this,
+            _arguments = arguments;
+
+        var functionCall = function functionCall() {
+            return fn.apply(_this3, _arguments);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(functionCall, time);
+    };
+};
 
 /* harmony default export */ __webpack_exports__["a"] = (TagFilters);
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
