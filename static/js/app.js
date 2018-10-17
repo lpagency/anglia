@@ -12025,7 +12025,7 @@ function getProduct(sku) {
 var nunjucks = __webpack_require__(17);
 var env;
 if (!nunjucks.currentEnv){
-	env = nunjucks.currentEnv = new nunjucks.Environment([], undefined);
+	env = nunjucks.currentEnv = new nunjucks.Environment([], {"dev":false,"autoescape":true,"throwOnUndefined":false,"trimBlocks":false,"lstripBlocks":false});
 } else {
 	env = nunjucks.currentEnv;
 }

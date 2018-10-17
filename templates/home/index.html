@@ -11,11 +11,12 @@
       <div class="hero__item slider__item">
         <article class="card-hero">
           <div class="card-hero__background h-absolute">
+            {{ get_image_editor("_banner-big-home-1") }}
             <picture class="h-background">
-              <source srcset="{{ site_base }}/{{ nocache_static }}/img/demo-hero-small-01.jpg" media="(max-width: 425px)">
-              <source srcset="{{ site_base }}/{{ nocache_static }}/img/demo-hero-medium-01.jpg" media="(max-width: 780px)">
-              <source srcset="{{ site_base }}/{{ nocache_static }}/img/demo-hero-large-01.jpg" media="(max-width: 1280px)">
-              <img src="{{ site_base }}/{{ nocache_static }}/img/demo-hero-huge-01.jpg" alt="">
+              <source srcset="{{ read_image(site.name + '_banner-big-home-1', 200) }}" media="(max-width: 425px)">
+              <source srcset="{{ read_image(site.name + '_banner-big-home-1', 500) }}" media="(max-width: 780px)">
+              <source srcset="{{ read_image(site.name + '_banner-big-home-1', 500) }}" media="(max-width: 1280px)">
+              <img src="{{ read_image(site.name + '_banner-big-home-1') }}" alt="">
             </picture>
           </div>
 
@@ -38,11 +39,12 @@
       <div class="hero__item slider__item">
         <article class="card-hero">
           <div class="card-hero__background h-absolute">
+            {{ get_image_editor("_banner-big-home-2") }}
             <picture class="h-background">
-              <source srcset="{{ site_base }}/{{ nocache_static }}/img/demo-hero-small-02.jpg" media="(max-width: 425px)">
-              <source srcset="{{ site_base }}/{{ nocache_static }}/img/demo-hero-medium-02.jpg" media="(max-width: 800px)">
-              <source srcset="{{ site_base }}/{{ nocache_static }}/img/demo-hero-large-02.jpg" media="(max-width: 1440px)">
-              <img src="{{ site_base }}/{{ nocache_static }}/img/demo-hero-huge-02.jpg" alt="">
+              <source srcset="{{ read_image(site.name + '_banner-big-home-2', 200) }}" media="(max-width: 425px)">
+              <source srcset="{{ read_image(site.name + '_banner-big-home-2', 500) }}" media="(max-width: 800px)">
+              <source srcset="{{ read_image(site.name + '_banner-big-home-2', 500) }}" media="(max-width: 1440px)">
+              <img src="{{ read_image(site.name + '_banner-big-home-2') }}" alt="">
             </picture>
           </div>
 
@@ -79,8 +81,9 @@
           <article class="card-category animation js-background">
             <a href="{{ site_base }}/products">
               <div class="card-category__background h-absolute">
+                {{ get_image_editor("_banner-small-home-1") }}
                 <figure class="h-background">
-                  <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-01.jpg" alt="">
+                  <img class="img-fluid" src="{{ read_image(site.name + '_banner-small-home-1', 200) }}" alt="">
                 </figure>
               </div>
 
@@ -101,8 +104,9 @@
           <article class="card-category animation js-background">
             <a href="{{ site_base }}/products">
               <div class="card-category__background h-absolute">
+                {{ get_image_editor("_banner-small-home-2") }}
                 <figure class="h-background">
-                  <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-02.jpg" alt="">
+                  <img class="img-fluid" src="{{ read_image(site.name + '_banner-small-home-2', 200) }}" alt="">
                 </figure>
               </div>
 
@@ -123,8 +127,9 @@
           <article class="card-category animation js-background">
             <a href="{{ site_base }}/products">
               <div class="card-category__background h-absolute">
+                {{ get_image_editor("_banner-small-home-3") }}
                 <figure class="h-background">
-                  <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-03.jpg" alt="">
+                  <img class="img-fluid" src="{{ read_image(site.name + '_banner-small-home-3', 200) }}" alt="">
                 </figure>
               </div>
 
@@ -145,8 +150,9 @@
           <article class="card-category animation js-background">
             <a href="{{ site_base }}/products">
               <div class="card-category__background h-absolute">
+                {{ get_image_editor("_banner-small-home-4") }}
                 <figure class="h-background">
-                  <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-04.jpg" alt="">
+                  <img class="img-fluid" src="{{ read_image(site.name + '_banner-small-home-4', 200) }}" alt="">
                 </figure>
               </div>
 
@@ -167,8 +173,9 @@
           <article class="card-category animation js-background">
             <a href="{{ site_base }}/products">
               <div class="card-category__background h-absolute">
+                {{ get_image_editor("_banner-small-home-5") }}
                 <figure class="h-background">
-                  <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-05.jpg" alt="">
+                  <img class="img-fluid" src="{{ read_image(site.name + '_banner-small-home-5', 200) }}" alt="">
                 </figure>
               </div>
 
@@ -189,8 +196,9 @@
           <article class="card-category animation js-background">
             <a href="{{ site_base }}/products">
               <div class="card-category__background h-absolute">
+                {{ get_image_editor("_banner-small-home-6") }}
                 <figure class="h-background">
-                  <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-06.jpg" alt="">
+                  <img class="img-fluid" src="{{ read_image(site.name + '_banner-small-home-6', 200) }}" alt="">
                 </figure>
               </div>
 
@@ -211,8 +219,9 @@
           <article class="card-category animation js-background">
             <a href="{{ site_base }}/products">
               <div class="card-category__background h-absolute">
+                {{ get_image_editor("_banner-small-home-7") }}
                 <figure class="h-background">
-                  <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-07.jpg" alt="">
+                  <img class="img-fluid" src="{{ read_image(site.name + '_banner-small-home-7', 200) }}" alt="">
                 </figure>
               </div>
 
@@ -233,8 +242,9 @@
           <article class="card-category animation js-background">
             <a href="{{ site_base }}/products">
               <div class="card-category__background h-absolute">
+                {{ get_image_editor("_banner-small-home-8") }}
                 <figure class="h-background">
-                  <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-categoria-08.jpg" alt="">
+                  <img class="img-fluid" src="{{ read_image(site.name + '_banner-small-home-8', 200) }}" alt="">
                 </figure>
               </div>
 
@@ -279,8 +289,9 @@
               <div class="col-lg-6">
                 <h3 class="card-time__title h-mobile">Época Victoriana <span>1837-1901</span></h3>
 
+                {{ get_image_editor("_epocs-1") }}
                 <figure class="card-time__image animation">
-                  <img class="img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/demo-epoca-01.jpg" alt="">
+                  <img class="img-fluid" src="{{ read_image(site.name + '_epocs-1', 200) }}" alt="">
                 </figure>
               </div>
 
