@@ -55,10 +55,13 @@ export default function init() {
 
     $products.trigger(REQUEST_START_EVENT);
 
+    const tag_string = $('#tag_string').val();
+
     const queryParams = {
       page: getPage(),
       search: $searchInput.val(),
-      search_engine: "false"
+      search_engine: "false",
+      tags: tag_string
     };
 
 
@@ -115,6 +118,7 @@ export default function init() {
   $products.on(REQUEST_START_EVENT, handleRequestStart);
   $products.on(REQUEST_END_EVENT, handleRequestEnd);
   $products.on(LOAD_MORE_EVENT, handleLoadMore);
+  $products.on(FILTERS_CHANGE_EVENT, handleRequest);
   $loadMoreBtn.on('click', handleLoadMoreBtnClick);
   $searchBtn.on('click', handleSearchBtnClick);
   $searchInput.on('keyup', handleInputEnter);

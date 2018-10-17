@@ -6,30 +6,36 @@ class TagFilters {
         this.filter_state = this.initTagState(args);
         this.groups = args;
         this.bindEventHandlers();
+        this.callProductsHandler = debounce(this.callProductsHandler, 500);
+        this.loadTagsFromURL();
     }
 
-    buildAPITagString() {
+    callProductsHandler() {
+        $('.products').trigger('FILTERS_CHANGE_EVENT');
+    }
+
+    setAPITagString() {
         let tag_strings = [];
         const filter_state = this.getTagState();
 
         for (let group in filter_state) {
             if (filter_state[group].length > 0) {
-                tag_strings.push(`(${filter_state[group].join(',')})`);
+                tag_strings.push(`(${filter_state[group].map(t => `+${group}_${t}`).join(',')})`);
             }
         }
-        return tag_strings.join(',');
+        $('#tag_string').val(tag_strings.join(','));
     }
 
     bindEventHandlers() {
         $('.custom-control-input').on('click', e => {
             this.toggleTagState(e.target.id);
             this.renderAppliedFilters(this.getTagState());
+            this.callProductsHandler();
         });
 
         $('.applied-filters').on('click', 'i', 
         (e) => {
-            this.toggleTagState(e.target.getAttribute('tag'));
-            this.renderAppliedFilters(this.getTagState());
+            $(`#${e.target.getAttribute('tag')}`).trigger('click');
         });
 
         $('.empty_filters').on('click',
@@ -45,7 +51,14 @@ class TagFilters {
 
 
     loadTagsFromURL() {
-        console.log("loading from URL");
+        const url = new URL(document.location.href);
+        let tags = url.searchParams.get('tags');
+        if (tags) {
+            tags = tags.split(',');
+            tags.forEach(
+                t => $(`#${t}`).trigger('click')
+            )
+        }
     }
 
     toggleTagState(tagFilter) {
@@ -77,20 +90,31 @@ class TagFilters {
                         html += `<button class="button button--tag" type="button">
                                     <span class="button__text">${tag.charAt(0).toUpperCase() + tag.substr(1)}</span>
                                     <i tag="${group}_${tag}" class="button__icon material-icons">close</i>
-                                </button>
-                        `
+                                </button>`
                     }
                 );
             }
         }
 
         $('.applied-filters').html(html);
-        this.buildAPITagString();
+        this.setAPITagString();
     }
 
     resetFilterState() {
-        this.filter_state = this.initTagState(this.groups);
-        this.renderAppliedFilters(this.getTagState);
+        for(let group in this.filter_state) {
+            this.filter_state[group].forEach(
+                t => $(`#${group}_${t}`).trigger('click')
+            )
+        }
+    }
+}
+
+const debounce = (fn, time) => {
+    let timeout;
+    return function() {
+        const functionCall = () => fn.apply(this, arguments);
+        clearTimeout(timeout);
+        timeout = setTimeout(functionCall, time);
     }
 }
 
