@@ -2,47 +2,42 @@
 
 {% block content %}
 
-{% if is_admin %}
-{% set editabletext = 'editabletext' %}
-{% set editablelink = 'editablelink' %}
-{% else %}
-{% set editabletext = '' %}
-{% set editablelink = '' %}
-{% end %}
+  {% if is_admin %}
+  {% set editabletext = 'editabletext' %}
+  {% set editablelink = 'editablelink' %}
+  {% else %}
+  {% set editabletext = '' %}
+  {% set editablelink = '' %}
+  {% end %}
 
-<section class="section h-theme-light">
-  <div class="container">
-
-    <nav class="mb-20" aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ site_base }}">Inicio</a></li>
-        <li class="breadcrumb-item active">Quiénes Somos</li>
-      </ol>
-    </nav>
-
-    <article class="product product--view">
-      <header class="heading heading--isotype">
-        <h1 class="heading__title {{editabletext}}" text_id="{{ site.name + '_about_title' }}">
-          {{ read_text(site.name + '_about_title') }}
-        </h1>
-        <a id="{{ site.name + '_footer_3_blue' }}" href="{{ read_link(site.name + '_footer_3_blue') }}" target="_blank">
-            <img id="{{ site.name }}_footer_3_blue" src="{{ read_image(site.name + '_footer_3_blue', 1) }}" onload="this.onload='';this.src='{{ read_image(site.name + '_footer_3_blue',200) }}'" class="img-foot-red" alt="item">
-        </a>
-        {% if is_admin %}
-        <img class="change-image editablelink fo" link-id="{{ site.name + '_footer_3_blue' }}" content="{{ read_link(site.name + '_footer_3_blue') }}" src="https://cdn.loadingplay.com/static/images/9c01ced4843be5cd42997db07c7944c9_link.png" ">
-        {% end %}
-      </header>
-      <div class="h-max-width-content h-mx-auto {{editabletext}}" text_id="{{ site.name + '_about_content' }}">
-        {{ read_text(site.name + '_about_title') }}
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<section class="section section--categories h-theme-light">
-  <div class="categories categories--about">
+  <section class="section h-theme-light">
     <div class="container">
+
+      <nav class="mb-20" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ site_base }}">Inicio</a></li>
+          <li class="breadcrumb-item active">Quiénes Somos</li>
+        </ol>
+      </nav>
+
+      <article class="product product--view">
+        <header class="heading heading--isotype">
+          <h1 class="heading__title {{editabletext}}" text_id="{{ site.name + '_about_title' }}">
+            {{ read_text(site.name + '_about_title') }}
+          </h1>
+
+        </header>
+        <div class="h-max-width-content h-mx-auto {{editabletext}}" text_id="{{ site.name + '_about_content' }}">
+          {{ read_text(site.name + '_about_title') }}
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section section--categories h-theme-light">
+    <div class="categories categories--about">
+      <div class="container">
 
       <header class="heading heading--isotype">
         <h3 class="heading__title {{editabletext}}" text_id="{{ site.name + '_about_category_title' }}">
@@ -99,10 +94,9 @@
                     </span>
                   </div>
                 </div>
-              </div>
-            </a>
-          </article>
-        </div>
+              </a>
+            </article>
+          </div>
 
         <div class="group__item slider__item col-12 col-lg-4 col-xl-3">
           <article class="card-category animation js-background">
@@ -126,20 +120,19 @@
                     </span>
                   </div>
                 </div>
-              </div>
-            </a>
-          </article>
+              </a>
+            </article>
+          </div>
         </div>
-      </div>
 
-      <div class="section__button">
-        <a class="button button--secondary" href="{{ site_base }}/products">
-          <span class="button__text">Ver todos los productos</span>
-          <i class="button__icon material-icons">keyboard_arrow_right</i>
-        </a>
-      </div>
+        <div class="section__button">
+          <a class="button button--secondary" href="{{ site_base }}/products">
+            <span class="button__text">Ver todos los productos</span>
+            <i class="button__icon material-icons">keyboard_arrow_right</i>
+          </a>
+        </div>
 
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 {% end %}

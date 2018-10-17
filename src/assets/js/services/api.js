@@ -3,17 +3,11 @@
 const API_URL = process.env.MIX_API_URL || 'https://apibodegas.loadingplay.com';
 const SITE_NAME = process.env.MIX_SITE_NAME || 'anglia';
 const SITE_ID = process.env.MIX_SITE_ID || 86;
-const ACCESS_TOKEN = process.env.MIX_ACCESS_TOKEN || '';
 
 const defaultOptions = {
   method: 'GET',
-  headers: {
-    'Authorization': `Bearer ${ACCESS_TOKEN}`,
-  },
   data: {
-    site_name: SITE_NAME,
-    site_id: SITE_ID,
-    ignore_stock: false,
+    site_name: SITE_NAME
   },
 };
 
@@ -32,6 +26,7 @@ function getProducts(queryParams) {
       items: 12,
       column: 'id',
       order: 'DESC',
+      ignore_stock: false,
       ...queryParams,
     },
     url: `${API_URL}/product/search`,

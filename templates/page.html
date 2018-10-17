@@ -1,21 +1,20 @@
 {% extends base.html %}
 
 {% block content %}
+  {% if is_admin %}
+  {% set editabletext = 'editabletext' %}
+  {% else %}
+  {% set editabletext = '' %}
+  {% end %}
+  <section class="section h-theme-light">
+    <div class="container">
 
-{% if is_admin %}
-{% set editabletext = 'editabletext' %}
-{% else %}
-{% set editabletext = '' %}
-{% end %}
-<section class="section h-theme-light">
-  <div class="container">
-
-    <nav class="mb-20" aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ site_base }}">Inicio</a></li>
-        <li class="breadcrumb-item active">Términos y condiciones</li>
-      </ol>
-    </nav>
+      <nav class="mb-20" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ site_base }}">Inicio</a></li>
+          <li class="breadcrumb-item active">Términos y condiciones</li>
+        </ol>
+      </nav>
 
     <article class="product product--view">
       <header class="heading heading--isotype">
@@ -28,10 +27,8 @@
         <div class="h-text {{editabletext}}" text_id="{{ site.name + '_page_content' }}">
           {{ read_text(site.name + '_page_content') }}
         </div>
-      </div>
-    </article>
+      </article>
 
-  </div>
-</section>
-
+    </div>
+  </section>
 {% end %}
