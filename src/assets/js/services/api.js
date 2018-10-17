@@ -46,7 +46,7 @@ function getProduct(sku) {
       ...defaultOptions.data,
       sku,
     },
-    url: `${API_URL}/product`,
+    url: `${API_URL}/v1/product`,
   }));
 }
 
