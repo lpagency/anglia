@@ -30,14 +30,14 @@ $(document).ready($ => {
 
   // Init filter logic with filters in products.html
   new TagFilters(
-    'epoca', 
-    'pensado', 
-    'madera', 
-    'forma', 
-    'respaldo', 
-    'tirador', 
-    'matequeria', 
-    'asiento'
+    'cat1',
+    'cat2',
+    'cat3',
+    'cat4',
+    'cat5',
+    'cat6',
+    'cat7',
+    'cat8'
   );
 
   // -- Pages
