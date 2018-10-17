@@ -3,7 +3,26 @@
 const API_URL = process.env.MIX_API_URL || 'https://apibodegas.loadingplay.com/v1';
 const SITE_NAME = process.env.MIX_SITE_NAME || 'anglia';
 const SITE_ID = process.env.MIX_SITE_ID || 86;
-const ACCESS_TOKEN = process.env.MIX_ACCESS_TOKEN || '';
+const ACCESS_TOKEN = process.env.MIX_ACCESS_TOKEN || getCookie("access_token");
+
+function getCookie(cookie_name)
+{
+  var name = cookie_name + "=";
+  var cookie_data = document.cookie.split(";");
+
+  for(var i = 0; i < cookie_data.length; i++)
+  {
+      var cookie = cookie_data[i];
+
+      while (cookie.charAt(0) == " ")
+          cookie = cookie.substring(1);
+
+      if (cookie.indexOf(name) === 0)
+          return cookie.substring(name.length, cookie.length);
+  }
+
+  return "";
+};
 
 const defaultOptions = {
   method: 'GET',
