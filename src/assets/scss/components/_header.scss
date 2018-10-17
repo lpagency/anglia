@@ -32,6 +32,10 @@
   margin-left: auto;
 }
 
+.brending__link {
+  position: relative;
+}
+
 /**
  * Opciones de ecommerce del header (buscador, cuenta, carrito)
  */
@@ -65,7 +69,7 @@
   .form-group {
     margin: 0;
   }
-  
+
   .form-control {
     border: 1px solid $primary;
     border-radius: 0;
@@ -75,7 +79,7 @@
     padding: 0 15px;
     text-transform: uppercase;
   }
-  
+
   .form-submit {
     background-color: $primary;
     color: $white;
