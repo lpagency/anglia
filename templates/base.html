@@ -10,6 +10,10 @@
 
   <link rel="stylesheet" href="{{ site_base }}/{{ nocache_static }}/css/app.css">
 
+  {% if is_admin %}
+    <link rel="stylesheet" href="{{ site_base }}/common/css/editableimage.css?1">
+  {% end %}
+
   <link rel="apple-touch-icon" sizes="57x57" href="{{ site_base }}/{{ nocache_static }}/img/favicons/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="{{ site_base }}/{{ nocache_static }}/img/favicons/apple-icon-60x60.png">
   <link rel="apple-touch-icon" sizes="72x72" href="{{ site_base }}/{{ nocache_static }}/img/favicons/apple-icon-72x72.png">
@@ -81,8 +85,9 @@
         <div class="container">
           <div class="header__content">
             <div class="header__branding branding js-header-branding">
-              <a class="brending__link" href="{{ site_base }}" rel="home" title="Ir a la portada">
-                <img class="branding__logo img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/anglia-logo.png" alt="Logo Anglia">
+              <a class="brending__link" href="{{ site_base }}/" rel="home" title="Ir a la portada">
+                {{ get_image_editor("_logo") }}
+                <img class="branding__logo img-fluid" src="{{ read_image(site.name + '_logo', 200) }}" alt="Logo Anglia">
               </a>
             </div>
 
@@ -125,7 +130,7 @@
 
                       <ul class="menu">
                         <li class="menu-item current-menu-item">
-                          <a href="{{ site_base }}">Inicio</a>
+                          <a href="{{ site_base }}/">Inicio</a>
                         </li>
                         <li class="menu-item has-submenu">
                           <a href="{{ site_base }}/products">Época</a>
@@ -307,7 +312,13 @@
 
   </div>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js?1"></script>
+  <script type="text/javascript">var site_base = "{{ site_base }}";</script>
   <script src="{{ site_base }}/{{ nocache_static }}/js/app.js"></script>
   {% block javascript %}{% end %}
+
+  {% if is_admin %}
+    <script type="text/javascript" src="{{ site_base }}/common/js/editableimage.min.js?1"></script>
+  {% end %}
 </body>
 </html>
