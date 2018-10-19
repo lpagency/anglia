@@ -283,11 +283,15 @@
               </div>
 
               <div class="card-category__content">
-                <h3 class="card-category__title">Regencia</h3>
+                <h3 class="card-category__title {{editabletext}}" text_id="{{site.name + '_home_category_eight'}}">
+                    {{ read_text(site.name + '_home_category_eight') }}
+                </h3>
 
                 <div class="car-category__button">
                   <div class="button button--primary">
-                    <span class="button__text">Ver más</span>
+                    <span class="button__text {{editabletext}}" text_id="{{site.name + '_home_category_eight_more'}}">
+                      {{ read_text(site.name + '_home_category_eight_more') }}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -313,28 +317,28 @@
       <div class="times__content">
         <nav class="times-nav slider js-times-navigation">
           <a class="times-nav__item slider__item">
-            <span class="{{editabletext}}" text_id="{{site.name + '_section_time_one'}}">
-              {{ read_text(site.name + '_section_time_one')}}
+            <span>
+              Victoriana
             </span>
           </a>
           <a class="times-nav__item slider__item">
-            <span class="{{editabletext}}" text_id="{{site.name + '_section_time_two'}}">
-              {{ read_text(site.name + '_section_time_two')}}
+            <span>
+              Persa
             </span>
           </a>
           <a class="times-nav__item slider__item">
-              <span class="{{editabletext}}" text_id="{{site.name + '_section_time_three'}}">
-                  {{ read_text(site.name + '_section_time_three')}}
-              </span>
-          </a>
-          <a class="times-nav__item slider__item">
-            <span class="{{editabletext}}" text_id="{{site.name + '_section_time_four'}}">
-              {{ read_text(site.name + '_section_time_four')}}
+            <span>
+              Eduardiana
             </span>
           </a>
           <a class="times-nav__item slider__item">
-              <span class="{{editabletext}}" text_id="{{site.name + '_section_time_five'}}">
-                  {{ read_text(site.name + '_section_time_five')}}
+            <span>
+              Georgian
+            </span>
+          </a>
+          <a class="times-nav__item slider__item">
+              <span>
+                Regencia
               </span>
           </a>
         </nav>
@@ -344,22 +348,19 @@
             <article class="card-time row">
               <div class="col-lg-6">
                 <h3 class="card-time__title h-mobile {{editabletext}}" text_id="{{site.name + '_section_time_one_title'}}">
-                  {{site.name + '_section_time_one_title'}}
+                  {{ read_text(site.name + '_section_time_one_title') }}
                 </h3>
-
                 {{ get_image_editor("_epocs-1") }}
                 <figure class="card-time__image animation">
                   <img class="img-fluid" src="{{ read_image(site.name + '_epocs-1', 200) }}" alt="">
                 </figure>
               </div>
-
               <div class="col-lg-6">
                 <div class="card-time__content">
-                  <h3 class="card-time__title h-desktop" text_id="{{site.name + '_section_time_one_title'}}">
+                  <h3 class="card-time__title h-desktop {{editabletext}}" text_id="{{site.name + '_section_time_one_title'}}">
                       {{ read_text(site.name + '_section_time_one_title') }}
                   </h3>
     
-
                   <div class="card-time__text h-text {{editabletext}}" text_id="{{ site.name + '_section_time_one_content' }}">
                     {{ read_text(site.name + '_section_time_one_content') }}
                   </div>
@@ -535,7 +536,6 @@
 
       <div class="products__content group row">
       </div>
-
       <div class="section__button">
         <a class="button button--secondary" href="{{ site_base }}/products">
           <span class="button__text">Ver todos los productos</span>
