@@ -22,12 +22,12 @@
 
       <article class="product product--view">
         <header class="heading heading--isotype">
-          <h1 class="heading__title {{editabletext}}" text_id="{{ site.name + '_about_title' }}">
+          <h1 class="heading__title {{editabletext}}" text-id="{{ site.name + '_about_title' }}">
             {{ read_text(site.name + '_about_title') }}
           </h1>
 
         </header>
-        <div class="h-max-width-content h-mx-auto {{editabletext}}" text_id="{{ site.name + '_about_content' }}">
+        <div class="h-max-width-content h-mx-auto {{editabletext}}" text-id="{{ site.name + '_about_content' }}">
           {{ read_text(site.name + '_about_title') }}
         </div>
       </article>
@@ -40,7 +40,7 @@
       <div class="container">
 
       <header class="heading heading--isotype">
-        <h3 class="heading__title {{editabletext}}" text_id="{{ site.name + '_about_category_title' }}">
+        <h3 class="heading__title {{editabletext}}" text-id="{{ site.name + '_about_category_title' }}">
           {{ read_text(site.name + '_about_category_title') }}
         </h3>
       </header>
@@ -48,7 +48,6 @@
       <div class="categories__content group slider row justify-content-center js-categories-slider">
         <div class="group__item slider__item col-12 col-lg-4 col-xl-3">
           <article class="card-category animation js-background">
-            <a class="{{editablelink}}" href="{{ read_link(site.name + '_category_one_link') }}" id="{{site.name + '_category_one_link'}}">
               <div class="card-category__background h-absolute">
                 {{ get_image_editor("_banner-small-about-1") }}
                 <figure class="h-background">
@@ -57,13 +56,13 @@
               </div>
 
               <div class="card-category__content">
-                <h3 class="card-category__title {{editabletext}}" text_id="{{ site.name + '_about_category_one' }}">
+                <h3 class="card-category__title {{editabletext}}" text-id="{{ site.name + '_about_category_one' }}">
                     {{ read_text(site.name + '_about_category_one') }}
                 </h3>
 
                 <div class="car-category__button">
                   <div class="button button--primary">
-                    <span class="button__text {{editabletext}}" text_id="{{ site.name + '_about_category_one_more' }}">
+                    <span class="button__text {{editabletext}}" text-id="{{ site.name + '_about_category_one_more' }}">
                         {{ read_text(site.name + '_about_category_one_more') }}
                     </span>
                   </div>
@@ -83,13 +82,13 @@
                 </figure>
               </div>
               <div class="card-category__content">
-                <h3 class="card-category__title {{editabletext}}" text_id="{{ site.name + '_about_category_two' }}">
+                <h3 class="card-category__title {{editabletext}}" text-id="{{ site.name + '_about_category_two' }}">
                   {{ read_text(site.name + '_about_category_two') }}
                 </h3>
 
                 <div class="car-category__button">
                   <div class="button button--primary">
-                    <span class="button__text" text_id="{{ site.name + '_about_category_two_more' }}">
+                    <span class="button__text {{editabletext}}" text-id="{{ site.name + '_about_category_two_more' }}">
                         {{ read_text(site.name + '_about_category_two_more') }}
                     </span>
                   </div>
@@ -109,13 +108,13 @@
               </div>
 
               <div class="card-category__content">
-                <h3 class="card-category__title {{editabletext}}" text_id="{{ site.name + '_about_category_three' }}">
+                <h3 class="card-category__title {{editabletext}}" text-id="{{ site.name + '_about_category_three' }}">
                     {{ read_text(site.name + '_about_category_three') }}
                 </h3>
 
                 <div class="car-category__button">
                   <div class="button button--primary">
-                    <span class="button__text {{editabletext}}" text_id="{{ site.name + '_about_category_three_more' }}">
+                    <span class="button__text {{editabletext}}" text-id="{{ site.name + '_about_category_three_more' }}">
                         {{ read_text(site.name + '_about_category_three_more') }}
                     </span>
                   </div>
