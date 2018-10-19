@@ -1,6 +1,6 @@
 <article class="card-product {{ 'card-product--stockout' if not in_stock }} {{ 'card-product--sold' if in_stock and not for_sale }}">
   <div class="card-product__image">
-    <a href="/{{ site_name }}/sc/product/detail/{{ name }}/{{ id }}?sku={{ sku }}">
+    <a href="{{ site_base }}/sc/product/detail/{{ name }}/{{ id }}?sku={{ sku }}">
       <figure>
         {% if images[0] %}
           <img class="img-fluid" src="{{ images[0].thumb_200 }}" alt="{{ name }}">
@@ -35,7 +35,7 @@
   </div>
 
   <div class="card-product__content js-match-product-content">
-    <a href="/{{ site_name }}/sc/product/detail/{{ name }}/{{ id }}?sku={{ sku }}">
+    <a href="{{ site_base }}/sc/product/detail/{{ name }}/{{ id }}?sku={{ sku }}">
       <h3 class="card-product__title">{{ name }}</h3>
       <p class="card-product__price">$ {{ main_price | toLocaleString }}</p>
     </a>
