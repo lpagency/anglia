@@ -59,7 +59,7 @@ export default function init() {
 
     const queryParams = {
       page: getPage(),
-      search: $searchInput.val(),
+      search_query: $searchInput.val(),
       search_engine: "false",
       tags: tag_string
     };
