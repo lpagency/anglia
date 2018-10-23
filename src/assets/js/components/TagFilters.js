@@ -114,7 +114,7 @@ class TagFilters {
         for(let group in this.filter_state) {
             this.filter_state[group].forEach(
                 t => urlTags.push(`${group}_${t}`)
-            )
+            );
         }
 
         if (urlTags.length > 0) {
@@ -123,7 +123,7 @@ class TagFilters {
             urlTags = '';
         }
 
-        window.history.replaceState(null, "", `${window.location.pathname}${urlTags}`)
+        window.history.replaceState(null, "", `${window.location.pathname}${urlTags}`);
     }
 }
 
