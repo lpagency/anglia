@@ -31,6 +31,7 @@ class TagFilters {
             this.toggleTagState(e.target.id);
             this.renderAppliedFilters(this.getTagState());
             this.callProductsHandler();
+            this.setURLTags();
         });
 
         $('.applied-filters').on('click', 'i', 
@@ -106,6 +107,23 @@ class TagFilters {
                 t => $(`#${group}_${t}`).trigger('click')
             )
         }
+    }
+
+    setURLTags() {
+        let urlTags = [];
+        for(let group in this.filter_state) {
+            this.filter_state[group].forEach(
+                t => urlTags.push(`${group}_${t}`)
+            )
+        }
+
+        if (urlTags.length > 0) {
+            urlTags = `?tags=${urlTags}`;
+        } else {
+            urlTags = '';
+        }
+
+        window.history.replaceState(null, "", `${window.location.pathname}${urlTags}`)
     }
 }
 
