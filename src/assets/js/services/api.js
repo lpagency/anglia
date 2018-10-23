@@ -1,7 +1,6 @@
 /* global $ */
 
-// const API_URL = process.env.MIX_API_URL || 'https://apibodegas.loadingplay.com';
-const API_URL = process.env.MIX_API_URL || 'http://localhost:8520';
+const API_URL = process.env.MIX_API_URL || 'https://apibodegas.loadingplay.com';
 const SITE_NAME = process.env.MIX_SITE_NAME || 'anglia';
 const SITE_ID = process.env.MIX_SITE_ID || 86;
 
