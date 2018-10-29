@@ -1,0 +1,47 @@
+.heading {
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 770px;
+  text-align: center;
+}
+
+.heading__title {
+  color: $secondary;
+  font-size: 1.563em;
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/**
+ * Modifier: Heading con icono
+ */
+.heading--isotype {
+  padding-bottom: 45px;
+  position: relative;
+
+  @include mq($from: medium) {
+    padding-bottom: 50px;
+  }
+
+  &:after {
+    background-image: url('../../img/anglia-isotipo.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    bottom: 0;
+    content: '';
+    height: 30px;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    width: 36px;
+
+    @include mq($from: medium) {
+      height: 38px;
+      width: 45px;
+    }
+  }
+}

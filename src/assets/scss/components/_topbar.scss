@@ -1,0 +1,58 @@
+.topbar {
+  background-color: $secondary;
+  color: $white;
+  display: none;
+
+  @include mq($from: large) {
+    display: block;
+  }
+}
+
+.topbar .menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: -10px;
+}
+
+.topbar .menu-item {
+  font-size: $font-size-small;
+  margin-right: 40px;
+  text-transform: uppercase;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  a {
+    color: inherit;
+    display: block;
+    padding: 5px 10px;
+    position: relative;
+    transition: $transition-base-out;
+
+    &:hover {
+      background-color: $secondary-hover;
+      transition: $transition-base-in;
+    }
+
+    &:after {
+      background-color: $white;
+      bottom: 0;
+      content: '';
+      height: 2px;
+      left: 0;
+      margin: 0 auto;
+      opacity: 0;
+      position: absolute;
+      right: 0;
+      width: 0;
+    }
+  }
+}
+
+.topbar .current-menu-item a:after {
+  opacity: 1;
+  width: 100%;
+}

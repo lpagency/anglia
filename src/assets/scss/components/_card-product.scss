@@ -1,0 +1,183 @@
+.card-product {
+  background-color: $white;
+  overflow: hidden;
+  position: relative;
+
+  &:hover {
+    .card-product__image .h-background {
+      -webkit-transform: scale3d(0, 0, 0);
+      transform: scale3d(1.1, 1.1, 1);
+      transition: 1200ms ease;
+    }
+
+    .card-product__image:before {
+      opacity: 0;
+      transition: $transition-base-in;
+    }
+
+    .card-product__title {
+      color: $primary;
+    }
+
+    .card-product__price {
+      color: $secondary;
+    }
+  }
+}
+
+.card-product__image {
+  background-color: $white;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+
+  @include mq($from: small) {
+    height: 190px;
+  }
+
+  @include mq($from: medium) {
+    height: 210px;
+  }
+
+  @include mq($from: huge) {
+    height: 255px;
+  }
+
+  .h-background {
+    transition: 700ms ease;
+  }
+  
+  a {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  figure {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  img {
+    align-self: center;
+    min-width: 100%;
+  }
+}
+
+.card-product__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+
+  @include mq($from: medium) {
+    padding: 20px 30px;
+  }
+
+  a:hover {
+    color: inherit;
+  }
+}
+
+.card-product__title {
+  font-size: $font-size-medium;
+  margin: 0;
+  transition: $transition-base;
+
+  @include mq($from: medium) {
+    font-size: 1em;
+  }
+}
+
+.card-product__price {
+  font-size: $font-size-medium;
+  font-weight: 700;
+  transition: $transition-base;
+
+  @include mq($from: medium) {
+    font-size: 1em;
+  }
+}
+
+.card-product__addtocart {
+  background-color: $secondary;
+  bottom: 0;
+  color: $white;
+  padding: 5px;
+  position: absolute;
+  right: 0;
+
+  @include mq($from: medium) {
+    padding: 8px;
+  }
+
+  .button__icon {
+    font-size: 24px;
+
+    @include mq($from: medium) {
+      font-size: 18px;
+    }
+  }
+
+  &:hover {
+    background-color: $secondary-hover;
+    color: $white;
+  }
+}
+
+.card-product--sold,
+.card-product--stockout {
+  // .card-product__image:before {
+  //   background: rgba($black, 0.65);
+  //   content: '';
+  //   height: 100%;
+  //   left: 0;
+  //   pointer-events: none;
+  //   position: absolute;
+  //   top: 0;
+  //   transition: $transition-base-out;
+  //   width: 100%;
+  //   z-index: 1;
+  // }
+}
+
+/**
+ * Modifier: Tarjeta producto vendido
+ */
+.card-product--sold,
+.card-product--stockout {
+  .card-product__image:after {
+    background: $primary;
+    color: $white;
+    font-size: $font-size-medium;
+    font-weight: 600;
+    padding: 3px 12px 4px;
+    position: absolute;
+    right: 0;
+    text-transform: uppercase;
+    top: 15px;
+    z-index: 2;
+  }
+}
+
+.card-product--sold {
+  .card-product__image:after {
+    background-color: $secondary;
+    content: 'Vendido';
+  }
+}
+
+.card-product--stockout {
+  .card-product__image:after {
+    content: 'Agotado';
+  }
+}
+

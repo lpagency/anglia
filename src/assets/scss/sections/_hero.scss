@@ -1,0 +1,48 @@
+.hero {
+  background-color: $background-color;
+
+  .slick-prev {
+    left: 20px;
+
+    @include mq($from: huge) {
+      left: 100px;
+    }
+  }
+
+  .slick-next {
+    right: 20px;
+
+    @include mq($from: huge) {
+      right: 100px;
+    }
+  }
+
+  .slick-slider.slick-dotted {
+    padding-bottom: 40px;
+
+    @include mq($from: medium) {
+      padding-bottom: 0;
+    }
+  }
+
+  .slick-dots {
+    bottom: 0;
+
+    @include mq($from: medium) {
+      bottom: 15px;
+    }
+  }
+}
+
+.hero__content {
+  height: 310px;
+  overflow: hidden;
+
+  @include mq($from: medium) {
+    height: 420px;
+  }
+
+  &.slick-slider.slick-initialized {
+    height: auto;
+  }
+}

@@ -6,9 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
 
-  <title>Página no encontrada - Anglia</title>
-  
+  <title>Anglia {% block title %}{% end %}</title>
+
   <link rel="stylesheet" href="{{ site_base }}/{{ nocache_static }}/css/app.css">
+
+  {% if is_admin %}
+    <link rel="stylesheet" href="{{ site_base }}/common/css/editableimage.css?1">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/css/jquery.fancybox.min.css">
+  {% end %}
 
   <link rel="apple-touch-icon" sizes="57x57" href="{{ site_base }}/{{ nocache_static }}/img/favicons/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="{{ site_base }}/{{ nocache_static }}/img/favicons/apple-icon-60x60.png">
@@ -25,13 +30,14 @@
   <link rel="icon" type="image/png" sizes="16x16" href="{{ site_base }}/{{ nocache_static }}/img/favicons/favicon-16x16.png">
   <link rel="manifest" href="{{ site_base }}/{{ nocache_static }}/img/favicons/manifest.json">
   <meta name="msapplication-TileColor" content="#948E6C">
-  <meta name="msapplication-TileImage" content="img/favicons/ms-icon-144x144.png">
+  <meta name="msapplication-TileImage" content="{{ site_base }}/{{ nocache_static }}/img/favicons/ms-icon-144x144.png">
   <meta name="theme-color" content="#948E6C">
 </head>
 
 <body>
-  <div id="site" class="site">
+  <input type="hidden" name="static_url" value="{{ site_base }}/{{ nocache_static }}">
 
+  <div id="site" class="site">
     <div class="site-mobile">
       <div class="mobile">
         <nav class="mobile__bar">
@@ -69,20 +75,21 @@
       <div class="topbar">
         <div class="container">
           <ul class="menu">
-            <li class="menu-item"><a href="{{ site_base }}/page">Cambios y devoluciones</a></li>
-            <li class="menu-item"><a href="{{ site_base }}/page">Tiempos de envío</a></li>
-            <li class="menu-item"><a href="#">Contáctanos</a></li>
+            <li class="menu-item"><a href="{{ site_base }}/cambiosydevoluciones">Cambios y devoluciones</a></li>
+            <li class="menu-item"><a href="{{ site_base }}/tiemposdeenvio">Tiempos de envío</a></li>
+            <li class="menu-item"><a href="{{ site_base }}/contactanos">Contáctanos</a></li>
             <li class="menu-item"><a href="{{ site_base }}/about">Quiénes somos</a></li>
           </ul>
         </div>
       </div>
-      
+
       <header class="header">
         <div class="container">
           <div class="header__content">
             <div class="header__branding branding js-header-branding">
-              <a class="brending__link" href="{{ site_base }}" rel="home" title="Ir a la portada">
-                <img class="branding__logo img-fluid" src="{{ site_base }}/{{ nocache_static }}/img/anglia-logo.png" alt="Logo Anglia">
+              <a class="brending__link" href="{{ site_base }}/" rel="home" title="Ir a la portada">
+                {{ get_image_editor("_logo") }}
+                <img class="branding__logo img-fluid" src="{{ read_image(site.name + '_logo', 200) }}" alt="Logo Anglia">
               </a>
             </div>
 
@@ -124,39 +131,79 @@
                       <div class="header__navigation-branding branding"></div>
 
                       <ul class="menu">
-                        <li class="menu-item"><a href="{{ site_base }}/">Inicio</a></li>
+                        <li class="menu-item current-menu-item">
+                          <a href="{{ site_base }}/">Inicio</a>
+                        </li>
                         <li class="menu-item has-submenu">
                           <a href="{{ site_base }}/products">Época</a>
                           <ul class="submenu">
-                            <li class="menu-item"><a href="{{ site_base }}/products?tags=cat1_victoriana">Victoriana</a></li>
-                            <li class="menu-item"><a href="{{ site_base }}/products?tags=cat1_persa">Persa</a></li>
-                            <li class="menu-item"><a href="{{ site_base }}/products?tags=cat1_eduardiana">Eduardiana</a></li>
-                            <li class="menu-item"><a href="{{ site_base }}/products?tags=cat1_georgian">Georgian</a></li>
-                            <li class="menu-item"><a href="{{ site_base }}/products?tags=cat1_regencia">Regencia</a></li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products?tags=cat1_victoriana">Victoriana</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products?tags=cat1_persa">Persa</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products?tags=cat1_eduardiana">Eduardiana</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products?tags=cat1_georgian">Georgian</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products?tags=cat1_regencia">Regencia</a>
+                            </li>
                           </ul>
                         </li>
                         <li class="menu-item has-submenu">
                           <a href="{{ site_base }}/products">Pensado para</a>
                           <ul class="submenu">
-                            <li class="menu-item"><a href="{{ site_base }}/products?tags=cat3_dormitorio">Dormitorio</a></li>
-                            <li class="menu-item"><a href="{{ site_base }}/products?tags=cat3_pasillo">Pasillo</a></li>
-                            <li class="menu-item"><a href="{{ site_base }}/products?tags=cat3_accesos">Accesos</a></li>
-                            <li class="menu-item"><a href="{{ site_base }}/products?tags=cat3_comedor">Comedor</a></li>
-                            <li class="menu-item"><a href="{{ site_base }}/products?tags=cat3_estar">Sala de estar</a></li>
-                            <li class="menu-item"><a href="{{ site_base }}/products?tags=cat3_escritorio">Escritorio</a></li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products?tags=cat3_dormitorio">Dormitorio</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products?tags=cat3_pasillo">Pasillo</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products?tags=cat3_accesos">Accesos</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products?tags=cat3_comedor">Comedor</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products?tags=cat3_estar">Sala de estar</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products?tags=cat3_escritorio">Escritorio</a>
+                            </li>
                           </ul>
                         </li>
                         <li class="menu-item has-submenu">
                           <a href="{{ site_base }}/products">Tipo de madera</a>
                           <ul class="submenu">
-                            <li class="menu-item"><a href="{{ site_base }}/products?tags=cat2_alcanfor">Alcanfor</a></li>
-                            <li class="menu-item"><a href="{{ site_base }}/products?tags=cat2_caoba">Caoba</a></li>
-                            <li class="menu-item"><a href="{{ site_base }}/products?tags=cat2_fresno">Fresno</a></li>
-                            <li class="menu-item"><a href="{{ site_base }}/products?tags=cat2_haya">Haya</a></li>
-                            <li class="menu-item"><a href="{{ site_base }}/products?tags=cat2_nogal">Nogal</a></li>
-                            <li class="menu-item"><a href="{{ site_base }}/products?tags=cat2_pino">Pino</a></li>
-                            <li class="menu-item"><a href="{{ site_base }}/products?tags=cat2_olmo">Olmo</a></li>
-                            <li class="menu-item"><a href="{{ site_base }}/products?tags=cat2_satinwood">Satinwood</a></li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products?tags=cat2_alcanfor">Alcanfor</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products?tags=cat2_caoba">Caoba</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products?tags=cat2_fresno">Fresno</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products?tags=cat2_haya">Haya</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products?tags=cat2_nogal">Nogal</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products?tags=cat2_pino">Pino</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products?tags=cat2_olmo">Olmo</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="{{ site_base }}/products?tags=cat2_satinwood">Satinwood</a>
+                            </li>
                           </ul>
                         </li>
                         <li class="menu-item"><a href="{{ site_base }}/products">Todos</a></li>
@@ -174,40 +221,14 @@
 
     <div class="site-content">
       <main id="main">
-
-        <section class="section h-theme-light">
-          <div class="container">
-
-            <div class="empty-box animation">
-              <div class="empty-box__content">
-                <h1 class="empty-box__title">404 página no encontrada</h1>
-
-                <div class="empty-box__text h-text">
-                  <p>La página que estás buscando no existe</p>
-                </div>
-
-                <div class="empty-box__button">
-                  <a class="button button--secondary button--small" href="{{ site_base }}/">
-                    <span class="button__text">Volver a inicio</span>
-                  </a>
-                </div>
-              </div>
-
-              <div class="empty-box__icon">
-                <i class="material-icons">error_outline</i>
-              </div>
-            </div>
-            
-          </div>
-        </section>
-
+        {% block content %}{% end %}
       </main>
     </div>
 
     <div class="site-footer">
       <footer class="footer">
         <div class="container">
-          
+
         <div class="footer__menu row">
             <div class="footer__menu-main col-lg-3">
               <div class="footer-widget">
@@ -260,7 +281,7 @@
                       <label class="sr-only" for="angliaNewsletter">Escribe tu email para suscribirte</label>
                       <input type="email" class="form-control" id="angliaNewsletter" name="email" placeholder="Escribe aquí tu email">
                     </div>
-                    
+
                     <button class="form-submit button button--action" type="button">
                       <span class="button__text">Suscribir</span>
                     </button>
@@ -288,14 +309,24 @@
                 </div>
               </div>
           </div>
-          
+
         </div>
       </footer>
     </div>
-
   </div>
-  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js?1"></script>
+  <script type="text/javascript">var site_base = "{{ site_base }}";</script>
   <script src="{{ site_base }}/{{ nocache_static }}/js/app.js"></script>
-  {% include '../bodegas.client.html' %}
+  {% include 'bodegas.client.html' %}
+  {% block javascript %}{% end %}
+
+  {% if is_admin %}
+  <script type="text/javascript" src="{{ site_base }}/common/js/jquery.editable.min.js?1"></script>
+    <script type="text/javascript" src="{{ site_base }}/common/js/editableimage.min.js?1"></script>
+    <script type="text/javascript" src="{{ site_base }}/common/js/editabletext.min.js?1"></script>
+    <script type="text/javascript" src="{{ site_base }}/common/js/editablelink.min.js?1"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" ></script>
+  {% end %}
 </body>
 </html>
