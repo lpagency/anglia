@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{{ site_base }}/common/css/editableimage.css?1">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/css/jquery.fancybox.min.css">
     {% set editabletext = 'editabletext' %}
+  {% else %}
+    {% set editabletext = '' %}
   {% end %}
 
   <link rel="apple-touch-icon" sizes="57x57" href="{{ site_base }}/{{ nocache_static }}/img/favicons/apple-icon-57x57.png">
