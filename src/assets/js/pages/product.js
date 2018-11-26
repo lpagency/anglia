@@ -8,6 +8,7 @@ require('jquery-match-height');
 
 export default function init() {
   const $productView = $('.product--view');
+  const $detail_name = $('.detail--name');
 
   if (0 === $productView.length) return;
 
@@ -40,6 +41,8 @@ export default function init() {
 
   function renderProduct(product) {
     product.static_url = $("input[name=static_url]").val();
+
+    $detail_name.html(product.name);
     $productView.html(ProductTmpl.render(product));
 
     window.scrollTo(0, 1);
