@@ -5,7 +5,7 @@ const SITE_NAME = process.env.MIX_SITE_NAME || 'anglia';
 const SITE_ID = process.env.MIX_SITE_ID || 86;
 
 const defaultOptions = {
-  method: 'GET',
+  method: 'POST',
   data: {
     site_name: SITE_NAME
   },
@@ -41,6 +41,7 @@ function getProducts(queryParams) {
 function getProduct(sku) {
   return Promise.resolve($.ajax({
     ...defaultOptions,
+    method: 'GET',
     data: {
       ...defaultOptions.data,
       sku,
