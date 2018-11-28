@@ -282,7 +282,8 @@
                       <input type="email" class="form-control" id="angliaNewsletter" name="email" placeholder="Escribe aquí tu email">
                     </div>
 
-                    <button class="form-submit button button--action" type="button">
+                    <button class="form-submit button button--action" name="submit" id="bEnviar" type="submit" data-error-message="Error!" data-sending-message="Sending..." data-ok-message="Email Sent">
+                      <input type="hidden" name="submitted" id="submitted3" value="true">
                       <span class="button__text">Suscribir</span>
                     </button>
                   </form>
