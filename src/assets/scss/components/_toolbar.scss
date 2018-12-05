@@ -77,12 +77,12 @@
 .applied-filters__clean {
   background-color: transparent;
   color: $general-color;
-  display: none;
+  display: inline-flex;
   font-weight: 400;
   margin-top: 15px;
   text-transform: none;
 
-  @include mq($from: large) {
+  /* @include mq($from: large) {
     display: inline-flex;
-  }
+  } */
 }
