@@ -289,11 +289,13 @@
                   <label class="order-products__label" for="productsOrder">Ordenar por</label>
 
                   <select class="order-products__select" id="productsOrder" data-dropup-auto="false">
-                    <option value="featured" selected>Destacados</option>
-                    <option value="priceAsc">Precios de menor a mayor</option>
-                    <option value="priceDesc">Precios de mayor a menor</option>
-                    <option value="date">Nuevos productos</option>
+                    <option value="featured" column="position" direction="ASC" selected>Destacados</option>
+                    <option value="priceAsc" column="main_price" direction="ASC">Precios de menor a mayor</option>
+                    <option value="priceDesc" column="main_price" direction="DESC">Precios de mayor a menor</option>
+                    <option value="date" column="id" direction="DESC">Nuevos productos</option>
                   </select>
+                  <input type="hidden" id="column__order" value="position"/>
+                  <input type="hidden" id="direction__order" value="DESC"/>
                 </div>
               </div>
 

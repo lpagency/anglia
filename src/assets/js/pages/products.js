@@ -20,6 +20,7 @@ export default function init() {
   const REQUEST_END_EVENT = 'REQUEST_END_EVENT';
   const LOAD_MORE_EVENT = 'LOAD_MORE_EVENT';
   const FILTERS_CHANGE_EVENT = 'FILTERS_CHANGE_EVENT';
+  const ORDERBY_CHANGE_EVENT = 'ORDERBY_CHANGE_EVENT';
 
   // -- Renders
   function renderProduct(product) {
@@ -56,12 +57,16 @@ export default function init() {
     $products.trigger(REQUEST_START_EVENT);
 
     const tag_string = $('#tag_string').val();
+    const column = $('#column__order').val();
+    const direction = $('#direction__order').val();
 
     const queryParams = {
       page: getPage(),
       search_query: $searchInput.val(),
       search_engine: "false",
-      tags: tag_string
+      tags: tag_string,
+      direction,
+      column
     };
 
 
@@ -104,6 +109,18 @@ export default function init() {
     $products.trigger(LOAD_MORE_EVENT);
   }
 
+  function handleApplyFilters() {
+    $list.html("");
+    $products.data('page', 1);
+    $products.trigger(LOAD_MORE_EVENT);
+  }
+
+  function handleOrderBy() {
+    $list.html("");
+    $products.data('page', 1);
+    $products.trigger(LOAD_MORE_EVENT);
+  }
+
   function handleInputEnter(event) {
     event.preventDefault();
 
@@ -118,7 +135,8 @@ export default function init() {
   $products.on(REQUEST_START_EVENT, handleRequestStart);
   $products.on(REQUEST_END_EVENT, handleRequestEnd);
   $products.on(LOAD_MORE_EVENT, handleLoadMore);
-  $products.on(FILTERS_CHANGE_EVENT, handleRequest);
+  $products.on(FILTERS_CHANGE_EVENT, handleApplyFilters);
+  $products.on(ORDERBY_CHANGE_EVENT, handleOrderBy)
   $loadMoreBtn.on('click', handleLoadMoreBtnClick);
   $searchBtn.on('click', handleSearchBtnClick);
   $searchInput.on('keyup', handleInputEnter);
