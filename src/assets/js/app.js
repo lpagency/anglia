@@ -7,6 +7,7 @@ import equalize from './plugins/equalize';
 import mobile from './components/mobile';
 import filters from './components/filters';
 import TagFilters from './components/TagFilters';
+import orderby from './components/orderby';
 
 import heroSlider from './components/hero-slider';
 import timesSlider from './components/times-slider';
@@ -27,6 +28,8 @@ $(document).ready($ => {
   timesSlider.init();
 
   categoriesSlider.init();
+
+  orderby.init();
 
   // Init filter logic with filters in products.html
   new TagFilters(

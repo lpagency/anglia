@@ -25,7 +25,7 @@ function getProducts(queryParams) {
       page: 1,
       items: 12,
       column: 'id',
-      order: 'DESC',
+      direction: 'DESC',
       ignore_stock: false,
       ...queryParams,
     },

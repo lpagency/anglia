@@ -32,16 +32,11 @@
                   <p class="label--small">Haz seleccionado</p>
 
                   <div class="applied-filters">
-                    <button class="button button--tag" type="button">
-                      <span class="button__text">Persa</span>
-                      <i class="button__icon material-icons"> close</i>
-                    </button>
-
-                    <button class="button button--tag" type="button">
-                      <span class="button__text">Rectangular</span>
-                      <i class="button__icon material-icons"> close</i>
-                    </button>
                   </div>
+
+                  <button class="applied-filters__clean button" type="button">
+                    <span class="empty_filters button__text label--small">Eliminar filtros</span>
+                  </button>
                 </div>
 
                 <div class="filters js-filters">
@@ -294,11 +289,13 @@
                   <label class="order-products__label" for="productsOrder">Ordenar por</label>
 
                   <select class="order-products__select" id="productsOrder" data-dropup-auto="false">
-                    <option value="featured" selected>Destacados</option>
-                    <option value="priceAsc">Precios de menor a mayor</option>
-                    <option value="priceDesc">Precios de mayor a menor</option>
-                    <option value="date">Nuevos productos</option>
+                    <option value="featured" column="position" direction="ASC" selected>Destacados</option>
+                    <option value="priceAsc" column="main_price" direction="ASC">Precios de menor a mayor</option>
+                    <option value="priceDesc" column="main_price" direction="DESC">Precios de mayor a menor</option>
+                    <option value="date" column="id" direction="DESC">Nuevos productos</option>
                   </select>
+                  <input type="hidden" id="column__order" value="position"/>
+                  <input type="hidden" id="direction__order" value="DESC"/>
                 </div>
               </div>
 
