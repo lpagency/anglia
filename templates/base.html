@@ -323,11 +323,21 @@
   {% block javascript %}{% end %}
 
   {% if is_admin %}
-  <script type="text/javascript" src="{{ site_base }}/common/js/jquery.editable.min.js?1"></script>
+    <script type="text/javascript" src="{{ site_base }}/common/js/jquery.editable.min.js?1"></script>
     <script type="text/javascript" src="{{ site_base }}/common/js/editableimage.min.js?1"></script>
     <script type="text/javascript" src="{{ site_base }}/common/js/editabletext.min.js?1"></script>
     <script type="text/javascript" src="{{ site_base }}/common/js/editablelink.min.js?1"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" ></script>
   {% end %}
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129954480-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-129954480-1');
+  </script>
 </body>
 </html>
