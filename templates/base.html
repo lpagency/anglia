@@ -78,10 +78,26 @@
       <div class="topbar">
         <div class="container">
           <ul class="menu">
-            <li class="menu-item"><a href="{{ site_base }}/cambiosydevoluciones">Cambios y devoluciones</a></li>
-            <li class="menu-item"><a href="{{ site_base }}/tiemposdeenvio">Tiempos de envío</a></li>
-            <li class="menu-item"><a href="{{ site_base }}/contactanos">Contáctanos</a></li>
-            <li class="menu-item"><a href="{{ site_base }}/about">Quiénes somos</a></li>
+            <li class="menu-item">
+              <div class="{{editabletext}}" text-id="{{ site.name + '_upper_header_1' }}">
+                {{ read_text(site.name + '_upper_header_1') }}
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="{{editabletext}}" text-id="{{ site.name + '_upper_header_2' }}">
+                  {{ read_text(site.name + '_upper_header_2') }}
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="{{editabletext}}" text-id="{{ site.name + '_upper_header_3' }}">
+                {{ read_text(site.name + '_upper_header_3') }}
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="{{editabletext}}" text-id="{{ site.name + '_upper_header_4' }}">
+                {{ read_text(site.name + '_upper_header_4') }}
+              </div>
+            </li>
           </ul>
         </div>
       </div>
