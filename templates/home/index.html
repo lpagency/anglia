@@ -29,7 +29,9 @@
           <div class="container">
             <div class="card-hero__content">
               <h2 class="card-hero__title">
-                <a href="{{ site_base }}/products?tags=cat2_caoba">Conoce nuestra nueva línea de caoba</a>
+                <div class="{{editabletext}}" text-id="{{ site.name + '_home_slider_title_1' }}">
+                  {{ read_text(site.name + '_home_slider_title_1') }}
+                </div>
               </h2>
 
               <div class="card-hero__button">
@@ -57,7 +59,9 @@
           <div class="container">
             <div class="card-hero__content">
               <h2 class="card-hero__title">
-                <a href="{{ site_base }}/products?tags=cat2_nogal">Conoce nuestra nueva línea de nogal</a>
+                <div class="{{editabletext}}" text-id="{{ site.name + '_home_slider_title_2' }}">
+                  {{ read_text(site.name + '_home_slider_title_2') }}
+                </div>
               </h2>
 
               <div class="card-hero__button">
