@@ -39,84 +39,96 @@
     <div class="categories categories--about">
       <div class="container">
 
-      <header class="heading heading--isotype">
-        <h3 class="heading__title {{editabletext}}" text-id="{{ site.name + '_about_category_title' }}">
-          {{ read_text(site.name + '_about_category_title') }}
-        </h3>
-      </header>
+        <header class="heading heading--isotype">
+          <h3 class="heading__title {{editabletext}}" text-id="{{ site.name + '_about_category_title' }}">
+            {{ read_text(site.name + '_about_category_title') }}
+          </h3>
+        </header>
 
-      <div class="categories__content group slider row justify-content-center js-categories-slider">
-        <div class="group__item slider__item col-12 col-lg-4 col-xl-3">
-          <article class="card-category animation js-background">
-              <div class="card-category__background h-absolute">
-                {{ get_image_editor("_banner-small-about-1") }}
-                <figure class="h-background">
-                  <img class="img-fluid" src="{{ read_image(site.name + '_banner-small-about-1', 200) }}" alt="">
-                </figure>
-              </div>
+        <div class="categories__content group slider row justify-content-center js-categories-slider">
+          <div class="group__item slider__item col-12 col-lg-4 col-xl-3">
+            {% if is_admin %}
+              <img class="change-image editablelink" link-id="{{ site.name + '_about_img_box_1' }}" content="{{ read_link(site.name + '_about_img_box_1') }}" src="https://cdn.loadingplay.com/static/images/200_db90d7cb90d280b95fc5adeabbcd229a_iconfinder___share_link_friends_send_android_material_.png" >
+            {% end %}
+            <article class="card-category animation js-background">
+              <a href="{{ read_link(site.name + '_about_img_box_1') }}">
+                <div class="card-category__background h-absolute">
+                  {{ get_image_editor("_banner-small-about-1") }}
+                  <figure class="h-background">
+                    <img class="img-fluid" src="{{ read_image(site.name + '_banner-small-about-1', 200) }}" alt="">
+                  </figure>
+                </div>
 
-              <div class="card-category__content">
-                <h3 class="card-category__title {{editabletext}}" text-id="{{ site.name + '_about_category_one' }}">
-                    {{ read_text(site.name + '_about_category_one') }}
-                </h3>
+                <div class="card-category__content">
+                  <h3 class="card-category__title {{editabletext}}" text-id="{{ site.name + '_about_category_one' }}">
+                      {{ read_text(site.name + '_about_category_one') }}
+                  </h3>
 
-                <div class="car-category__button">
-                  <div class="button button--primary">
-                    <span class="button__text {{editabletext}}" text-id="{{ site.name + '_about_category_one_more' }}">
-                        {{ read_text(site.name + '_about_category_one_more') }}
-                    </span>
+                  <div class="car-category__button">
+                    <div class="button button--primary">
+                      <span class="button__text {{editabletext}}" text-id="{{ site.name + '_about_category_one_more' }}">
+                          {{ read_text(site.name + '_about_category_one_more') }}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </a>
-          </article>
-        </div>
-        
-        <div class="group__item slider__item col-12 col-lg-4 col-xl-3">
-          <article class="card-category animation js-background">
-            <a href="{{ site_base }}/products">
-              <div class="card-category__background h-absolute">
-                  {{ get_image_editor("_banner-small-about-2") }}
-                <figure class="h-background">
-                  <img class="img-fluid" src="{{ read_image(site.name + '_banner-small-about-2', 200) }}" alt="">
-                </figure>
-              </div>
-              <div class="card-category__content">
-                <h3 class="card-category__title {{editabletext}}" text-id="{{ site.name + '_about_category_two' }}">
-                  {{ read_text(site.name + '_about_category_two') }}
-                </h3>
+              </a>
+            </article>
+          </div>
+          
+          <div class="group__item slider__item col-12 col-lg-4 col-xl-3">
+            <article class="card-category animation js-background">
+              {% if is_admin %}
+                <img class="change-image editablelink" link-id="{{ site.name + '_about_img_box_2' }}" content="{{ read_link(site.name + '_about_img_box_2') }}" src="https://cdn.loadingplay.com/static/images/200_db90d7cb90d280b95fc5adeabbcd229a_iconfinder___share_link_friends_send_android_material_.png" >
+              {% end %}
+              <a href="{{ read_link(site.name + '_about_img_box_2') }}">
+                <div class="card-category__background h-absolute">
+                    {{ get_image_editor("_banner-small-about-2") }}
+                  <figure class="h-background">
+                    <img class="img-fluid" src="{{ read_image(site.name + '_banner-small-about-2', 200) }}" alt="">
+                  </figure>
+                </div>
+                <div class="card-category__content">
+                  <h3 class="card-category__title {{editabletext}}" text-id="{{ site.name + '_about_category_two' }}">
+                    {{ read_text(site.name + '_about_category_two') }}
+                  </h3>
 
-                <div class="car-category__button">
-                  <div class="button button--primary">
-                    <span class="button__text {{editabletext}}" text-id="{{ site.name + '_about_category_two_more' }}">
-                        {{ read_text(site.name + '_about_category_two_more') }}
-                    </span>
+                  <div class="car-category__button">
+                    <div class="button button--primary">
+                      <span class="button__text {{editabletext}}" text-id="{{ site.name + '_about_category_two_more' }}">
+                          {{ read_text(site.name + '_about_category_two_more') }}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </a>
             </article>
           </div>
 
-        <div class="group__item slider__item col-12 col-lg-4 col-xl-3">
-          <article class="card-category animation js-background">
-            <a href="{{ site_base }}/products">
-              <div class="card-category__background h-absolute">
-                {{ get_image_editor("_banner-small-about-3") }}
-                <figure class="h-background">
-                  <img class="img-fluid" src="{{ read_image(site.name + '_banner-small-about-3', 200) }}" alt="">
-                </figure>
-              </div>
+          <div class="group__item slider__item col-12 col-lg-4 col-xl-3">
+            <article class="card-category animation js-background">
+              {% if is_admin %}
+                <img class="change-image editablelink" link-id="{{ site.name + '_about_img_box_3' }}" content="{{ read_link(site.name + '_about_img_box_3') }}" src="https://cdn.loadingplay.com/static/images/200_db90d7cb90d280b95fc5adeabbcd229a_iconfinder___share_link_friends_send_android_material_.png" >
+              {% end %}
+              <a href="{{ read_link(site.name + '_about_img_box_3') }}">
+                <div class="card-category__background h-absolute">
+                  {{ get_image_editor("_banner-small-about-3") }}
+                  <figure class="h-background">
+                    <img class="img-fluid" src="{{ read_image(site.name + '_banner-small-about-3', 200) }}" alt="">
+                  </figure>
+                </div>
 
-              <div class="card-category__content">
-                <h3 class="card-category__title {{editabletext}}" text-id="{{ site.name + '_about_category_three' }}">
-                    {{ read_text(site.name + '_about_category_three') }}
-                </h3>
+                <div class="card-category__content">
+                  <h3 class="card-category__title {{editabletext}}" text-id="{{ site.name + '_about_category_three' }}">
+                      {{ read_text(site.name + '_about_category_three') }}
+                  </h3>
 
-                <div class="car-category__button">
-                  <div class="button button--primary">
-                    <span class="button__text {{editabletext}}" text-id="{{ site.name + '_about_category_three_more' }}">
-                        {{ read_text(site.name + '_about_category_three_more') }}
-                    </span>
+                  <div class="car-category__button">
+                    <div class="button button--primary">
+                      <span class="button__text {{editabletext}}" text-id="{{ site.name + '_about_category_three_more' }}">
+                          {{ read_text(site.name + '_about_category_three_more') }}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </a>
