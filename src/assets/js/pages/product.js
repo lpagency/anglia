@@ -1,7 +1,7 @@
 import productGallery from '../components/product-gallery';
 import productsSlider from '../components/products-slider';
 import background from '../plugins/background';
-import { getProduct, getProducts } from '../services/api';
+import { getProduct, getProducts, getVariants, getVariantValues } from '../services/api';
 import ProductTmpl from '../templates/product.njk';
 import ProductsListItemTmpl from '../templates/product-list-item.njk';
 require('jquery-match-height');
@@ -104,6 +104,62 @@ export default function init() {
     `);
   }
 
+  // -- Variants and variant values
+  function handleVariantsRequest() {
+    getVariants(sku)
+    .then(processVariantsResponse)
+    .then(handleVariantValuesRequest)
+    .then(processVariantValuesResponse)
+    .then(renderVariantValues)
+    .catch(processVariantError);
+  }
+
+  function processVariantsResponse(response) {
+    if (response.variants.length <= 0) return null;
+    // Only return the first variant
+    return Promise.resolve(response.variants[0].name);
+  }
+
+  function handleVariantValuesRequest(variant_name) {
+    if (!variant_name) return null;
+    return getVariantValues(variant_name, sku);
+  }
+
+  function processVariantValuesResponse(res) {
+    if (!res) return [];
+    return res.values[0].values;
+  }
+
+  function processVariantError(err) {
+    console.log(err);
+  }
+
+  function renderVariantValues(values) {
+    if (values.length <= 0) return;
+
+    const container = $('.variant-container');
+    container.html(values.map(
+      (v, i) => `
+        <div class="variant-value">
+          <input type="radio" id="value-${i}" name="variant" value="${v}">
+          <label for="value-${i}">${v}</label>
+        </div>
+      `
+    ));
+
+    $('.variant-container').on('click', 'input', onValuePress);
+    selectFirstOption();
+  }
+
+  function onValuePress(e) {
+    $('#open-cart').attr('product-combination', e.target.value);
+  }
+
+  function selectFirstOption() {
+    const values = $('.variant-container > div > input');
+    if (values.length > 0) values[0].click();
+  }
+
   // -- Listeners
   function getRecommendProducts(e , product) {
     if (!product.tags) return;
@@ -121,4 +177,5 @@ export default function init() {
   $productView.on(REQUEST_END_EVENT, getRecommendProducts);
 
   handleRequest();
+  handleVariantsRequest();
 }

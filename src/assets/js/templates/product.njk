@@ -32,6 +32,8 @@
         <div class="product__addtocart">
           {% if in_stock and for_sale %}
 
+            <div class="variant-container"></div>
+
             <button
               class="button button--addtocart"
               type="button"
@@ -45,6 +47,7 @@
               product-id="{{ id }}"
               product-img="{{ images[0]['thumb_500'] }}"
               product-weight="{{ weight }}"
+              product-combination=""
               lp-cart-add
             >
               <span class="button__text">Agregar al carro</span>
