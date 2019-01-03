@@ -1,0 +1,40 @@
+{% extends base.html %}
+
+{% block content %}
+
+{% if is_admin %}
+{% set editabletext = 'editabletext' %}
+{% set editablelink = 'editablelink' %}
+{% else %}
+{% set editabletext = '' %}
+{% set editablelink = '' %}
+{% end %}
+<section class="section h-theme-light">
+  <div class="container">
+    <nav class="mb-20" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ site_base }}/">Inicio</a></li>
+        <li class="breadcrumb-item active">Nuestros locales</li>
+      </ol>
+    </nav>
+
+    <article class="product product--view">
+      <header class="heading heading--isotype">
+        <h1 class="heading__title {{editabletext}}" text-id="{{ site.name + '_locales_title' }}">
+          {{ read_text(site.name + '_locales_title') }}
+        </h1>
+      </header>
+      <content>
+        <div class="locale_content">
+          {{ get_image_editor("_locales_image") }}
+          <figure>
+            <img class="img-fluid" src="{{ read_image(site.name + '_locales_image') }}" alt="">
+          </figure>
+        </div>
+        <div class="h-max-width-content h-mx-auto {{editabletext}}" text-id="{{ site.name + '_locales_content' }}">
+          {{ read_text(site.name + '_locales_content') }}
+        </div>
+      </content>
+    </article>    
+</section>
+{% end %}
