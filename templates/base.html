@@ -153,6 +153,7 @@
                         <li class="menu-item current-menu-item">
                           <a href="{{ site_base }}/">Inicio</a>
                         </li>
+                        <li class="menu-item menu-item--mobile"><a href="{{ site_base }}/about">Quiénes somos</a></li>
                         <li class="menu-item has-submenu">
                           <a href="{{ site_base }}/products">Época</a>
                           <ul class="submenu">
@@ -223,7 +224,6 @@
                             </li>
                           </ul>
                         </li>
-                        <li class="menu-item menu-item--mobile"><a href="{{ site_base }}/about">Quiénes somos</a></li>
                       </ul>
                     </nav>
                   </div>
@@ -269,6 +269,7 @@
                   <li class="menu-item"><a href="{{ site_base }}/page">Formas de pago</a></li>
                   <li class="menu-item"><a href="{{ site_base }}/page">Despacho</a></li>
                   <li class="menu-item"><a href="{{ site_base }}/page">Cambios y devoluciones</a></li>
+                  <li class="menu-item"><a href="{{ site_base }}/locales">Nuestros locales</a></li>
                 </ul>
               </div>
             </div>
@@ -295,7 +296,7 @@
                   <form action='https://forms.zohopublic.com/sytes/form/angliamailsuscripcion/formperma/RbMRuCvXW2xzdgNZLZtQvcZcVBj1_i0dcaip4h41qBg/htmlRecords/submit' name='form' method='POST' accept-charset='UTF-8' enctype='multipart/form-data'>
                     <div class="form-group">
                       <label class="sr-only" for="angliaNewsletter">Escribe tu email para suscribirte</label>
-                      <input name="Email" class="form-control requiredField" type="email" id="itMail" data-error-invalid="Invalid email address" data-error-empty="Ingrese email" placeholder="Escribe aquí tu email">
+                      <input name="Email" class="form-control requiredField" type="email" id="itMail" data-error-invalid="Invalid email address" data-error-empty="Ingrese email" placeholder="Escribe aquí tu email" required>
                     </div>
 
                     <button class="form-submit button button--action" name="submit" id="bEnviar" type="submit" data-error-message="Error!" data-sending-message="Enviando..." data-ok-message="Email enviado">

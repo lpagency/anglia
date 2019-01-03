@@ -50,7 +50,45 @@ function getProduct(sku) {
   }));
 }
 
+/**
+ * Get variants of a product
+ */
+
+function getVariants(sku) {
+  return Promise.resolve(
+    $.ajax(
+      {
+        ...defaultOptions,
+        method: 'GET',
+        data: {
+          ...defaultOptions.data,
+          sku
+        },
+        url:`${API_URL}/v1/variant`
+      }
+    )
+  );
+}
+
+function getVariantValues(variant_name, sku) {
+  return Promise.resolve(
+    $.ajax(
+      {
+        ...defaultOptions,
+        method: 'GET',
+        data: {
+          ...defaultOptions.data,
+          sku
+        },
+        url:`${API_URL}/v1/variant/${variant_name}/value`
+      }
+    )
+  );
+}
+
 export {
   getProducts,
   getProduct,
+  getVariants,
+  getVariantValues
 };
