@@ -10,7 +10,6 @@ WORKING_DIR="/var/www/agency"
 DEPLOY_KEY="$HOME/.ssh/deploy"
 DEPLOY_USER="deploy"
 SERVER_IPS=$(curl -XGET https://loadingplay.github.io/deploy/ondev.txt)
-SERVER_IPS=$(curl -XGET https://loadingplay.github.io/deploy/ondev.txt)
 SERVER_TAG="ondev"
 
 # read configurations
