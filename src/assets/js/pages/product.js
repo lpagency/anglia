@@ -40,6 +40,10 @@ export default function init() {
   }
 
   function renderProduct(product) {
+    // set title
+    $("title").html(product.name + " | Anglia");
+
+    // render product
     product.static_url = $("input[name=static_url]").val();
 
     $detail_name.html(product.name);

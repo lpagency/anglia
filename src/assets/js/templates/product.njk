@@ -59,7 +59,9 @@
 
         <div class="product__description h-text">
           <h3>DESCRIPCIÓN</h3>
-          <p>{{ description }}</p>
+          <p>
+            {{ description | safe }}
+          </p>
         </div>
       </div>
     </div>
